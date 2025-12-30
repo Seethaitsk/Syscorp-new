@@ -4,14 +4,15 @@ export default function AchievementsSection() {
     const stats = [
         {
             number: "15+",
-            label: "Team member",
+            label: "Team members",
             icon: (
                 <svg
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
-                    className="w-8 h-8 text-white"
+                    className="h-8 w-8 text-white"
+                    aria-hidden="true"
                 >
                     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                     <circle cx="9" cy="7" r="4" />
@@ -22,14 +23,15 @@ export default function AchievementsSection() {
         },
         {
             number: "100+",
-            label: "Projects Delivered",
+            label: "Projects delivered",
             icon: (
                 <svg
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
-                    className="w-8 h-8 text-white"
+                    className="h-8 w-8 text-white"
+                    aria-hidden="true"
                 >
                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
                     <line x1="16" y1="2" x2="16" y2="6" />
@@ -40,14 +42,15 @@ export default function AchievementsSection() {
         },
         {
             number: "7M",
-            label: "Winning award",
+            label: "Awards won",
             icon: (
                 <svg
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
-                    className="w-8 h-8 text-white"
+                    className="h-8 w-8 text-white"
+                    aria-hidden="true"
                 >
                     <circle cx="12" cy="8" r="7" />
                     <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
@@ -57,72 +60,37 @@ export default function AchievementsSection() {
     ];
 
     return (
-        <section className="bg-[#F3F8FF] py-24 px-6 md:px-12 lg:px-24">
-            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
-                {/* Left Content Side */}
-                <div className="lg:w-2/5 space-y-6 text-center lg:text-left">
-                    <div>
-                        {/* The Badge with the "ring" border you requested */}
-                        {/* <span className="inline-block bg-[#3F82FB] text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest ring-4 ring-[#1A5CDD]/10 ring-offset-0 transition-all hover:ring-[#1A5CDD]/20">
-                            Our Achievements
-                        </span> */}
-                        <span
-                            className="
-    inline-block
-    bg-[#3F82FB]
-    text-white
-    text-sm
-    font-semibold
-    px-4
-    py-1.5
-    rounded-full
-    uppercase
-    tracking-widest
-    leading-none
+        <section aria-labelledby="achievements-heading" className="bg-[#F3F8FF] py-24 px-6 md:px-12 lg:px-24">
+            <div className="mx-auto max-w-7xl flex flex-col items-center gap-16 lg:flex-row">
+                {/* Left Content */}
+                <div className="space-y-6 text-center lg:w-2/5 lg:text-left">
+                    <span className="inline-block rounded-full bg-[#1A5CDD] px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-white ring-4 ring-[#1A5CDD]/10">
+                        Our Achievements
+                    </span>
 
-    ring-2
-    ring-white/30
-
-    transition
-    hover:ring-white/50
-
-    focus-visible:outline
-    focus-visible:outline-2
-    focus-visible:outline-white
-    focus-visible:outline-offset-2
-
-    motion-reduce:transition-none
-  "
-                        >
-                            Our Achievements
-                        </span>
-                    </div>
-
-                    <h2 className="heading-1 font-extrabold text-[#1a2b3c] leading-[1.2]">
-                        Future ready that goes beyond defense
+                    {/* Correct heading level */}
+                    <h2 id="achievements-heading" className="heading-1 font-extrabold leading-[1.2] text-gray-900">
+                        Future-ready solutions that go beyond defense
                     </h2>
                 </div>
 
                 {/* Right Stats Grid */}
-                <div className="lg:w-3/5 w-full grid grid-cols-1 md:grid-cols-3">
+                <div className="grid w-full grid-cols-1 md:grid-cols-3 lg:w-3/5">
                     {stats.map((stat, index) => (
                         <div
                             key={index}
-                            className={`flex flex-col items-center p-8 transition-transform hover:-translate-y-1 duration-300 ${
-                                // Vertical dividers that disappear on mobile
-                                index !== stats.length - 1 ? "md:border-r border-gray-200" : ""
+                            className={`flex flex-col items-center p-8 text-center transition-transform duration-300 hover:-translate-y-1 ${
+                                index !== stats.length - 1 ? "md:border-r md:border-gray-300" : ""
                             }`}
                         >
-                            {/* Blue Icon Box with Gradient */}
-                            <div className="w-16 h-16 bg-gradient-to-br from-[#3FB5FD] to-[#1A5CDD] rounded-xl flex items-center justify-center shadow-lg shadow-blue-200 mb-6">
+                            {/* Icon Box */}
+                            <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-[#3FB5FD] to-[#1A5CDD] shadow-lg shadow-blue-200">
                                 {stat.icon}
                             </div>
 
-                            {/* Stat Numbers */}
-                            <div className="text-center">
-                                <span className="text-5xl font-black text-gray-900 tracking-tight">{stat.number}</span>
-                                <p className="text-gray-500 mt-3 tracking-wide achievementname">{stat.label}</p>
-                            </div>
+                            {/* Stats */}
+                            <p className="text-5xl font-black tracking-tight text-gray-900">{stat.number}</p>
+                            <p className="mt-3 text-sm font-medium tracking-wide text-gray-800">{stat.label}</p>
                         </div>
                     ))}
                 </div>

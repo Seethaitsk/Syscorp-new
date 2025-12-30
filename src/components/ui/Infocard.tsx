@@ -1,6 +1,5 @@
 // components/ui/Infocard.tsx
 import React from "react";
-import Button from "./Button";
 
 interface InfoCardProps {
     image: string;
@@ -10,9 +9,9 @@ interface InfoCardProps {
     comments: string;
 }
 
-export const InfoCard = ({image, badge, title, admin, comments}: InfoCardProps) => {
+export const InfoCard: React.FC<InfoCardProps> = ({image, badge, title, admin, comments}) => {
     return (
-        <div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-blue-50 h-full flex flex-col">
+        <article className="group bg-white rounded-[10px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-blue-50 h-full flex flex-col">
             {/* Image Container */}
             <div className="relative h-64 overflow-hidden">
                 <img
@@ -27,7 +26,7 @@ export const InfoCard = ({image, badge, title, admin, comments}: InfoCardProps) 
 
             {/* Content Area */}
             <div className="p-8 space-y-5 flex flex-col flex-grow bg-[#F3F8FF]">
-                <div className="flex items-center justify-between gap-6 text-sm text-gray-400 font-medium">
+                <div className="flex items-center justify-between gap-6 text-sm text-gray-600 font-medium">
                     <div className="flex items-center gap-2">
                         <svg className="w-4 h-4 text-[#258FEB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path
@@ -52,11 +51,14 @@ export const InfoCard = ({image, badge, title, admin, comments}: InfoCardProps) 
                     </div>
                 </div>
 
-                <h3 className="card-headign font-bold text-[#0D1C16] leading-snug group-hover:text-[#1A5CDD] transition-colors cursor-pointer">
+                <h3
+                    className="card-heading font-bold text-[#0D1C16] leading-snug group-hover:text-[#1A5CDD] transition-colors cursor-pointer"
+                    tabIndex={0}
+                >
                     {title}
                 </h3>
 
-                <div className="mt-auto pt-4">
+                <div className="mx-auto pt-4">
                     <button className="bg-gradient-to-r from-[#3FB5FD] to-[#0B6EDA] hover:bg-[#1A5CDD] text-white font-bold py-3 px-8 rounded-full flex items-center gap-2 transition-all active:scale-95">
                         Read More
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -70,6 +72,6 @@ export const InfoCard = ({image, badge, title, admin, comments}: InfoCardProps) 
                     </button>
                 </div>
             </div>
-        </div>
+        </article>
     );
 };

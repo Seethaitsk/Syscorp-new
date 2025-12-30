@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 
@@ -9,58 +11,52 @@ const services = [
     {name: "CRM Software", href: "/overseas-education-consulting-crm-software"},
 ];
 
+const company = [
+    {name: "About Us", href: "/about-us"},
+    {name: "Contact", href: "/contact-us"},
+    {name: "Blog", href: "/blog"},
+    {name: "Services", href: "/services"},
+    {name: "Careers", href: "/careers"},
+];
+
 const socials = ["facebook", "twitter", "linkedin", "instagram", "youtube"];
 
 const Footer = () => {
     const year = new Date().getFullYear();
 
     return (
-        <footer className="relative bg-[#011146] text-white">
+        <footer className="bg-[#011146] text-white">
             {/* Top Section */}
             <div className="max-w-7xl mx-auto px-6 py-20">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
                     {/* About */}
                     <div className="lg:col-span-4 space-y-6">
-                        {/* Logo */}
-                        <div>
-                            <img src="images/logo/logo.webp" alt="Syscorp Logo" className="w-32" />
-                        </div>
-
-                        {/* Description */}
+                        <img src="/images/logo/logo-1.webp" alt="Syscorp Technology" className="w-32" />
                         <p className="text-gray-400 leading-relaxed max-w-md">
-                            Subscribe to our newsletter and stay updated with the latest insights, offers, and digital
-                            trends.
+                            Syscorp, Best Website Development Company in Chennai. Trust our expert team to bring your
+                            vision to life. We deliver excellence in every project! Contact us today and take the first
+                            step towards success.
                         </p>
 
                         {/* Newsletter */}
-                        <form className="relative max-w-md">
+                        <form className="relative max-w-md mt-4">
                             <input
                                 type="email"
-                                placeholder="Enter your email"
                                 required
-                                className="w-full bg-white/5 border border-white/10
-            rounded-full px-5 py-3 pr-32
-            text-sm text-white placeholder-gray-400
-            focus:outline-none focus:border-[#3FB5FD]
-            transition"
+                                placeholder="Enter your email"
+                                className="w-full bg-white text-gray-800 rounded-full px-5 py-3 pr-32 text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#3FB5FD]"
                             />
-
                             <button
                                 type="submit"
-                                className="absolute right-1 top-1 bottom-1
-            px-6 rounded-full
-            bg-[#3FB5FD] text-sm font-semibold text-white
-            hover:bg-[#2da3f3] transition"
+                                className="absolute right-1 top-1 bottom-1 px-6 rounded-full bg-[#3FB5FD] text-white text-sm font-semibold hover:bg-[#2da3f3] transition"
                             >
                                 Subscribe
                             </button>
                         </form>
-
-                        {/* Helper text */}
                     </div>
 
                     {/* Services */}
-                    <div className="lg:col-span-4 space-y-5">
+                    <div className="lg:col-span-3 space-y-5">
                         <h4 className="text-lg font-semibold uppercase tracking-wide">Services</h4>
                         <ul className="space-y-3">
                             {services.map((item) => (
@@ -76,31 +72,61 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Contact */}
-                    <div className="lg:col-span-4 space-y-5">
-                        <h4 className="text-lg font-semibold uppercase tracking-wide">Contact</h4>
+                    {/* Company */}
+                    <div className="lg:col-span-2 space-y-5">
+                        <h4 className="text-lg font-semibold uppercase tracking-wide">Company</h4>
+                        <ul className="space-y-3">
+                            {company.map((item) => (
+                                <li key={item.name}>
+                                    <Link
+                                        href={item.href}
+                                        className="text-gray-400 hover:text-[#3FB5FD] transition-colors"
+                                    >
+                                        {item.name}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
 
-                        <ul className="space-y-3 text-gray-400 text-sm">
+                    {/* Contact */}
+                    <div className="lg:col-span-3 space-y-5">
+                        <h4 className="text-lg font-semibold uppercase tracking-wide">Contact</h4>
+                        <ul className="space-y-2 text-gray-400 text-sm">
                             <li>📍 Vadapalani, Chennai – 26</li>
                             <li>📍 Puducherry</li>
-                            <li>✉️ syscorptechno@gmail.com</li>
-                            <li>✉️ hr@itsk.in</li>
-                            <li>📞 +91 93444 30402</li>
+                            <li>
+                                ✉️{" "}
+                                <a href="mailto:syscorptechno@gmail.com" className="hover:text-[#3FB5FD]">
+                                    syscorptechno@gmail.com
+                                </a>
+                            </li>
+                            <li>
+                                ✉️{" "}
+                                <a href="mailto:hr@itsk.in" className="hover:text-[#3FB5FD]">
+                                    hr@itsk.in
+                                </a>
+                            </li>
+                            <li>
+                                📞{" "}
+                                <a href="tel:+919344430402" className="hover:text-[#3FB5FD]">
+                                    +91 93444 30402
+                                </a>
+                            </li>
                         </ul>
 
-                        {/* Socials */}
+                        {/* Social Links */}
                         <div className="flex gap-3 pt-4">
                             {socials.map((icon) => (
                                 <Link
                                     key={icon}
                                     href={`https://${icon}.com`}
                                     target="_blank"
-                                    className="w-9 h-9 rounded-full border border-white/15 
-                                    flex items-center justify-center text-gray-400
-                                    hover:bg-[#3FB5FD] hover:text-white hover:border-[#3FB5FD]
-                                    transition-all"
+                                    rel="noopener noreferrer"
+                                    aria-label={icon}
+                                    className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-gray-400 hover:bg-[#3FB5FD] hover:text-white hover:border-[#3FB5FD] transition-all"
                                 >
-                                    <i className={`fab fa-${icon}`}></i>
+                                    <i className={`fab fa-${icon}`} />
                                 </Link>
                             ))}
                         </div>
@@ -110,11 +136,7 @@ const Footer = () => {
 
             {/* Bottom Bar */}
             <div className="border-t border-white/10">
-                <div
-                    className="max-w-7xl mx-auto px-6 py-6
-                    flex flex-col md:flex-row gap-4 md:gap-0
-                    justify-between items-center text-sm text-gray-400"
-                >
+                <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row gap-4 justify-between items-center text-sm text-gray-400">
                     <div className="flex gap-4">
                         <Link href="/privacy-policy" className="hover:text-[#3FB5FD]">
                             Privacy Policy

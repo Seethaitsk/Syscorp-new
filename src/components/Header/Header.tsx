@@ -9,3 +9,4 @@ export default function Header() {
         </header>
     );
 }
+//  className={`${linkBase} ${isActive("/") ? activeLink : "text-gray-700"}`}

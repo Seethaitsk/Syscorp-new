@@ -1,4 +1,4 @@
-"use client"; // Required for Next.js App Router
+"use client";
 
 import React, {useState} from "react";
 import Button from "./ui/Button";
@@ -23,60 +23,29 @@ const faqData = [
 ];
 
 export default function FAQSection() {
-    // openIndex 1 opens the second item by default to match your UI screenshot
     const [openIndex, setOpenIndex] = useState<number | null>(1);
 
     return (
-        <section className="bg-[#F8FBFF] py-24 px-6 md:px-12 lg:px-24">
+        <section className="bg-[#F8FBFF] py-24 px-6 md:px-12 lg:px-24" aria-labelledby="faq-heading">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-                {/* Left Side: Content (col-lg-5) */}
+                {/* Left Side: Content */}
                 <div className="lg:col-span-5 space-y-8">
                     <div>
-                        {/* <span className="inline-block bg-[#3F82FB] text-white text-[11px] font-bold px-5 py-2 rounded-full uppercase tracking-widest ring-4 ring-[#1A5CDD]/10 ring-offset-0 transition-all hover:ring-[#1A5CDD]/20">
-                            Frequently Asked Questions
-                        </span> */}
-                        <span
-                            className="
-    inline-block
-    bg-[#3F82FB]
-    text-white
-    text-sm
-    font-semibold
-    px-4
-    py-1.5
-    rounded-full
-    uppercase
-    tracking-widest
-    leading-none
-
-    ring-2
-    ring-white/30
-
-    transition
-    hover:ring-white/50
-
-    focus-visible:outline
-    focus-visible:outline-2
-    focus-visible:outline-white
-    focus-visible:outline-offset-2
-
-    motion-reduce:transition-none
-  "
-                        >
+                        <span className="inline-block bg-[#1A5CDD] text-white text-[11px] font-bold px-5 py-2 rounded-full uppercase tracking-widest ring-4 ring-[#1A5CDD]/10">
                             Frequently Asked Questions
                         </span>
                     </div>
 
-                    <h2 className="heading-1 font-extrabold text-[#0D1C16] leading-tight">
-                        Everything you want to know cybersecurity
+                    <h2 id="faq-heading" className="heading-1 font-extrabold text-[#0D1C16] leading-tight">
+                        Everything you want to know about cybersecurity
                     </h2>
 
-                    <p className="text-gray-500 text-lg leading-relaxed">
+                    <p className="text-gray-700 text-lg leading-relaxed">
                         From service details to protection strategies, we provide clear explanations to help you make
                         informed decisions.
                     </p>
 
-                    <Button href="#">
+                    <Button href="#" aria-label="View more services">
                         More Services
                         <svg
                             className="w-5 h-5"
@@ -92,69 +61,86 @@ export default function FAQSection() {
                     </Button>
                 </div>
 
-                {/* Right Side: Accordion (col-lg-7) */}
+                {/* Right Side: Accordion */}
                 <div className="lg:col-span-7 space-y-4">
-                    {faqData.map((item, index) => (
-                        <div
-                            key={index}
-                            className={`bg-white rounded-xl shadow-sm border transition-all duration-300 ${
-                                openIndex === index ? "border-blue-200" : "border-blue-50"
-                            }`}
-                        >
-                            <button
-                                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                                className="w-full p-6 flex items-center justify-between text-left group"
-                            >
-                                <span
-                                    className={`text-lg font-bold transition-colors ${
-                                        openIndex === index ? "text-[#1A5CDD]" : "text-[#0D1C16]"
-                                    }`}
-                                >
-                                    {item.question}
-                                </span>
-
-                                {/* Toggle Icon Box */}
-                                <div
-                                    className={`w-8 h-8 flex-shrink-0 rounded-md flex items-center justify-center transition-all ${
-                                        openIndex === index ? "bg-[#3FB5FD] text-white" : "bg-[#E9F2FF] text-[#3FB5FD]"
-                                    }`}
-                                >
-                                    {openIndex === index ? (
-                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth="3"
-                                                d="M20 12H4"
-                                            />
-                                        </svg>
-                                    ) : (
-                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth="3"
-                                                d="M12 4v16m8-8H4"
-                                            />
-                                        </svg>
-                                    )}
-                                </div>
-                            </button>
-
-                            {/* Answer Content with Smooth Height Transition */}
+                    {faqData.map((item, index) => {
+                        const isOpen = openIndex === index;
+                        return (
                             <div
-                                className={`grid transition-all duration-300 ease-in-out ${
-                                    openIndex === index ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                                key={index}
+                                className={`bg-white rounded-xl shadow-sm border transition-all duration-300 ${
+                                    isOpen ? "border-blue-200" : "border-blue-50"
                                 }`}
                             >
-                                <div className="overflow-hidden">
-                                    <div className="p-6 pt-0 text-gray-500 leading-relaxed border-t border-gray-50 mt-2">
+                                <button
+                                    onClick={() => setOpenIndex(isOpen ? null : index)}
+                                    className="w-full p-6 flex items-center justify-between text-left group"
+                                    aria-expanded={isOpen}
+                                    aria-controls={`faq-panel-${index}`}
+                                    id={`faq-button-${index}`}
+                                >
+                                    <span
+                                        className={`text-lg font-bold transition-colors ${
+                                            isOpen ? "text-[#1A5CDD]" : "text-[#0D1C16]"
+                                        }`}
+                                    >
+                                        {item.question}
+                                    </span>
+
+                                    {/* Toggle Icon */}
+                                    <div
+                                        className={`w-8 h-8 flex-shrink-0 rounded-md flex items-center justify-center transition-all ${
+                                            isOpen ? "bg-[#3FB5FD] text-white" : "bg-[#E9F2FF] text-[#3FB5FD]"
+                                        }`}
+                                    >
+                                        {isOpen ? (
+                                            <svg
+                                                className="w-5 h-5"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth="3"
+                                                    d="M20 12H4"
+                                                />
+                                            </svg>
+                                        ) : (
+                                            <svg
+                                                className="w-5 h-5"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth="3"
+                                                    d="M12 4v16m8-8H4"
+                                                />
+                                            </svg>
+                                        )}
+                                    </div>
+                                </button>
+
+                                {/* Answer Panel */}
+                                <div
+                                    id={`faq-panel-${index}`}
+                                    role="region"
+                                    aria-labelledby={`faq-button-${index}`}
+                                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                                        isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                                    }`}
+                                >
+                                    <div className="p-6 pt-0 text-gray-700 leading-relaxed border-t border-gray-50">
                                         {item.answer}
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
         </section>
