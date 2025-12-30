@@ -92,54 +92,57 @@ export default function ContactUs() {
 
                     {/* Right: Contact Form */}
                     <div className="w-full lg:w-2/3 px-4">
-                        <div className="bg-white p-8 md:p-12 rounded-3xl shadow-[0_20px_50px_rgba(8,112,184,0.1)] border border-gray-50">
+                        <div className="bg-white p-8 md:p-12 rounded-[10px] shadow-[0_20px_50px_rgba(8,112,184,0.1)] border border-gray-50">
                             <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                {/* Full Name */}
-                                <div className="relative space-y-2">
-                                    <label className="text-sm font-semibold text-gray-700 block">Full Name</label>
-                                    <input
-                                        type="text"
-                                        placeholder="John Doe"
-                                        required
-                                        className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none bg-gray-50/50"
-                                    />
+                                <div className="space-y-6">
+                                    <div className="relative">
+                                        <label className="text-sm font-semibold text-gray-700 mb-2 block">
+                                            {" "}
+                                            Full Name{" "}
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder="John Doe"
+                                            className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all bg-gray-50/50"
+                                            required
+                                        />
+                                    </div>
+                                    <div className="relative">
+                                        <label className="text-sm font-semibold text-gray-700 mb-2 block">
+                                            {" "}
+                                            Email Address{" "}
+                                        </label>
+                                        <input
+                                            type="email"
+                                            placeholder="example@mail.com"
+                                            className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all bg-gray-50/50"
+                                            required
+                                        />
+                                    </div>
+                                    <div className="relative">
+                                        <label className="text-sm font-semibold text-gray-700 mb-2 block">
+                                            {" "}
+                                            Contact Number{" "}
+                                        </label>
+                                        <input
+                                            type="tel"
+                                            placeholder="+91 XXXXX XXXXX"
+                                            className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all bg-gray-50/50"
+                                            required
+                                        />
+                                    </div>
                                 </div>
-
-                                {/* Email */}
-                                <div className="relative space-y-2">
-                                    <label className="text-sm font-semibold text-gray-700 block">Email Address</label>
-                                    <input
-                                        type="email"
-                                        placeholder="example@mail.com"
-                                        required
-                                        className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none bg-gray-50/50"
-                                    />
-                                </div>
-
-                                {/* Contact Number */}
-                                <div className="relative space-y-2">
-                                    <label className="text-sm font-semibold text-gray-700 block">Contact Number</label>
-                                    <input
-                                        type="tel"
-                                        placeholder="+91 XXXXX XXXXX"
-                                        required
-                                        className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none bg-gray-50/50"
-                                    />
-                                </div>
-
-                                {/* Message */}
                                 <div className="flex flex-col">
                                     <label className="text-sm font-semibold text-gray-700 mb-2 block">
-                                        Your Message
+                                        {" "}
+                                        Your Message{" "}
                                     </label>
                                     <textarea
                                         placeholder="Tell us about your requirements..."
+                                        className="w-full flex-grow px-5 py-4 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all bg-gray-50/50 resize-none min-h-[200px]"
                                         required
-                                        className="w-full flex-grow px-5 py-4 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none bg-gray-50/50 resize-none min-h-[200px]"
                                     ></textarea>
                                 </div>
-
-                                {/* Submit Button */}
                                 <div className="md:col-span-2 flex justify-end mt-4">
                                     <button
                                         type="submit"
@@ -148,12 +151,12 @@ export default function ContactUs() {
                                     >
                                         {loading ? (
                                             <>
-                                                <i className="fas fa-circle-notch fa-spin mr-3"></i> Processing...
+                                                <i className="fas fa-circle-notch fa-spin mr-3"></i> Processing...{" "}
                                             </>
                                         ) : (
                                             <>
                                                 Send Message
-                                                <i className="fas fa-paper-plane ml-3 text-sm opacity-70"></i>
+                                                <i className="fas fa-paper-plane ml-3 text-sm opacity-70"></i>{" "}
                                             </>
                                         )}
                                     </button>
@@ -165,15 +168,18 @@ export default function ContactUs() {
             </section>
 
             {/* Google Map */}
-            <section className="w-full h-[500px] relative">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.623145455919!2d79.80164637505856!3d11.931293288293994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5361732a3967d7%3A0x6b907c03038a8e38!2sSyscorp%20Technology!5e0!3m2!1sen!2sin!4v1703850000000!5m2!1sen!2sin"
-                    className="absolute inset-0 w-full h-full border-0"
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Syscorp Technology Location"
-                ></iframe>
+
+            <section className="flex justify-center">
+                <div className="relative w-[100%] h-80 md:h-[500px] overflow-hidden shadow-lg">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d15613.836360335323!2d79.79605165!3d11.9426838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3a536179f6a96021%3A0x6928eb4736d20045!2sNo.37%2C%20Kamaraj%20Salai%2C%20Thattanchavady%2C%20Puducherry%2C%20605009!3m2!1d11.942911599999999!2d79.8053169!5e0!3m2!1sen!2sin!4v1767094849515!5m2!1sen!2sin"
+                        className="absolute inset-0 w-full h-full border-0"
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Syscorp Technology Location"
+                    ></iframe>
+                </div>
             </section>
         </main>
     );
