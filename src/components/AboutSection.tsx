@@ -99,7 +99,7 @@ export default function AboutSection() {
                                 className="flex h-14 w-14 items-center justify-center rounded-2xl border border-gray-100 bg-white shadow-md"
                                 aria-hidden="true"
                             >
-                                <svg
+                                {/* <svg
                                     className="h-7 w-7 text-[#1A5CDD]"
                                     fill="none"
                                     stroke="currentColor"
@@ -107,7 +107,8 @@ export default function AboutSection() {
                                     viewBox="0 0 24 24"
                                 >
                                     <path d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                </svg>
+                                </svg> */}
+                                <img src="images/icons/1.svg" alt="" className="h-7 w-7 text-[#1A5CDD]" />
                             </div>
                             <div>
                                 <h3 className="text-xl font-bold text-gray-900">Simplifying Complexity</h3>
@@ -123,7 +124,7 @@ export default function AboutSection() {
                                 className="flex h-14 w-14 items-center justify-center rounded-2xl border border-gray-100 bg-white shadow-md"
                                 aria-hidden="true"
                             >
-                                <svg
+                                {/* <svg
                                     className="h-7 w-7 text-[#1A5CDD]"
                                     fill="none"
                                     stroke="currentColor"
@@ -131,7 +132,8 @@ export default function AboutSection() {
                                     viewBox="0 0 24 24"
                                 >
                                     <path d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
-                                </svg>
+                                </svg> */}
+                                <img src="images/icons/2.svg" alt="" className="h-7 w-7 text-[#1A5CDD]" />
                             </div>
                             <div>
                                 <h3 className="text-xl font-bold text-gray-900">Empowering Growth</h3>

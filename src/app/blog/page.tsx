@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
-import { useState } from "react";
+import {useState} from "react";
 
 // Mock Blog Data
 const ALL_POSTS = [
@@ -53,7 +53,7 @@ const ALL_POSTS = [
         date: "July 02, 2020",
         slug: "ai-business-impact",
         image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=800&auto=format&fit=crop",
-    }
+    },
 ];
 
 export default function BlogPage() {
@@ -77,7 +77,6 @@ export default function BlogPage() {
             {/* Blog Section */}
             <section className="py-16 lg:py-24 bg-white">
                 <div className="container mx-auto px-4 max-w-6xl">
-                    
                     {/* Category Filter - Image Style Layout */}
                     <div className="border-b border-gray-100 mb-12">
                         <div className="flex justify-center gap-8 overflow-x-auto no-scrollbar">
@@ -86,9 +85,7 @@ export default function BlogPage() {
                                     key={cat}
                                     onClick={() => setActiveCat(cat)}
                                     className={`pb-4 text-sm font-bold transition-all relative ${
-                                        activeCat === cat
-                                            ? "text-blue-700"
-                                            : "text-gray-900 hover:text-blue-600"
+                                        activeCat === cat ? "text-blue-700" : "text-gray-900 hover:text-blue-600"
                                     }`}
                                 >
                                     {cat}
@@ -101,7 +98,7 @@ export default function BlogPage() {
                     </div>
 
                     {/* Blog Grid - 2 Columns as per image */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
                         {filteredPosts.map((post) => (
                             <article key={post.id} className="group flex flex-col">
                                 {/* Image */}
@@ -126,13 +123,22 @@ export default function BlogPage() {
                                     </div>
 
                                     {/* Title */}
-                                    <h3 className="text-[22px] font-bold text-gray-900 leading-[1.3] mb-4 hover:text-blue-700 transition-colors">
+                                    {/* <h3 className="text-[22px] font-bold text-gray-900 leading-[1.3] mb-4 hover:text-blue-700 transition-colors">
+                                        <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                                    </h3> */}
+                                    <h3 className="font-bold mb-4 hover:text-blue-700 transition-colors line-clamp-2">
                                         <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                                     </h3>
 
                                     {/* Read More Link */}
-                                    <Link 
+                                    {/* <Link
                                         href={`/blog/${post.slug}`}
+                                        className="text-sm font-bold text-gray-900 hover:text-blue-700 underline underline-offset-4 decoration-2 decoration-gray-200 hover:decoration-blue-700 transition-all w-fit"
+                                    >
+                                        Read more
+                                    </Link> */}
+                                    <Link
+                                        href="/blog-detalis"
                                         className="text-sm font-bold text-gray-900 hover:text-blue-700 underline underline-offset-4 decoration-2 decoration-gray-200 hover:decoration-blue-700 transition-all w-fit"
                                     >
                                         Read more
@@ -146,8 +152,12 @@ export default function BlogPage() {
                     <nav className="mt-20 flex justify-center items-center space-x-4">
                         <button className="text-gray-400 hover:text-blue-700 text-sm font-bold">Prev</button>
                         <div className="flex space-x-2">
-                            <span className="w-8 h-8 flex items-center justify-center rounded bg-blue-700 text-white text-sm font-bold">1</span>
-                            <button className="w-8 h-8 flex items-center justify-center rounded text-gray-900 hover:bg-gray-100 text-sm font-bold">2</button>
+                            <span className="w-8 h-8 flex items-center justify-center rounded bg-blue-700 text-white text-sm font-bold">
+                                1
+                            </span>
+                            <button className="w-8 h-8 flex items-center justify-center rounded text-gray-900 hover:bg-gray-100 text-sm font-bold">
+                                2
+                            </button>
                         </div>
                         <button className="text-gray-900 hover:text-blue-700 text-sm font-bold">Next</button>
                     </nav>

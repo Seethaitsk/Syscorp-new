@@ -17,28 +17,34 @@ const Footer = () => {
                             Looking For Professional <br /> Business Consultant ?
                         </h2>
                         <p className="text-white/90 text-sm md:text-base max-w-xl leading-relaxed">
-                            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                            praesentium voluptatum deleniti atque corrupti dolorese
+                            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+                            voluptatum deleniti atque corrupti dolorese
                         </p>
                     </div>
 
                     {/* Action Side with Grid Pattern Overlay */}
                     <div className="lg:w-1/3 flex flex-col items-center justify-center p-10 relative bg-[#00A3FF]">
-                        <div 
-                            className="absolute inset-0 opacity-20 pointer-events-none" 
-                            style={{ 
+                        <div
+                            className="absolute inset-0 opacity-20 pointer-events-none"
+                            style={{
                                 backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)`,
-                                backgroundSize: '40px 40px'
+                                backgroundSize: "40px 40px",
                             }}
                         ></div>
-                        
+
                         <div className="relative z-10 text-center">
-                            <Link 
-                                href="#" 
+                            <Link
+                                href="#"
                                 className="bg-white text-[#00A3FF] px-8 py-4 rounded-lg font-bold text-sm inline-flex items-center gap-2 hover:bg-gray-50 transition-colors mb-4"
                             >
-                                Get Started Free 
-                                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                                Get Started Free
+                                <svg
+                                    className="w-4 h-4"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="3"
+                                >
                                     <path d="M7 17L17 7M17 7H7M17 7V17" />
                                 </svg>
                             </Link>
@@ -52,7 +58,6 @@ const Footer = () => {
             <div className="bg-[#000B2E] pt-48 pb-16">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
-                        
                         {/* Company Logo & Newsletter */}
                         <div className="space-y-8">
                             <div className="flex items-center gap-2">
@@ -61,7 +66,7 @@ const Footer = () => {
                                 </div>
                                 <span className="text-2xl font-black tracking-tighter italic uppercase">Syscorp</span>
                             </div>
-                            
+
                             <p className="text-gray-400 text-sm leading-relaxed">
                                 At vero eos et accusamus iusto odio dignissimos ducimus blanditiise
                             </p>
@@ -73,7 +78,13 @@ const Footer = () => {
                                     className="w-full bg-transparent text-gray-900 px-3 text-sm outline-none placeholder:text-gray-400"
                                 />
                                 <button className="bg-[#00A3FF] text-white p-2.5 rounded-md hover:bg-blue-600 transition-colors">
-                                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                                    <svg
+                                        className="w-5 h-5"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2.5"
+                                    >
                                         <path d="M7 17L17 7M17 7H7M17 7V17" />
                                     </svg>
                                 </button>
@@ -84,47 +95,104 @@ const Footer = () => {
                         <div className="space-y-6 lg:pl-8">
                             <h4 className="text-lg font-bold">Resource</h4>
                             <ul className="space-y-4 text-gray-400 text-sm">
-                                <li><Link href="#" className="hover:text-white transition-colors">Product</Link></li>
-                                <li><Link href="#" className="hover:text-white transition-colors">Services</Link></li>
-                                <li><Link href="#" className="hover:text-white transition-colors">About Us</Link></li>
-                                <li><Link href="#" className="hover:text-white transition-colors">Benefits</Link></li>
+                                <li>
+                                    <Link href="#" className="hover:text-white transition-colors">
+                                        Product
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="#" className="hover:text-white transition-colors">
+                                        Services
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="#" className="hover:text-white transition-colors">
+                                        About Us
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="#" className="hover:text-white transition-colors">
+                                        Benefits
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
 
                         <div className="space-y-6">
                             <h4 className="text-lg font-bold">Quick Link</h4>
                             <ul className="space-y-4 text-gray-400 text-sm">
-                                <li><Link href="#" className="hover:text-white transition-colors">Features</Link></li>
-                                <li><Link href="#" className="hover:text-white transition-colors">Pricing Plan</Link></li>
-                                <li><Link href="#" className="hover:text-white transition-colors">Best Program</Link></li>
-                                <li><Link href="#" className="hover:text-white transition-colors">Press Kit</Link></li>
+                                <li>
+                                    <Link href="#" className="hover:text-white transition-colors">
+                                        Features
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="#" className="hover:text-white transition-colors">
+                                        Pricing Plan
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="#" className="hover:text-white transition-colors">
+                                        Best Program
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="#" className="hover:text-white transition-colors">
+                                        Press Kit
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
 
                         <div className="space-y-6">
                             <h4 className="text-lg font-bold">Company</h4>
                             <ul className="space-y-4 text-gray-400 text-sm">
-                                <li><Link href="#" className="hover:text-white transition-colors">About</Link></li>
-                                <li><Link href="#" className="hover:text-white transition-colors">Team Member</Link></li>
-                                <li><Link href="#" className="hover:text-white transition-colors">Reviews</Link></li>
-                                <li><Link href="#" className="hover:text-white transition-colors">Latest News</Link></li>
+                                <li>
+                                    <Link href="#" className="hover:text-white transition-colors">
+                                        About
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="#" className="hover:text-white transition-colors">
+                                        Team Member
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="#" className="hover:text-white transition-colors">
+                                        Reviews
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="#" className="hover:text-white transition-colors">
+                                        Latest News
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
 
                         {/* Contact Information */}
                         <div className="space-y-6">
                             <h4 className="text-lg font-bold">Contact</h4>
+
                             <ul className="space-y-4 text-gray-400 text-sm">
+                                {/* Address */}
                                 <li className="flex items-start gap-3">
-                                    <span className="text-[#00A3FF] mt-1">📍</span>
-                                    <span>55 Main Street, 2nd block <br /> Melbourne, Australia</span>
+                                    <i className="fa-solid fa-location-dot mt-1 text-[#00A3FF]"></i>
+                                    <span>
+                                        55 Main Street, 2nd block <br />
+                                        Melbourne, Australia
+                                    </span>
                                 </li>
+
+                                {/* Email */}
                                 <li className="flex items-center gap-3">
-                                    <span className="text-[#00A3FF]">✉️</span>
+                                    <i className="fa-solid fa-envelope text-[#00A3FF]"></i>
                                     <span>support@gmail.com</span>
                                 </li>
+
+                                {/* Phone */}
                                 <li className="flex items-center gap-3">
-                                    <span className="text-[#00A3FF]">📞</span>
+                                    <i className="fa-solid fa-phone text-[#00A3FF]"></i>
                                     <span>+000 (123) 44 55</span>
                                 </li>
                             </ul>
@@ -135,11 +203,17 @@ const Footer = () => {
 
             {/* SCROLL TO TOP BUTTON */}
             <div className="flex justify-center -mb-6 relative z-30">
-                <button 
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                <button
+                    onClick={() => window.scrollTo({top: 0, behavior: "smooth"})}
                     className="bg-[#00A3FF] p-3 rounded-lg text-white shadow-lg hover:bg-blue-600 transition-all"
                 >
-                    <svg className="w-6 h-6 rotate-[-90deg]" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+                    <svg
+                        className="w-6 h-6 rotate-[-90deg]"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                        viewBox="0 0 24 24"
+                    >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                 </button>
@@ -149,13 +223,22 @@ const Footer = () => {
             <div className="bg-[#000824] py-8 border-t border-white/5">
                 <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
                     <p>
-                        Copyright ©{year}, <span className="text-gray-300 font-semibold">Design</span> All Rights Reserved
+                        Copyright ©{year}, <span className="text-gray-300 font-semibold">Design</span> All Rights
+                        Reserved
                     </p>
                     <div className="flex gap-6 mt-4 md:mt-0">
-                        <Link href="#" className="hover:text-white transition">Faqs</Link>
-                        <Link href="#" className="hover:text-white transition">Setting</Link>
-                        <Link href="#" className="hover:text-white transition">Privacy</Link>
-                        <Link href="#" className="hover:text-white transition">Contact</Link>
+                        <Link href="/privacy-policy" className="hover:text-white transition">
+                            Privacy policy
+                        </Link>
+                        <Link href="/terms-and-conditions" className="hover:text-white transition">
+                            Terms and Conditions
+                        </Link>
+                        <Link href="/disclaimer" className="hover:text-white transition">
+                            Disclaimer
+                        </Link>
+                        <Link href="/contact" className="hover:text-white transition">
+                            Contact
+                        </Link>
                     </div>
                 </div>
             </div>

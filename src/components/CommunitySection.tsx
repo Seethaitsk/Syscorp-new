@@ -55,7 +55,7 @@ export default function CommunitySection() {
                         {/* Cards Row */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {/* Headquarter Card */}
-                            <div className="bg-gradient-to-r from-[#3FB5FD] to-[#0B6EDA] p-8 rounded-2xl text-white shadow-xl">
+                            <div className="bg-gradient-to-r from-[#34A5F6] to-[#1E87E7] p-8 rounded-2xl text-white shadow-xl">
                                 <h3 className="text-2xl font-bold mb-4">Headquarter</h3>
                                 <p className="leading-relaxed">
                                     2715 Ash Dr. San Jose, South Dakota
@@ -82,9 +82,9 @@ export default function CommunitySection() {
                             <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
                                 {advantages.map((item, index) => (
                                     <li key={index} className="flex items-center gap-3">
-                                        <span className="flex-shrink-0 w-5 h-5 bg-gray-100 rounded-full flex items-center justify-center">
+                                        <span className="flex-shrink-0 w-5 h-5 bg-[#DFDFDF] rounded-full flex items-center justify-center">
                                             <svg
-                                                className="w-3 h-3 text-gray-700"
+                                                className="w-3 h-3 text-black"
                                                 fill="none"
                                                 stroke="currentColor"
                                                 viewBox="0 0 24 24"

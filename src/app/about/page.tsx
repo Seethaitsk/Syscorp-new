@@ -3,7 +3,7 @@ import AchievementsSection from "@/components/AchievementsSection";
 import TestimonialSlider from "@/components/TestimonialSection";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import Button from "@/components/ui/Button";
-import { Link } from "lucide-react";
+import {Link} from "lucide-react";
 import Image from "next/image";
 
 const Aboutus = () => {
@@ -22,81 +22,84 @@ const Aboutus = () => {
 
             <AboutSection />
 
-            
-          <section className="bg-[#E9F7EF] py-20 px-6 md:px-12 lg:px-24 font-sans">
-      <div className="container mx-auto">
-        
-        {/* Top Header Section */}
-        <div className="grid lg:grid-cols-2 gap-12 mb-16 items-start">
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-[#0D3B31]">✦</span>
-              <span className="text-sm font-semibold text-[#0D3B31] tracking-wider uppercase">Our Approach</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0D3B31] leading-tight">
-              Empowering businesses with <span className="text-[#86EFAC]">tailored solutions</span>
-            </h2>
-          </div>
-          <div className="lg:pt-10">
-            <p className="text-[#0D3B31]/70 text-lg leading-relaxed">
-              We believe every business is unique, and so are its challenges. Our approach focuses on understanding your specific needs and delivering personalized solutions that drive growth, streamline operations, and maximize efficiency. With a commitment to innovation and collaboration, we empower businesses to achieve their full potential and adapt to an ever-changing market landscape.
-            </p>
-          </div>
-        </div>
+            <section className="bg-white py-20 px-6 md:px-12 lg:px-24 font-sans">
+                <div className="container mx-auto">
+                    {/* Top Header Section */}
+                    <div className="grid lg:grid-cols-2 gap-12 mb-16 items-start">
+                        <div>
+                            <div className="flex items-center gap-2 mb-4">
+                                <span className="inline-flex w-fit items-center rounded-full bg-[#1A5CDD] px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-white ring-4 ring-[#1A5CDD]/10">
+                                    ✦ Our Approach
+                                </span>
+                            </div>
+                            <h2 className="heading-1 font-extrabold text-[#0D3B31] leading-tight">
+                                Empowering businesses with <span className="text-[#1a5cdd]">tailored solutions</span>
+                            </h2>
+                        </div>
+                        <div className="lg:pt-10">
+                            <p className="text-lg leading-relaxed">
+                                We believe every business is unique, and so are its challenges. Our approach focuses on
+                                understanding your specific needs and delivering personalized solutions that drive
+                                growth, streamline operations, and maximize efficiency. With a commitment to innovation
+                                and collaboration, we empower businesses to achieve their full potential and adapt to an
+                                ever-changing market landscape.
+                            </p>
+                        </div>
+                    </div>
 
-        {/* Content Section */}
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          
-          {/* Left Column: Mission & Vision Cards */}
-          <div className="space-y-12">
-            {/* Our Mission */}
-            <div className="group">
-              <div className="mb-6 relative inline-block">
-                <div className="absolute -top-1 -right-2 w-8 h-8 bg-[#86EFAC] rounded-full opacity-50 -z-10 group-hover:scale-110 transition-transform"></div>
-                <i className="fas fa-server text-3xl text-[#0D3B31]"></i>
-              </div>
-              <h3 className="text-2xl font-bold text-[#0D3B31] mb-4">Our Mission</h3>
-              <p className="text-[#0D3B31]/70 leading-relaxed max-w-md">
-                Our mission is to establish ourselves as one of the top global brands by enhancing technology to deliver world-class business solutions.
-              </p>
-              <div className="h-px w-full bg-[#0D3B31]/10 mt-12"></div>
-            </div>
+                    {/* Content Section */}
+                    <div className="grid lg:grid-cols-2 gap-12 items-start">
+                        {/* Left Column: Mission & Vision */}
+                        <div className="space-y-12">
+                            {/* Our Mission */}
+                            <div className="group mb-4">
+                                <div className="mb-6 relative inline-block">
+                                    {/* Icon */}
+                                    <i className="fa-solid fa-server text-3xl text-[#1a5cdd] transition-transform duration-300 group-hover:scale-110"></i>
+                                </div>
 
-            {/* Our Vision */}
-            <div className="group">
-              <div className="mb-6 relative inline-block">
-                <div className="absolute -top-1 -right-2 w-8 h-8 bg-[#86EFAC] rounded-full opacity-50 -z-10 group-hover:scale-110 transition-transform"></div>
-                <i className="fas fa-gem text-3xl text-[#0D3B31]"></i>
-              </div>
-              <h3 className="text-2xl font-bold text-[#0D3B31] mb-4">Our Vision</h3>
-              <p className="text-[#0D3B31]/70 leading-relaxed max-w-md">
-                Our mission is to empower businesses by enhancing their online presence and connecting them to a global audience.
-              </p>
-            </div>
-          </div>
+                                <h3 className="text-2xl font-bold text-[#1a5cdd] mb-3">Our Mission</h3>
 
-          {/* Right Column: Featured Image */}
-          <div className="relative w-full aspect-[4/3] overflow-hidden shadow-2xl">
-            <Image
-              src="/images/about/approach-main.jpg" 
-              alt="Team analyzing data on screens"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
+                                <p className="leading-relaxed max-w-md mb-6">
+                                    Our mission is to establish ourselves as one of the top global brands by enhancing
+                                    technology to deliver world-class business solutions.
+                                </p>
 
-        {/* Footer Link */}
-        <div className="text-center mt-20">
-          <p className="text-[#0D3B31] font-medium">
-            Let's Work Together To Turn Your Goals Into Reality.{" "}
-            <Link href="/contact" className="underline font-bold hover:text-[#0D3B31]/70 transition-colors">
-              Contact Us Today
-            </Link>
-          </p>
-        </div>
-      </div>
-    </section>
+                                {/* Divider */}
+                                <div className="h-px w-full bg-[#0D3B31]/10"></div>
+                            </div>
+
+                            {/* Our Vision */}
+                            <div className="group">
+                                <div className="mb-6 inline-block">
+                                    {/* Icon */}
+                                    <i className="fa-solid fa-gem text-3xl text-[#1a5cdd] transition-transform duration-300 group-hover:scale-110"></i>
+                                </div>
+
+                                <h3 className="text-2xl font-bold text-[#1a5cdd] mb-3">Our Vision</h3>
+
+                                <p className="leading-relaxed max-w-md">
+                                    Our mission is to establish ourselves as one of the top global brands by enhancing
+                                    technology to deliver world-class business solutions.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Right Column: Image */}
+                        <div className="relative w-full aspect-[4/3] overflow-hidden">
+                            <Image
+                                src="/images/aboutt.avif"
+                                alt="Business consultant presenting growth strategies to a client"
+                                width={500}
+                                height={600}
+                                priority
+                                sizes="(max-width: 768px) 100vw, 500px"
+                                className="h-auto w-full object-cover"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <AchievementsSection />
 

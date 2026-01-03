@@ -42,7 +42,7 @@ export default function ServiceCompany() {
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4">
                     {/* Glassmorphism Button */}
                     <button
-                        className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/10 border border-white/20 text-white font-semibold flex items-center justify-center gap-2 backdrop-blur-md hover:bg-white/20 transition"
+                        className="w-full sm:w-auto px-8 py-3 rounded-full bg-white/10 border border-white/20 text-white font-semibold flex items-center justify-center gap-2 backdrop-blur-md hover:bg-white/20 transition"
                         aria-label="Discover more about our services"
                     >
                         Discover More
@@ -64,7 +64,7 @@ export default function ServiceCompany() {
 
                     {/* Solid Gradient Button */}
                     <button
-                        className="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-[#3FB5FD] to-[#0B6EDA] text-white font-bold flex items-center justify-center gap-2 hover:from-[#1A5CDD] hover:to-[#0B6EDA] transition"
+                        className="w-full sm:w-auto px-8 py-3 rounded-full bg-gradient-to-r from-[#3FB5FD] to-[#0B6EDA] text-white font-bold flex items-center justify-center gap-2 hover:from-[#1A5CDD] hover:to-[#0B6EDA] transition"
                         aria-label="Get a quote from our company"
                     >
                         Get A Quote

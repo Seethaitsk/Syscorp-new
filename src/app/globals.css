@@ -2,7 +2,6 @@
 
 @plugin "tailwindcss-animate";
 
-
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -85,7 +84,6 @@
     --radius-3xl: calc(var(--radius) + 12px);
     --radius-4xl: calc(var(--radius) + 16px);
 }
-
 
 body {
     font-family: "DM Sans", sans-serif;
@@ -205,10 +203,10 @@ body {
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+    * {
+        @apply border-border outline-ring/50;
     }
-  body {
-    @apply bg-background text-foreground;
+    body {
+        @apply bg-background text-foreground;
     }
 }

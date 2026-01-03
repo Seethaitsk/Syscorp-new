@@ -26,7 +26,7 @@ export default function FAQSection() {
     const [openIndex, setOpenIndex] = useState<number | null>(1);
 
     return (
-        <section className="bg-[#F8FBFF] py-24 px-6 md:px-12 lg:px-24" aria-labelledby="faq-heading">
+        <section className="bg-[#F3F8FF] py-24 px-6 md:px-12 lg:px-24" aria-labelledby="faq-heading">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 {/* Left Side: Content */}
                 <div className="lg:col-span-5 space-y-8">
