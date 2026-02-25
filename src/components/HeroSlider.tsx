@@ -9,7 +9,7 @@ const Hero = () => {
     const brands = ["Figma", "Anima", "Monday.com", "InVision", "Trello", "INVIDED"];
 
     // Embla carousel with autoplay
-    const [emblaRef] = useEmblaCarousel({loop: true}, [Autoplay({delay: 2000, stopOnInteraction: false})]);
+    const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 2000, stopOnInteraction: false })]);
 
     return (
         <>
@@ -52,7 +52,7 @@ const Hero = () => {
 "
                 >
                     <Image
-                        src="/images/home/globe.png"
+                        src="/images/home/globe.webp"
                         alt="Globe Decor"
                         width={600}
                         height={600}
@@ -75,7 +75,7 @@ const Hero = () => {
 "
                 >
                     <Image
-                        src="/images/home/globe.png"
+                        src="/images/home/globe.webp"
                         alt="Globe Decor"
                         width={600}
                         height={600}
@@ -112,7 +112,7 @@ const Hero = () => {
             <div className="relative z-20 -mt-24 px-6">
                 <div className="mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] border-8 border-white bg-gray-900">
                     <Image
-                        src="/images/home/home-banner.png"
+                        src="/images/home/home-banner.webp"
                         alt="Security Banner"
                         width={1192}
                         height={545}

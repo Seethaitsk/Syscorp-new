@@ -2,6 +2,17 @@ import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import Image from "next/image";
 import ClientSatisfactionAccordion from "@/components/Services/ClientSatisfactionAccordion";
 
+import {
+    Cog,
+    FileText,
+    PenTool,
+    Link,
+    MapPin,
+    Check,
+    Zap,
+    LineChart
+} from "lucide-react";
+
 export const metadata = {
     title: "Website SEO Audit Company in Chennai | Professional SEO Audit Services",
     description:
@@ -67,7 +78,7 @@ export default function SEOAuditPage() {
             {/* TYPES OF SEO AUDIT */}
             <section className="py-20 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-6">
-                    {/* Heading */}
+
                     <div className="text-center max-w-3xl mx-auto mb-14">
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
                             Types of Website SEO Audit We Do
@@ -79,12 +90,11 @@ export default function SEOAuditPage() {
                         </p>
                     </div>
 
-                    {/* Audit Types Grid */}
                     <div className="grid md:grid-cols-2 gap-8">
                         {[
                             {
                                 title: "Technical SEO Audit",
-                                icon: "fa-cogs",
+                                icon: <Cog size={28} />,
                                 points: [
                                     "Crawl errors & index issues",
                                     "Page speed & Core Web Vitals",
@@ -95,7 +105,7 @@ export default function SEOAuditPage() {
                             },
                             {
                                 title: "On-Page SEO Audit",
-                                icon: "fa-file-alt",
+                                icon: <FileText size={28} />,
                                 points: [
                                     "Title tags & meta descriptions",
                                     "Header structure (H1–H6)",
@@ -106,7 +116,7 @@ export default function SEOAuditPage() {
                             },
                             {
                                 title: "Content SEO Audit",
-                                icon: "fa-pen-nib",
+                                icon: <PenTool size={28} />,
                                 points: [
                                     "Duplicate & thin content detection",
                                     "Keyword relevance & cannibalization",
@@ -116,7 +126,7 @@ export default function SEOAuditPage() {
                             },
                             {
                                 title: "Off-Page & Backlink Audit",
-                                icon: "fa-link",
+                                icon: <Link size={28} />,
                                 points: [
                                     "Toxic and spam backlink analysis",
                                     "Domain authority review",
@@ -129,10 +139,9 @@ export default function SEOAuditPage() {
                                 key={index}
                                 className="group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                             >
-                                {/* Card Heading */}
                                 <div className="flex items-center gap-4 mb-6">
-                                    <div className="w-14 h-14 flex items-center justify-center rounded-full bg-[#011146] text-white text-2xl shadow-md">
-                                        <i className={`fas ${item.icon}`}></i>
+                                    <div className="w-14 h-14 flex items-center justify-center rounded-full bg-[#011146] text-white shadow-md">
+                                        {item.icon}
                                     </div>
 
                                     <h3 className="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-[#011146] transition">
@@ -140,26 +149,23 @@ export default function SEOAuditPage() {
                                     </h3>
                                 </div>
 
-                                {/* List */}
                                 <ul className="space-y-3 text-gray-700 text-lg">
                                     {item.points.map((point, i) => (
                                         <li key={i} className="flex items-start gap-3">
-                                            <i className="fas fa-check mt-1"></i>
+                                            <Check className="mt-1" size={18} />
                                             <span>{point}</span>
                                         </li>
                                     ))}
                                 </ul>
-
-
                             </div>
                         ))}
                     </div>
 
-                    {/* Local SEO Audit Full Width */}
+                    {/* Local SEO */}
                     <div className="mt-10 group bg-white border border-gray-200 rounded-2xl p-10 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
                         <div className="flex items-center gap-4 mb-6">
-                            <div className="w-14 h-14 flex items-center justify-center rounded-full bg-[#011146] text-white text-2xl shadow-md">
-                                <i className="fas fa-map-marker-alt"></i>
+                            <div className="w-14 h-14 flex items-center justify-center rounded-full bg-[#011146] text-white shadow-md">
+                                <MapPin size={28} />
                             </div>
 
                             <h3 className="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-[#011146] transition">
@@ -175,12 +181,11 @@ export default function SEOAuditPage() {
                                 "Local citation analysis",
                             ].map((point, i) => (
                                 <li key={i} className="flex items-start gap-3">
-                                    <i className="fas fa-check mt-1"></i>
+                                    <Check className="mt-1" size={18} />
                                     <span>{point}</span>
                                 </li>
                             ))}
                         </ul>
-
                     </div>
                 </div>
             </section>
@@ -222,7 +227,6 @@ export default function SEOAuditPage() {
             </section>
 
             {/* PROCESS */}
-
             <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
                 <div className="max-w-7xl mx-auto px-6">
                     {/* Heading */}
@@ -290,14 +294,13 @@ export default function SEOAuditPage() {
                                             {item.desc}
                                         </p>
 
-                                        {/* Small Highlight Line */}
+                                        {/* Highlight Line */}
                                         <div className="mt-6 h-[3px] w-16 bg-yellow-400 rounded-full"></div>
                                     </div>
                                 </div>
                             ))}
                         </div>
                     </div>
-
                 </div>
             </section>
 
@@ -305,24 +308,17 @@ export default function SEOAuditPage() {
             {/* TOOLS */}
             <section className="py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-6">
-                    {/* Heading */}
+
                     <div className="text-center max-w-3xl mx-auto mb-14">
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
                             SEO Audit Tools We Use for Our Clients
                         </h2>
-                        <p className="mt-4 text-lg text-gray-600 leading-relaxed">
-                            As a professional{" "}
-                            <strong>Website SEO Audit company in Chennai</strong>, Syscorp uses
-                            leading SEO tools combined with expert manual analysis to deliver
-                            accurate SEO audit reports.
-                        </p>
                     </div>
 
-                    {/* Tools Grid */}
                     <div className="grid md:grid-cols-2 gap-8">
                         {[
                             {
-                                icon: "fa-bolt",
+                                icon: <Zap size={28} />,
                                 title: "Technical & Performance Tools",
                                 tools: [
                                     "Google Search Console",
@@ -332,17 +328,17 @@ export default function SEOAuditPage() {
                                 ],
                             },
                             {
-                                icon: "fa-chart-line",
+                                icon: <LineChart size={28} />,
                                 title: "On-Page & Keyword Analysis Tools",
                                 tools: ["SEMrush", "Ahrefs", "Screaming Frog SEO Spider"],
                             },
                             {
-                                icon: "fa-link",
+                                icon: <Link size={28} />,
                                 title: "Backlink & Off-Page Tools",
                                 tools: ["Ahrefs Backlink Checker", "SEMrush Backlink Audit"],
                             },
                             {
-                                icon: "fa-map-marker-alt",
+                                icon: <MapPin size={28} />,
                                 title: "Local SEO Tools",
                                 tools: ["Google Business Profile Insights", "Local citation analysis tools"],
                             },
@@ -351,10 +347,9 @@ export default function SEOAuditPage() {
                                 key={index}
                                 className="group bg-gray-50 border border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                             >
-                                {/* Card Heading */}
                                 <div className="flex items-center gap-4 mb-6">
-                                    <div className="w-14 h-14 flex items-center justify-center rounded-full bg-[#011146] text-white text-2xl shadow-md">
-                                        <i className={`fas ${item.icon}`}></i>
+                                    <div className="w-14 h-14 flex items-center justify-center rounded-full bg-[#011146] text-white shadow-md">
+                                        {item.icon}
                                     </div>
 
                                     <h3 className="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-[#011146] transition">
@@ -362,11 +357,10 @@ export default function SEOAuditPage() {
                                     </h3>
                                 </div>
 
-                                {/* Tools List */}
                                 <ul className="space-y-3 text-gray-700 text-lg">
                                     {item.tools.map((tool, i) => (
                                         <li key={i} className="flex items-center gap-3">
-                                            <i className="fas fa-check text-lg"></i>
+                                            <Check size={18} />
                                             {tool}
                                         </li>
                                     ))}

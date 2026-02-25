@@ -1,6 +1,13 @@
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import Image from "next/image";
-
+import {
+    Rocket,
+    TrendingUp,
+    Lock,
+    Clock,
+    Handshake,
+    CheckCircle
+} from "lucide-react";
 export const metadata = {
     title: "E-Commerce Solutions Company in Chennai | Scalable Online Stores",
     description:
@@ -18,7 +25,7 @@ export default function Ecommerce() {
                     </h1>
 
                     <div className="flex justify-center">
-                        <div className="inline-flex sm:bg-white/10 sm:backdrop-blur-md sm:px-6 sm:py-2 sm:rounded-full sm:border sm:border-white/20">
+                        <div className="inline-flex bg-white/10 backdrop-blur-md px-6 py-2 rounded-full border border-white/20">
                             <Breadcrumbs />
                         </div>
                     </div>
@@ -60,8 +67,8 @@ export default function Ecommerce() {
                         <Image
                             src="/images/services/ecommorce-e-commerce.png"
                             alt="E-Commerce Solutions Company in Chennai"
-                            width={500}
-                            height={400}
+                            width={400}
+                            height={300}
                             className="object-contain"
                             priority
                         />
@@ -86,9 +93,8 @@ export default function Ecommerce() {
                                 "Scalable solutions for business growth",
                             ].map((item, i) => (
                                 <div key={i} className="flex items-start gap-3">
-                                    <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#00A3FF] text-white text-xs font-semibold">
-                                        ✓
-                                    </span>
+                                    <CheckCircle className="w-5 h-5 text-[#00A3FF] flex-shrink-0" />
+
                                     <p className="text-sm font-medium text-gray-800">{item}</p>
                                 </div>
                             ))}
@@ -256,32 +262,17 @@ export default function Ecommerce() {
 
                     <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
                         {[
-                            {
-                                title: "Experienced E-Commerce Developers",
-                                icon: "🚀",
-                            },
-                            {
-                                title: "Conversion-Focused Design approach",
-                                icon: "📈",
-                            },
-                            {
-                                title: "Secure & Scalable Architecture",
-                                icon: "🔐",
-                            },
-                            {
-                                title: "On-Time Delivery & Transparent Pricing",
-                                icon: "⏱️",
-                            },
-                            {
-                                title: "Dedicated Support & Maintenance",
-                                icon: "🤝",
-                            },
+                            { title: "Experienced E-Commerce Developers", icon: <Rocket size={28} /> },
+                            { title: "Conversion-Focused Design approach", icon: <TrendingUp size={28} /> },
+                            { title: "Secure & Scalable Architecture", icon: <Lock size={28} /> },
+                            { title: "On-Time Delivery & Transparent Pricing", icon: <Clock size={28} /> },
+                            { title: "Dedicated Support & Maintenance", icon: <Handshake size={28} /> },
                         ].map((item, i) => (
                             <div
                                 key={i}
                                 className="group p-8 bg-white border border-gray-200 rounded-2xl hover:shadow-xl transition duration-300"
                             >
-                                <div className="w-14 h-14 mx-auto mb-5 flex items-center justify-center rounded-full bg-blue-50 text-2xl group-hover:scale-110 transition">
+                                <div className="w-14 h-14 mx-auto mb-5 flex items-center justify-center rounded-full bg-blue-50 text-[#1a5cdd] group-hover:scale-110 transition">
                                     {item.icon}
                                 </div>
                                 <p className="font-semibold text-gray-800 text-sm leading-snug">

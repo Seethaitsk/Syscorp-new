@@ -58,7 +58,7 @@ export default function ServicesSection() {
                         </h2>
                     </div>
 
-                    <Button href="#" aria-label="View more services">
+                    <Button href="/services" aria-label="View more services">
                         More Services
                         <svg
                             className="w-5 h-5 ml-2"

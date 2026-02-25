@@ -2,13 +2,14 @@
 
 import React from "react";
 import Link from "next/link";
+import { MapPin, Mail, Phone } from "lucide-react";
 
 const Footer = () => {
     const year = new Date().getFullYear();
 
     return (
         <footer className="bg-[#000B2E] text-white pt-20 relative font-sans">
-            {/* CTA BANNER - Overlapping Section */}
+            {/* CTA BANNER */}
             <div className="max-w-7xl mx-auto px-6 relative z-20 -mb-32">
                 <div className="bg-[#00A3FF] rounded-xl flex flex-col lg:flex-row overflow-hidden min-h-[350px] relative shadow-2xl">
                     {/* Content Side */}
@@ -17,12 +18,12 @@ const Footer = () => {
                             Looking For Professional <br /> Business Consultant ?
                         </h2>
                         <p className="text-white/90 text-sm md:text-base max-w-xl leading-relaxed">
-                            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-                            voluptatum deleniti atque corrupti dolorese
+                            At vero eos et accusamus et iusto odio dignissimos ducimus qui
+                            blanditiis praesentium voluptatum deleniti atque corrupti dolorese
                         </p>
                     </div>
 
-                    {/* Action Side with Grid Pattern Overlay */}
+                    {/* Action Side */}
                     <div className="lg:w-1/3 flex flex-col items-center justify-center p-10 relative bg-[#00A3FF]">
                         <div
                             className="absolute inset-0 opacity-20 pointer-events-none"
@@ -48,7 +49,9 @@ const Footer = () => {
                                     <path d="M7 17L17 7M17 7H7M17 7V17" />
                                 </svg>
                             </Link>
-                            <p className="text-white text-sm font-medium">No credit card required</p>
+                            <p className="text-white text-sm font-medium">
+                                No credit card required
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -64,11 +67,14 @@ const Footer = () => {
                                 <div className="bg-blue-500 rounded-full w-12 h-12 flex items-center justify-center">
                                     <span className="font-bold text-xl italic">S</span>
                                 </div>
-                                <span className="text-2xl font-black tracking-tighter italic uppercase">Syscorp</span>
+                                <span className="text-2xl font-black tracking-tighter italic uppercase">
+                                    Syscorp
+                                </span>
                             </div>
 
                             <p className="text-gray-400 text-sm leading-relaxed">
-                                At vero eos et accusamus iusto odio dignissimos ducimus blanditiise
+                                At vero eos et accusamus iusto odio dignissimos ducimus
+                                blanditiise
                             </p>
 
                             <div className="relative flex items-center bg-white rounded-lg p-1.5 max-w-[280px]">
@@ -77,7 +83,11 @@ const Footer = () => {
                                     placeholder="Email Address"
                                     className="w-full bg-transparent text-gray-900 px-3 text-sm outline-none placeholder:text-gray-400"
                                 />
-                                <button type="button" aria-label="Open link" className="bg-[#00A3FF] text-white p-2.5 rounded-md hover:bg-blue-600 transition-colors">
+                                <button
+                                    type="button"
+                                    aria-label="Open link"
+                                    className="bg-[#00A3FF] text-white p-2.5 rounded-md hover:bg-blue-600 transition-colors"
+                                >
                                     <svg
                                         className="w-5 h-5"
                                         viewBox="0 0 24 24"
@@ -177,7 +187,7 @@ const Footer = () => {
                             <ul className="space-y-4 text-gray-400 text-sm">
                                 {/* Address */}
                                 <li className="flex items-start gap-3">
-                                    <i className="fa-solid fa-location-dot mt-1 text-[#00A3FF]"></i>
+                                    <MapPin size={18} className="text-[#00A3FF] mt-1 shrink-0" />
                                     <span>
                                         55 Main Street, 2nd block <br />
                                         Melbourne, Australia
@@ -186,13 +196,13 @@ const Footer = () => {
 
                                 {/* Email */}
                                 <li className="flex items-center gap-3">
-                                    <i className="fa-solid fa-envelope text-[#00A3FF]"></i>
+                                    <Mail size={18} className="text-[#00A3FF] shrink-0" />
                                     <span>support@gmail.com</span>
                                 </li>
 
                                 {/* Phone */}
                                 <li className="flex items-center gap-3">
-                                    <i className="fa-solid fa-phone text-[#00A3FF]"></i>
+                                    <Phone size={18} className="text-[#00A3FF] shrink-0" />
                                     <span>+000 (123) 44 55</span>
                                 </li>
                             </ul>
@@ -203,8 +213,10 @@ const Footer = () => {
 
             {/* SCROLL TO TOP BUTTON */}
             <div className="flex justify-center -mb-6 relative z-30">
-                <button type="button"
-                    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Scroll to top"
+                <button
+                    type="button"
+                    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                    aria-label="Scroll to top"
                     className="bg-[#00A3FF] p-3 rounded-lg text-white shadow-lg hover:bg-blue-600 transition-all"
                 >
                     <svg
@@ -214,7 +226,11 @@ const Footer = () => {
                         strokeWidth="3"
                         viewBox="0 0 24 24"
                     >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
                     </svg>
                 </button>
             </div>
@@ -223,9 +239,11 @@ const Footer = () => {
             <div className="bg-[#000824] py-8 border-t border-white/5">
                 <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
                     <p>
-                        Copyright ©{year}, <span className="text-gray-300 font-semibold">Design</span> All Rights
+                        Copyright ©{year},{" "}
+                        <span className="text-gray-300 font-semibold">Design</span> All Rights
                         Reserved
                     </p>
+
                     <div className="flex gap-6 mt-4 md:mt-0">
                         <Link href="/privacy-policy" className="hover:text-white transition">
                             Privacy policy

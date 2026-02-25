@@ -9,7 +9,7 @@ interface InfoCardProps {
     comments: string;
 }
 
-export const InfoCard: React.FC<InfoCardProps> = ({image, badge, title, admin, comments}) => {
+export const InfoCard: React.FC<InfoCardProps> = ({ image, badge, title, admin, comments }) => {
     return (
         <article className="group bg-white rounded-[10px] overflow-hidden hover:shadow-xl transition-all duration-300 border border-transparent hover:border-blue-50 h-full flex flex-col">
             {/* Image Container */}
@@ -25,7 +25,7 @@ export const InfoCard: React.FC<InfoCardProps> = ({image, badge, title, admin, c
             </div>
 
             {/* Content Area */}
-            <div className="p-8 space-y-5 flex flex-col flex-grow bg-[#F4F8FF]">
+            <div className="p-4 sm:p-6 md:p-6 space-y-5 flex flex-col flex-grow bg-[#F4F8FF]">
                 <div className="flex items-center justify-between gap-6 text-sm text-gray-600 font-medium">
                     <div className="flex items-center gap-2">
                         <svg className="w-4 h-4 text-[#258FEB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">

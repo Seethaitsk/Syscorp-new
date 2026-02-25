@@ -1,6 +1,13 @@
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
+import { CheckCircle } from "lucide-react";
 import Image from "next/image";
-
+import {
+    Server,
+    ShieldCheck,
+    IndianRupee,
+    Zap,
+    Headphones,
+} from "lucide-react";
 export const metadata = {
     title: "Hosting & Domain Setup Company in Chennai | Secure Web Hosting",
     description:
@@ -37,6 +44,15 @@ export default function HostingDomainSetup() {
                         <p className="text-lg text-gray-600">
                             Looking for a reliable Hosting & Domain Setup Company in Chennai to get your website online quickly and securely? We provide end-to-end hosting and domain solutions that ensure your website is fast, secure, and always accessible. As a trusted Hosting & Domain Setup Company in Chennai, we help businesses choose the right domain, configure high-performance hosting, and manage everything from setup to ongoing support.
                         </p>
+                        <div className="mt-8 flex gap-4 flex-wrap">
+                            <button className="bg-[#00A3FF] text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-blue-600 transition">
+                                Get Quataion
+                            </button>
+
+                            <button className="border border-gray-300 px-6 py-3 rounded-full font-semibold text-gray-800 hover:bg-gray-100 transition">
+                                Contact Us
+                            </button>
+                        </div>
                     </div>
 
                     <div className="flex justify-center md:justify-end">
@@ -84,9 +100,8 @@ export default function HostingDomainSetup() {
                                 "Scalable hosting solutions",
                             ].map((item, i) => (
                                 <div key={i} className="flex items-start gap-3">
-                                    <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#00A3FF] text-white text-xs font-semibold">
-                                        ✓
-                                    </span>
+                                    <CheckCircle className="w-5 h-5 text-[#00A3FF] flex-shrink-0" />
+
                                     <p className="text-sm font-medium text-gray-800">{item}</p>
                                 </div>
                             ))}
@@ -242,33 +257,47 @@ export default function HostingDomainSetup() {
             </section>
 
             {/* TRUST */}
-            <section className="bg-gray-50 py-20">
+            <section className="bg-gray-50 py-24">
                 <div className="max-w-7xl mx-auto px-6 text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">
+
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6 max-w-4xl mx-auto leading-tight">
                         Why Businesses Trust Our Hosting & Domain Setup Company in Chennai
                     </h2>
 
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-12">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 mt-16">
                         {[
-                            { title: "Experienced Hosting Specialists", icon: "👨‍💻" },
-                            { title: "Secure & Reliable Infrastructure", icon: "🔒" },
-                            { title: "Affordable Pricing Plans", icon: "💰" },
-                            { title: "Quick Setup & Deployment", icon: "⚡" },
-                            { title: "Dedicated Technical Support", icon: "🤝" },
-                        ].map((item, i) => (
-                            <div
-                                key={i}
-                                className="p-8 bg-white border rounded-2xl hover:shadow-xl transition"
-                            >
-                                <div className="w-14 h-14 mx-auto mb-5 flex items-center justify-center rounded-full bg-blue-50 text-2xl">
-                                    {item.icon}
+                            { title: "Experienced Hosting Specialists", icon: Server },
+                            { title: "Secure & Reliable Infrastructure", icon: ShieldCheck },
+                            { title: "Affordable Pricing Plans", icon: IndianRupee },
+                            { title: "Quick Setup & Deployment", icon: Zap },
+                            { title: "Dedicated Technical Support", icon: Headphones },
+                        ].map((item, i) => {
+                            const Icon = item.icon;
+
+                            return (
+                                <div
+                                    key={i}
+                                    className="group p-8 bg-white border border-gray-100 rounded-2xl 
+                                   shadow-sm hover:shadow-xl hover:-translate-y-2 
+                                   transition-all duration-300"
+                                >
+                                    <div className="w-14 h-14 mx-auto mb-6 flex items-center justify-center 
+                                        rounded-full bg-blue-50 
+                                        group-hover:bg-blue-100 transition">
+                                        <Icon
+                                            size={26}
+                                            className="text-[#1a5cdd] group-hover:scale-110 transition-transform duration-300"
+                                        />
+                                    </div>
+
+                                    <p className="font-semibold text-gray-800 text-sm md:text-base leading-snug">
+                                        {item.title}
+                                    </p>
                                 </div>
-                                <p className="font-semibold text-gray-800 text-sm">
-                                    {item.title}
-                                </p>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
+
                 </div>
             </section>
 

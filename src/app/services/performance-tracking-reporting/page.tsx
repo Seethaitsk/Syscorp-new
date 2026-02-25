@@ -1,4 +1,11 @@
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
+import {
+    Check, CheckCircle, PieChart,
+    LineChart,
+    BarChart3,
+    Search,
+    Link
+} from "lucide-react";
 import Image from "next/image";
 
 export const metadata = {
@@ -96,7 +103,7 @@ export default function PerformanceTrackingReportingPage() {
                                 "Actionable recommendations",
                             ].map((item, index) => (
                                 <div key={index} className="flex items-center gap-4">
-                                    <i className="fas fa-check-circle text-[#00A3FF] text-xl"></i>
+                                    <CheckCircle className="w-5 h-5 text-[#00A3FF] flex-shrink-0" />
                                     <p className="text-lg text-gray-700 leading-relaxed m-0">
                                         {item}
                                     </p>
@@ -176,7 +183,7 @@ export default function PerformanceTrackingReportingPage() {
                                 <ul className="space-y-3">
                                     {service.points.map((point, i) => (
                                         <li key={i} className="flex items-start gap-3">
-                                            <i className="fas fa-check text-[#00A3FF] mt-1"></i>
+                                            <Check className="mt-1" size={18} />
                                             <span className="text-gray-700 text-lg">{point}</span>
                                         </li>
                                     ))}
@@ -215,7 +222,7 @@ export default function PerformanceTrackingReportingPage() {
                                     "Ensures continuous optimization",
                                 ].map((item, index) => (
                                     <li key={index} className="flex items-center gap-4">
-                                        <i className="fas fa-check-circle text-[#00A3FF] text-xl"></i>
+                                        <CheckCircle className="w-5 h-5 text-[#00A3FF] flex-shrink-0" />
                                         <span className="text-lg text-gray-700 font-medium">
                                             {item}
                                         </span>
@@ -297,24 +304,29 @@ export default function PerformanceTrackingReportingPage() {
                             Tools We Use for Performance Tracking & Reporting
                         </h2>
                         <p className="mt-4 text-lg text-gray-600 leading-relaxed">
-                            Syscorp uses advanced tools deliver results as a Performance Tracking & Reporting company in Chennai:
+                            Syscorp uses advanced tools to deliver results as a Performance Tracking & Reporting company in Chennai:
                         </p>
                     </div>
 
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[
-                            { name: "Google Analytics (GA4)", icon: "fa-chart-pie" },
-                            { name: "Google Search Console", icon: "fa-chart-line" },
-                            { name: "Google Looker Studio", icon: "fa-chart-bar" },
-                            { name: "SEMrush", icon: "fa-magnifying-glass" },
-                            { name: "Ahrefs", icon: "fa-link" },
+                            { name: "Google Analytics (GA4)", icon: <PieChart size={22} strokeWidth={1.5} /> },
+                            { name: "Google Search Console", icon: <LineChart size={22} strokeWidth={1.5} /> },
+                            { name: "Google Looker Studio", icon: <BarChart3 size={22} strokeWidth={1.5} /> },
+                            { name: "SEMrush", icon: <Search size={22} strokeWidth={1.5} /> },
+                            { name: "Ahrefs", icon: <Link size={22} strokeWidth={1.5} /> },
                         ].map((tool, index) => (
                             <div
                                 key={index}
                                 className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-lg transition flex items-center gap-4"
                             >
-                                <i className={`fas ${tool.icon} text-[#00A3FF] text-2xl`}></i>
-                                <p className="text-lg text-gray-800 font-semibold m-0">{tool.name}</p>
+                                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#00A3FF]/10 text-[#00A3FF]">
+                                    {tool.icon}
+                                </div>
+
+                                <p className="text-lg text-gray-800 font-semibold m-0">
+                                    {tool.name}
+                                </p>
                             </div>
                         ))}
                     </div>
@@ -355,7 +367,7 @@ export default function PerformanceTrackingReportingPage() {
                                 "Growing brands",
                             ].map((item, index) => (
                                 <div key={index} className="flex items-center gap-4">
-                                    <i className="fas fa-check text-[#00A3FF] text-lg"></i>
+                                    <CheckCircle className="w-5 h-5 text-[#00A3FF] flex-shrink-0" />
                                     <p className="text-lg text-gray-700 m-0">{item}</p>
                                 </div>
                             ))}

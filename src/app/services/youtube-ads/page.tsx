@@ -1,4 +1,5 @@
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
+import { Check, CheckCircle } from "lucide-react";
 import Image from "next/image";
 
 export const metadata = {
@@ -105,7 +106,7 @@ export default function YouTubeAdsPage() {
                                 "Transparent reporting",
                             ].map((item, index) => (
                                 <div key={index} className="flex items-center gap-4">
-                                    <i className="fas fa-check-circle text-[#00A3FF] text-xl"></i>
+                                    <CheckCircle className="w-5 h-5 text-[#00A3FF] flex-shrink-0" />
                                     <p className="text-lg text-gray-700 leading-relaxed m-0">
                                         {item}
                                     </p>
@@ -187,7 +188,7 @@ export default function YouTubeAdsPage() {
                                 <ul className="space-y-3">
                                     {service.points.map((point, i) => (
                                         <li key={i} className="flex items-start gap-3">
-                                            <i className="fas fa-check text-[#00A3FF] mt-1"></i>
+                                            <Check className="mt-1" size={18} />
                                             <span className="text-gray-700 text-lg">{point}</span>
                                         </li>
                                     ))}

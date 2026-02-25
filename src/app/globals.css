@@ -88,13 +88,16 @@
 body {
     font-family: "DM Sans", sans-serif;
 }
+
 .top-nav-bg {
     background: #011146;
 }
+
 .navbar-bg {
     /* background-image: -webkit-linear-gradient(0, #4dabff 0, #62ddff 100%); */
     background: white;
 }
+
 /* .heading {
     font-size: 48px;
 }
@@ -109,12 +112,14 @@ body {
     font-size: clamp(28px, 4vw, 42px);
 } */
 .heading {
-    font-size: 48px; /* default for large screens */
+    font-size: 48px;
+    /* default for large screens */
 }
 
 .heading-1 {
     font-size: 42px;
 }
+
 .achievementname {
     font-size: 18px;
     font: bold;
@@ -126,20 +131,25 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 .card-headign {
     font-size: 20px;
 }
+
 .main-logo {
     width: 140px;
 }
+
 /* Tablets */
 @media (max-width: 1024px) {
     .heading {
         font-size: 40px;
     }
+
     .heading-1 {
         font-size: 32px;
     }
+
     .card-headign {
         font-size: 18px;
     }
@@ -150,6 +160,7 @@ body {
     .heading {
         font-size: 32px;
     }
+
     .heading-1 {
         font-size: 26px;
     }
@@ -160,9 +171,11 @@ body {
     .heading {
         font-size: 28px;
     }
+
     .heading-1 {
         font-size: 24px;
     }
+
     .main-logo {
         width: 110px;
     }
@@ -206,7 +219,16 @@ body {
     * {
         @apply border-border outline-ring/50;
     }
+
     body {
         @apply bg-background text-foreground;
     }
+}
+
+/* img {
+    height: auto;
+    max-width: 100%;
+} */
+.fas.fa-house.text-sm {
+    margin-bottom: 2px;
 }

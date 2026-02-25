@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import Breadcrumbs from "@/components/ui/Breadcrumbs";
-import {useState} from "react";
+import { useState, useMemo } from "react";
+import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Breadcrumbs from "@/components/ui/Breadcrumbs"; // SSR for faster LCP
 
 // Mock Blog Data
 const ALL_POSTS = [
@@ -60,85 +62,73 @@ export default function BlogPage() {
     const [activeCat, setActiveCat] = useState("All");
     const categories = ["All", "Software", "Technology", "Marketing", "Event"];
 
-    const filteredPosts = ALL_POSTS.filter((post) => (activeCat === "All" ? true : post.category === activeCat));
+    const filteredPosts = useMemo(
+        () => ALL_POSTS.filter(post => activeCat === "All" ? true : post.category === activeCat),
+        [activeCat]
+    );
 
     return (
         <main className="bg-white min-h-screen">
-            {/* Header Banner - Matches your theme */}
-            <section className="bg-[#011146] py-20 relative overflow-hidden">
-                <div className="container mx-auto px-4 relative z-10 flex flex-col items-center text-center">
-                    <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6">Our Blog</h1>
-                    <div className="bg-white/10 backdrop-blur-md inline-block px-4 py-1 rounded-[2rem] border border-white/20">
-                        <Breadcrumbs />
-                    </div>
+            {/* Hero Section */}
+            <section className="bg-[#011146] py-20 text-center">
+                <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6">Our Blog</h1>
+                <div className="bg-white/10 md:backdrop-blur-md inline-block px-4 py-1 rounded-[2rem] border border-white/20">
+                    <Breadcrumbs />
                 </div>
             </section>
 
-            {/* Blog Section */}
+            {/* Blog Grid */}
             <section className="py-16 lg:py-24 bg-white">
                 <div className="container mx-auto px-4 max-w-6xl">
-                    {/* Category Filter - Image Style Layout */}
+                    {/* Categories */}
                     <div className="border-b border-gray-100 mb-12">
                         <div className="flex justify-center gap-8 overflow-x-auto no-scrollbar">
                             {categories.map((cat) => (
                                 <button
                                     key={cat}
                                     onClick={() => setActiveCat(cat)}
-                                    className={`pb-4 text-sm font-bold transition-all relative ${
-                                        activeCat === cat ? "text-blue-700" : "text-gray-900 hover:text-blue-600"
-                                    }`}
+                                    className={`pb-4 text-sm font-bold transition-all relative focus:outline-none focus:ring-blue-500 ${activeCat === cat ? "text-blue-700" : "text-gray-800 hover:text-blue-600"
+                                        }`}
+                                    aria-pressed={activeCat === cat}
                                 >
                                     {cat}
-                                    {activeCat === cat && (
-                                        <span className="absolute bottom-0 left-0 w-full h-[3px] bg-blue-700 rounded-t-full" />
-                                    )}
+                                    {activeCat === cat && <span className="absolute bottom-0 left-0 w-full h-[3px] bg-blue-700 rounded-t-full" />}
                                 </button>
                             ))}
                         </div>
                     </div>
 
-                    {/* Blog Grid - 2 Columns as per image */}
+                    {/* Posts Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
-                        {filteredPosts.map((post) => (
+                        {filteredPosts.map(post => (
                             <article key={post.id} className="group flex flex-col">
-                                {/* Image */}
-                                <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-100 mb-6">
-                                    <img
+                                <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-100 mb-6 rounded-lg">
+                                    <Image
                                         src={post.image}
                                         alt={post.title}
-                                        className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                                        width={800}
+                                        height={500}
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                        className="object-cover w-full h-full transition-transform duration-500 md:group-hover:scale-105 rounded-lg"
+                                        loading="lazy"
                                     />
                                 </div>
 
-                                {/* Content */}
                                 <div className="flex flex-col">
-                                    {/* Meta Row with Blue Dash */}
                                     <div className="flex items-center gap-3 mb-4">
                                         <div className="w-5 h-[2px] bg-blue-700"></div>
-                                        <div className="text-[11px] font-bold text-gray-500 uppercase tracking-wider flex gap-1">
-                                            <span>{post.category}</span>
-                                            <span>/</span>
-                                            <span>{post.date}</span>
+                                        <div className="text-[11px] font-bold text-gray-700 uppercase tracking-wider flex gap-1">
+                                            <span>{post.category}</span>/<span>{post.date}</span>
                                         </div>
                                     </div>
 
-                                    {/* Title */}
-                                    {/* <h3 className="text-[22px] font-bold text-gray-900 leading-[1.3] mb-4 hover:text-blue-700 transition-colors">
+                                    <h2 className="font-bold mb-4 hover:text-blue-700 transition-colors line-clamp-2">
                                         <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                                    </h3> */}
-                                    <h3 className="font-bold mb-4 hover:text-blue-700 transition-colors line-clamp-2">
-                                        <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                                    </h3>
+                                    </h2>
 
-                                    {/* Read More Link */}
-                                    {/* <Link
-                                        href={`/blog/${post.slug}`}
-                                        className="text-sm font-bold text-gray-900 hover:text-blue-700 underline underline-offset-4 decoration-2 decoration-gray-200 hover:decoration-blue-700 transition-all w-fit"
-                                    >
-                                        Read more
-                                    </Link> */}
                                     <Link
-                                        href="/blog-detalis"
+                                        href={`/blog/${post.slug}`}
+                                        aria-label={`Read more about ${post.title}`}
                                         className="text-sm font-bold text-gray-900 hover:text-blue-700 underline underline-offset-4 decoration-2 decoration-gray-200 hover:decoration-blue-700 transition-all w-fit"
                                     >
                                         Read more
@@ -148,18 +138,18 @@ export default function BlogPage() {
                         ))}
                     </div>
 
-                    {/* Simplified Pagination */}
-                    <nav className="mt-20 flex justify-center items-center space-x-4">
-                        <button className="text-gray-400 hover:text-blue-700 text-sm font-bold">Prev</button>
+                    {/* Pagination */}
+                    <nav className="mt-20 flex justify-center items-center space-x-4" aria-label="Pagination">
+                        <button aria-label="Previous Page" className="p-2 rounded-full border border-gray-200 hover:bg-blue-100 text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <ChevronLeft className="w-4 h-4" />
+                        </button>
                         <div className="flex space-x-2">
-                            <span className="w-8 h-8 flex items-center justify-center rounded bg-blue-700 text-white text-sm font-bold">
-                                1
-                            </span>
-                            <button className="w-8 h-8 flex items-center justify-center rounded text-gray-900 hover:bg-gray-100 text-sm font-bold">
-                                2
-                            </button>
+                            <span aria-current="page" className="w-8 h-8 flex items-center justify-center rounded bg-blue-700 text-white text-sm font-bold">1</span>
+                            <button aria-label="Page 2" className="w-8 h-8 flex items-center justify-center rounded text-gray-900 hover:bg-gray-100 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-blue-500">2</button>
                         </div>
-                        <button className="text-gray-900 hover:text-blue-700 text-sm font-bold">Next</button>
+                        <button aria-label="Next Page" className="p-2 rounded-full border border-gray-200 hover:bg-blue-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <ChevronRight className="w-4 h-4" />
+                        </button>
                     </nav>
                 </div>
             </section>

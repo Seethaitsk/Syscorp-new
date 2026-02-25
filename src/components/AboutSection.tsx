@@ -25,7 +25,7 @@ export default function AboutSection() {
                         {/* Main Image (Informative) */}
                         <div className="relative z-10 overflow-hidden rounded-xl">
                             <Image
-                                src="/images/home/about-home.png"
+                                src="/images/home/about-home.webp"
                                 alt="Business consultant presenting growth strategies to a client"
                                 width={500}
                                 height={600}

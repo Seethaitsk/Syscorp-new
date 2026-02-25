@@ -1,5 +1,6 @@
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import Image from "next/image";
+import { Users, BarChart2, UserCheck, CreditCard, Clock, CheckCircle, Compass, Phone, Puzzle, Zap } from "lucide-react";
 
 export const metadata = {
     title: "Responsive UI / UX Company in Chennai | Professional UI UX Design",
@@ -70,7 +71,7 @@ export default function ResponsiveUIUX() {
                         {/* Left – Image */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/custom-web.png"
+                                src="/images/services/Responsive-UI-UX-1.webp"
                                 alt="Responsive UI UX Company in Chennai"
                                 width={500}
                                 height={400}
@@ -98,9 +99,7 @@ export default function ResponsiveUIUX() {
                                     "Fast-loading & performance-optimized designs",
                                 ].map((item, i) => (
                                     <div key={i} className="flex items-start gap-3 p-2">
-                                        <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#00A3FF] text-white text-xs font-semibold flex-shrink-0">
-                                            ✓
-                                        </span>
+                                        <CheckCircle className="w-5 h-5 text-[#00A3FF] flex-shrink-0" />
 
                                         <p className="text-sm font-medium text-gray-800 leading-relaxed">{item}</p>
                                     </div>
@@ -229,27 +228,27 @@ export default function ResponsiveUIUX() {
                             {
                                 title: "Experienced Designers",
                                 desc: "Skilled UI/UX designers with proven industry experience.",
-                                icon: "🎓",
+                                icon: <Users className="w-6 h-6" />,
                             },
                             {
                                 title: "Data-Driven Approach",
                                 desc: "Design decisions backed by research and analytics.",
-                                icon: "📊",
+                                icon: <BarChart2 className="w-6 h-6" />,
                             },
                             {
                                 title: "User-Centric Philosophy",
                                 desc: "Every design focuses on user needs and behavior.",
-                                icon: "👥",
+                                icon: <UserCheck className="w-6 h-6" />,
                             },
                             {
                                 title: "Affordable Pricing",
                                 desc: "Cost-effective UI/UX solutions without compromise.",
-                                icon: "💰",
+                                icon: <CreditCard className="w-6 h-6" />,
                             },
                             {
                                 title: "On-Time Delivery",
                                 desc: "Reliable timelines with ongoing support.",
-                                icon: "⏱️",
+                                icon: <Clock className="w-6 h-6" />,
                             },
                         ].map((item, i) => (
                             <div

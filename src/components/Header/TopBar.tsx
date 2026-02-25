@@ -1,5 +1,7 @@
 "use client";
 
+import { Mail, Phone, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+
 export default function TopBar() {
     return (
         <div className="top-nav-bg text-sm">
@@ -8,14 +10,12 @@ export default function TopBar() {
                     {/* Left */}
                     <div className="flex flex-wrap items-center gap-4">
                         <a href="mailto:sales@itsk.in" className="flex items-center gap-2">
-                            <i className="fa-solid fa-envelope" aria-hidden="true" />
-                            <span className="sr-only">Email us:</span>
+                            <Mail size={16} />
                             <span>sales@itsk.in</span>
                         </a>
 
                         <a href="tel:+919344430402" className="flex items-center gap-2">
-                            <i className="fa-solid fa-phone" aria-hidden="true" />
-                            <span className="sr-only">Call us:</span>
+                            <Phone size={16} />
                             <span>+91 93444 30402</span>
                         </a>
                     </div>
@@ -25,33 +25,33 @@ export default function TopBar() {
                         <a
                             href="#"
                             aria-label="Visit our Facebook page"
-                            className="hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 rounded"
+                            className="hover:text-blue-400 transition rounded"
                         >
-                            <i className="fa-brands fa-facebook-f" aria-hidden="true" />
+                            <Facebook size={16} />
                         </a>
 
                         <a
                             href="#"
                             aria-label="Visit our Twitter profile"
-                            className="hover:text-sky-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 rounded"
+                            className="hover:text-sky-400 transition rounded"
                         >
-                            <i className="fa-brands fa-twitter" aria-hidden="true" />
+                            <Twitter size={16} />
                         </a>
 
                         <a
                             href="#"
                             aria-label="Visit our Instagram profile"
-                            className="hover:text-pink-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 rounded"
+                            className="hover:text-pink-400 transition rounded"
                         >
-                            <i className="fa-brands fa-instagram" aria-hidden="true" />
+                            <Instagram size={16} />
                         </a>
 
                         <a
                             href="#"
                             aria-label="Visit our LinkedIn page"
-                            className="hover:text-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 rounded"
+                            className="hover:text-blue-500 transition rounded"
                         >
-                            <i className="fa-brands fa-linkedin-in" aria-hidden="true" />
+                            <Linkedin size={16} />
                         </a>
                     </div>
                 </div>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { ChevronDown } from "lucide-react";
 
 export default function ClientSatisfactionAccordion() {
     const [activeIndex, setActiveIndex] = useState<number | null>(0);
@@ -57,48 +58,51 @@ export default function ClientSatisfactionAccordion() {
 
                 {/* Accordion */}
                 <div className="max-w-4xl mx-auto space-y-4">
-                    {items.map((item, index) => (
-                        <div
-                            key={index}
-                            className={`rounded-2xl border bg-white shadow-sm overflow-hidden transition-all duration-300 ${activeIndex === index
-                                ? "border-[#011146]"
-                                : "border-gray-200"
-                                }`}
-                        >
-                            {/* Title */}
-                            <button
-                                onClick={() => toggle(index)}
-                                className="w-full flex items-center justify-between px-6 py-5 text-left"
-                            >
-                                <div className="flex items-center gap-4">
-                                    <span className="w-10 h-10 flex items-center justify-center rounded-full bg-[#011146] text-white font-bold">
-                                        {index + 1}
-                                    </span>
+                    {items.map((item, index) => {
+                        const isOpen = activeIndex === index;
 
-                                    <h3 className="text-lg md:text-xl font-semibold text-gray-900">
-                                        {item.title}
-                                    </h3>
-                                </div>
-
-                                <span
-                                    className={`text-2xl font-bold text-[#011146] transition-transform duration-300 ${activeIndex === index ? "rotate-45" : ""
-                                        }`}
-                                >
-                                    +
-                                </span>
-                            </button>
-
-                            {/* Content */}
+                        return (
                             <div
-                                className={`px-6 overflow-hidden transition-all duration-500 ${activeIndex === index ? "max-h-40 pb-6" : "max-h-0"
+                                key={index}
+                                className={`rounded-2xl border bg-white shadow-sm overflow-hidden transition-all duration-300 ${isOpen ? "border-[#011146]" : "border-gray-200"
                                     }`}
                             >
-                                <p className="text-gray-600 text-lg leading-relaxed pl-14">
-                                    {item.desc}
-                                </p>
+                                {/* Title */}
+                                <button
+                                    onClick={() => toggle(index)}
+                                    aria-expanded={isOpen}
+                                    className="w-full flex items-center justify-between px-6 py-5 text-left"
+                                >
+                                    <div className="flex items-center gap-4">
+                                        <span className="w-10 h-10 flex items-center justify-center rounded-full bg-[#011146] text-white font-bold">
+                                            {index + 1}
+                                        </span>
+
+                                        <h3 className="text-lg md:text-xl font-semibold text-gray-900">
+                                            {item.title}
+                                        </h3>
+                                    </div>
+
+                                    {/* Icon */}
+                                    <ChevronDown
+                                        size={22}
+                                        className={`text-[#011146] transition-transform duration-300 ${isOpen ? "rotate-180" : "rotate-0"
+                                            }`}
+                                    />
+                                </button>
+
+                                {/* Content */}
+                                <div
+                                    className={`px-6 overflow-hidden transition-all duration-500 ${isOpen ? "max-h-40 pb-6" : "max-h-0"
+                                        }`}
+                                >
+                                    <p className="text-gray-600 text-lg leading-relaxed pl-14">
+                                        {item.desc}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
 
                 {/* CTA */}

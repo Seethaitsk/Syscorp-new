@@ -1,4 +1,16 @@
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
+import {
+    CheckCircle, LineChart,
+    DollarSign,
+    Wrench,
+    PieChart,
+    Link,
+    PenTool,
+    MapPin,
+    Megaphone,
+    ShieldCheck,
+    Check
+} from "lucide-react";
 import Image from "next/image";
 
 export const metadata = {
@@ -14,7 +26,7 @@ export default function OffPageSEOPage() {
             <section className="bg-[#011146] py-16 md:py-20 relative overflow-hidden">
                 <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-6">
-                        Off-Page SEO Services
+                        Off-Page SEO
                     </h1>
 
                     <div className="flex justify-center">
@@ -42,6 +54,15 @@ export default function OffPageSEOPage() {
                             <strong>Off-Page SEO company in Chennai</strong>, we follow ethical,
                             Google-approved strategies to deliver long-term SEO growth.
                         </p>
+                        <div className="mt-8 flex gap-4 flex-wrap">
+                            <button className="bg-[#00A3FF] text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-blue-600 transition">
+                                Get Free SEO Audit
+                            </button>
+
+                            <button className="border border-gray-300 px-6 py-3 rounded-full font-semibold text-gray-800 hover:bg-gray-100 transition">
+                                Contact Us
+                            </button>
+                        </div>
                     </div>
 
                     <div className="flex justify-center">
@@ -98,8 +119,8 @@ export default function OffPageSEOPage() {
                                         key={index}
                                         className="flex items-center gap-3"
                                     >
-                                        <i className="fas fa-check-circle text-[#00A3FF] text-lg"></i>
-                                        {/* <span className="text-base font-semibold text-gray-900">{item}</span> */}
+                                        <CheckCircle className="w-5 h-5 text-[#00A3FF] flex-shrink-0" />
+
                                         {item}
                                     </li>
                                 ))}
@@ -133,7 +154,7 @@ export default function OffPageSEOPage() {
                         {[
                             {
                                 title: "High-Quality Link Building",
-                                icon: "fa-link",
+                                icon: <Link size={24} strokeWidth={1.5} />,
                                 desc: "As an experienced Off-Page SEO company in Chennai, we build:",
                                 points: [
                                     "Authoritative backlinks",
@@ -143,7 +164,7 @@ export default function OffPageSEOPage() {
                             },
                             {
                                 title: "Guest Posting & Content Outreach",
-                                icon: "fa-pen-nib",
+                                icon: <PenTool size={24} strokeWidth={1.5} />,
                                 desc: "Our Off-Page SEO company in Chennai creates and places:",
                                 points: [
                                     "High-quality guest articles",
@@ -153,7 +174,7 @@ export default function OffPageSEOPage() {
                             },
                             {
                                 title: "Local SEO & Citations",
-                                icon: "fa-map-marker-alt",
+                                icon: <MapPin size={24} strokeWidth={1.5} />,
                                 desc: "We optimize local presence through:",
                                 points: [
                                     "Business listings",
@@ -163,7 +184,7 @@ export default function OffPageSEOPage() {
                             },
                             {
                                 title: "Brand Mentions & Online PR",
-                                icon: "fa-bullhorn",
+                                icon: <Megaphone size={24} strokeWidth={1.5} />,
                                 desc: "As a professional Off-Page SEO company in Chennai, we help improve:",
                                 points: [
                                     "Brand mentions",
@@ -173,7 +194,7 @@ export default function OffPageSEOPage() {
                             },
                             {
                                 title: "Backlink Audit & Cleanup",
-                                icon: "fa-shield-alt",
+                                icon: <ShieldCheck size={24} strokeWidth={1.5} />,
                                 desc: "We identify and remove:",
                                 points: [
                                     "Toxic backlinks",
@@ -187,8 +208,8 @@ export default function OffPageSEOPage() {
                                 className="group bg-gray-50 border border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                             >
                                 <div className="flex items-center gap-4 mb-6">
-                                    <div className="w-14 h-14 flex items-center justify-center rounded-full bg-[#011146] text-white text-2xl shadow-md">
-                                        <i className={`fas ${item.icon}`}></i>
+                                    <div className="w-14 h-14 flex items-center justify-center rounded-full bg-[#011146] text-white shadow-md">
+                                        {item.icon}
                                     </div>
 
                                     <h3 className="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-[#011146] transition">
@@ -203,7 +224,8 @@ export default function OffPageSEOPage() {
                                 <ul className="space-y-3 text-gray-700 text-lg">
                                     {item.points.map((point, i) => (
                                         <li key={i} className="flex items-start gap-3">
-                                            <i className="fas fa-check mt-1 text-[#00A3FF]"></i>
+                                            <Check className="mt-1" size={18} />
+
                                             <span>{point}</span>
                                         </li>
                                     ))}
@@ -213,7 +235,6 @@ export default function OffPageSEOPage() {
                     </div>
                 </div>
             </section>
-
 
             {/* IMPORTANCE + PROCESS SECTION */}
             <section className="py-20 bg-gray-50">
@@ -244,7 +265,8 @@ export default function OffPageSEOPage() {
                                     "Protects websites from penalties",
                                 ].map((item, index) => (
                                     <li key={index} className="flex items-center gap-4">
-                                        <i className="fas fa-check-circle text-[#00A3FF] text-lg"></i>
+                                        <CheckCircle className="w-5 h-5 text-[#00A3FF] flex-shrink-0" />
+
                                         <span className="text-lg text-gray-700 font-medium">
                                             {item}
                                         </span>
@@ -299,18 +321,18 @@ export default function OffPageSEOPage() {
 
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[
-                            { name: "Ahrefs", icon: "fa-chart-line" },
-                            { name: "SEMrush", icon: "fa-search-dollar" },
-                            { name: "Google Search Console", icon: "fa-tools" },
-                            { name: "Google Analytics (GA4)", icon: "fa-chart-pie" },
-                            { name: "Link Monitoring Tools", icon: "fa-link" },
+                            { name: "Ahrefs", icon: <LineChart size={22} strokeWidth={1.5} /> },
+                            { name: "SEMrush", icon: <DollarSign size={22} strokeWidth={1.5} /> },
+                            { name: "Google Search Console", icon: <Wrench size={22} strokeWidth={1.5} /> },
+                            { name: "Google Analytics (GA4)", icon: <PieChart size={22} strokeWidth={1.5} /> },
+                            { name: "Link Monitoring Tools", icon: <Link size={22} strokeWidth={1.5} /> },
                         ].map((tool, index) => (
                             <div
                                 key={index}
                                 className="bg-gray-50 border border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-lg transition flex items-center gap-4"
                             >
-                                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#011146] text-white text-xl shadow-md">
-                                    <i className={`fas ${tool.icon}`}></i>
+                                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#011146] text-white shadow-md">
+                                    {tool.icon}
                                 </div>
 
                                 <p className="text-lg text-gray-800 font-semibold m-0">
@@ -356,7 +378,8 @@ export default function OffPageSEOPage() {
                                 "Websites with low domain authority",
                             ].map((item, index) => (
                                 <div key={index} className="flex items-center gap-4">
-                                    <i className="fas fa-check text-[#00A3FF] text-lg"></i>
+                                    <CheckCircle className="w-5 h-5 text-[#00A3FF] flex-shrink-0" />
+
                                     <p className="text-lg text-gray-700 m-0">{item}</p>
                                 </div>
                             ))}

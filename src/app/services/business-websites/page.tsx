@@ -1,7 +1,10 @@
 // pages/business-websites.jsx
+"use client";
+
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import React from "react";
 import Image from "next/image";
+import { Laptop, Smartphone, Search, Target, Zap, CheckCircle } from "lucide-react";
 
 const BusinessWebsites = () => {
     const whyChooseUs = [
@@ -17,27 +20,27 @@ const BusinessWebsites = () => {
         {
             title: "Custom Business Website Design",
             desc: "We create tailor-made website designs that align your business objectives and brand identity.",
-            icon: "fas fa-laptop-code",
+            icon: <Laptop className="w-6 h-6" />,
         },
         {
             title: "Responsive Business Websites",
             desc: "As an experienced Business Websites Company in Chennai, ensure your website performs seamlessly on mobiles, tablets, and desktops.",
-            icon: "fas fa-mobile-alt",
+            icon: <Smartphone className="w-6 h-6" />,
         },
         {
             title: "SEO-Optimized Business Websites",
             desc: "Our websites follow SEO best practices to help your business rank higher in search engines.",
-            icon: "fas fa-search",
+            icon: <Search className="w-6 h-6" />,
         },
         {
             title: "Lead-Generation Focused Design",
             desc: "We design websites with clear CTAs, forms, and user flows that convert visitors into leads.",
-            icon: "fas fa-bullseye",
+            icon: <Target className="w-6 h-6" />,
         },
         {
             title: "Website Performance Optimization",
             desc: "We optimize speed, structure, and usability to deliver smooth user experiences.",
-            icon: "fas fa-bolt",
+            icon: <Zap className="w-6 h-6" />,
         },
     ];
 
@@ -52,7 +55,7 @@ const BusinessWebsites = () => {
 
                     {/* Breadcrumb wrapper */}
                     <div className="flex justify-center">
-                        <div className="inline-flex bg-white/10 backdrop-blur-md px-6 py-2 rounded-full border border-white/20">
+                        <div className="inline-flex bg-transparent border-0 p-0 text-center sm:bg-white/10 sm:backdrop-blur-md sm:px-6 sm:py-2 sm:rounded-full sm:border sm:border-white/20">
                             <Breadcrumbs />
                         </div>
                     </div>
@@ -81,7 +84,7 @@ const BusinessWebsites = () => {
 
                         <div className="flex justify-center md:justify-end">
                             <Image
-                                src="/images/services/ui-ux.jpg"
+                                src="/images/services/Bussiness-website-1.png"
                                 alt="Responsive UI UX Design Company in Chennai"
                                 width={500}
                                 height={400}
@@ -92,12 +95,11 @@ const BusinessWebsites = () => {
                     </div>
                 </div>
             </section>
-            {/* Why Choose Us Section */}
 
+            {/* Why Choose Us Section */}
             <section className="bg-gray-50 py-14">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
-                        {/* Left – Image */}
                         <div className="flex justify-center">
                             <Image
                                 src="/images/services/custom-web.png"
@@ -108,7 +110,6 @@ const BusinessWebsites = () => {
                             />
                         </div>
 
-                        {/* Right – Content */}
                         <div>
                             <h2 className="text-3xl font-bold mb-6">
                                 Why Choose Our Business Websites Company in Chennai?
@@ -119,13 +120,11 @@ const BusinessWebsites = () => {
                                 professionally and as a powerful marketing tool.
                             </p>
                             <div className="space-y-4">
-                                {whyChooseUs.map((whyChooseUs, index) => (
+                                {whyChooseUs.map((item, index) => (
                                     <div key={index} className="flex items-start gap-3 p-2">
-                                        <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#00A3FF] text-white text-xs font-semibold flex-shrink-0">
-                                            ✓
-                                        </span>
-                                        <p className="text-gray-600">{whyChooseUs}</p>
-                                        {/* <p className="text-gray-600">{whyChooseUs.desc}</p> */}
+                                        <CheckCircle className="w-5 h-5 text-[#00A3FF] flex-shrink-0" />
+
+                                        <p className="text-gray-600">{item}</p>
                                     </div>
                                 ))}
                             </div>
@@ -145,15 +144,10 @@ const BusinessWebsites = () => {
                                 key={index}
                                 className="p-8 bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
                             >
-                                {/* Icon */}
                                 <div className="w-12 h-12 flex items-center justify-center mx-auto rounded-full bg-[#00a3ff] mb-4 text-white text-xl">
-                                    <i className={`${service.icon} block leading-none`} />
+                                    {service.icon}
                                 </div>
-
-                                {/* Title */}
                                 <h3 className="text-xl font-semibold mb-3 text-center">{service.title}</h3>
-
-                                {/* Description */}
                                 <p className="text-gray-600 text-center">{service.desc}</p>
                             </div>
                         ))}
@@ -174,7 +168,7 @@ const BusinessWebsites = () => {
                                 "Service-Based Businesses",
                                 "Professional Consultants",
                             ].map((item, i) => (
-                                <div key={i} className="flex items-center gap-4 p-3 border rounded-lg bg-white">
+                                <div key={i} className="flex items-center gap-4 ">
                                     <span className="w-8 h-8 flex items-center justify-center rounded-full bg-[#1a5cdd] text-white text-sm font-semibold">
                                         {i + 1}
                                     </span>
@@ -188,7 +182,7 @@ const BusinessWebsites = () => {
                         </p>
                     </div>
 
-                    <div>
+                    <div className="">
                         <div className="flex justify-center md:justify-end">
                             <Image
                                 src="/images/services/Custom-Website.webp"
@@ -202,9 +196,11 @@ const BusinessWebsites = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Process Section */}
             <section className="py-16">
                 <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
-                    <div>
+                    <div className="">
                         <div className="flex justify-center md:justify-end">
                             <Image
                                 src="/images/services/Custom-Website.webp"
@@ -226,7 +222,7 @@ const BusinessWebsites = () => {
                                 "Website development & optimization",
                                 "Testing & final launch",
                             ].map((step, i) => (
-                                <div key={i} className="flex items-center gap-4 p-3 border rounded-lg bg-white">
+                                <div key={i} className="flex items-center gap-4">
                                     <span className="w-8 h-8 flex items-center justify-center rounded-full bg-[#1a5cdd] text-white text-sm font-semibold">
                                         {i + 1}
                                     </span>
@@ -240,6 +236,7 @@ const BusinessWebsites = () => {
                     </div>
                 </div>
             </section>
+
             {/* Why We’re Trusted Section */}
             <section className="bg-gray-50 py-20">
                 <div className="max-w-7xl mx-auto px-6 text-center">
@@ -256,35 +253,33 @@ const BusinessWebsites = () => {
                         {[
                             {
                                 title: "Experienced Designers & Developers",
-                                icon: "🎓",
+                                icon: <Laptop className="w-8 h-8 text-blue-600" />,
                             },
                             {
                                 title: "Business-Centric Design Strategy",
-                                icon: "📊",
+                                icon: <Target className="w-8 h-8 text-blue-600" />,
                             },
                             {
                                 title: "Affordable Pricing Packages",
-                                icon: "💰",
+                                icon: <Zap className="w-8 h-8 text-blue-600" />,
                             },
                             {
                                 title: "On-Time Project Delivery",
-                                icon: "⏱️",
+                                icon: <Zap className="w-8 h-8 text-blue-600" />,
                             },
                             {
                                 title: "Dedicated Support After Launch",
-                                icon: "🛠️",
+                                icon: <Zap className="w-8 h-8 text-blue-600" />,
                             },
                         ].map((item, i) => (
                             <div
                                 key={i}
                                 className="group p-6 border rounded-2xl bg-white hover:shadow-xl transition flex flex-col items-center text-center"
                             >
-                                {/* Icon */}
-                                <div className="w-14 h-14 flex items-center justify-center rounded-full bg-blue-50 text-blue-600 text-2xl mb-4 group-hover:bg-blue-100 group-hover:text-blue-700 transition">
+                                <div className="w-14 h-14 flex items-center justify-center rounded-full bg-blue-50 mb-4 group-hover:bg-blue-100 transition">
                                     {item.icon}
                                 </div>
 
-                                {/* Title */}
                                 <h3 className="font-semibold mb-2 text-gray-900 group-hover:text-blue-600 transition">
                                     {item.title}
                                 </h3>
@@ -304,7 +299,7 @@ const BusinessWebsites = () => {
                 </p>
                 <a
                     href="/contact"
-                    className="inline-block px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg shadow hover:bg-gray-100 hover:scale-105 transition-transform"
+                    className="inline-block px-8 py-4 bg-white text-[#00A3FF] font-semibold rounded-lg shadow hover:bg-gray-100 hover:scale-105 transition-transform"
                 >
                     Get Started
                 </a>

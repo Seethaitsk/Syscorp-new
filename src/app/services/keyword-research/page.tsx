@@ -1,4 +1,16 @@
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
+import {
+    CheckCircle, Key,
+    UserSearch,
+    Layers,
+    Network,
+    Check,
+    Chrome,
+    LineChart,
+    Search,
+    Wrench,
+    TrendingUp
+} from "lucide-react";
 import Image from "next/image";
 
 export const metadata = {
@@ -110,7 +122,9 @@ export default function KeywordResearchStrategy() {
                                         key={index}
                                         className="p-5 flex items-start gap-3"
                                     >
-                                        <i className="fas fa-check mt-1"></i>
+
+                                        <CheckCircle className="w-5 h-5 text-[#00A3FF] flex-shrink-0" />
+
                                         <span className="text-base font-semibold text-gray-900">{item}</span>
                                     </li>
                                 ))}
@@ -138,7 +152,7 @@ export default function KeywordResearchStrategy() {
                         {[
                             {
                                 title: "In-Depth Keyword Research",
-                                icon: "fa-key",
+                                icon: <Key size={28} />,
                                 points: [
                                     "High-volume keywords",
                                     "Low-competition opportunities",
@@ -148,7 +162,7 @@ export default function KeywordResearchStrategy() {
                             },
                             {
                                 title: "Competitor Keyword Analysis",
-                                icon: "fa-user-secret",
+                                icon: <UserSearch size={28} />,
                                 points: [
                                     "Competitor keyword gap analysis",
                                     "Identify ranking opportunities",
@@ -158,7 +172,7 @@ export default function KeywordResearchStrategy() {
                             },
                             {
                                 title: "Search Intent Mapping",
-                                icon: "fa-layer-group",
+                                icon: <Layers size={28} />,
                                 points: [
                                     "Informational intent keywords",
                                     "Commercial intent keywords",
@@ -168,7 +182,7 @@ export default function KeywordResearchStrategy() {
                             },
                             {
                                 title: "Keyword Mapping & SEO Planning",
-                                icon: "fa-sitemap",
+                                icon: <Network size={28} />,
                                 points: [
                                     "Service page keyword mapping",
                                     "Landing page keyword planning",
@@ -182,8 +196,8 @@ export default function KeywordResearchStrategy() {
                                 className="group bg-gray-50 border border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                             >
                                 <div className="flex items-center gap-4 mb-6">
-                                    <div className="w-14 h-14 flex items-center justify-center rounded-full bg-[#011146] text-white text-2xl shadow-md">
-                                        <i className={`fas ${item.icon}`}></i>
+                                    <div className="w-14 h-14 flex items-center justify-center rounded-full bg-[#011146] text-white shadow-md">
+                                        {item.icon}
                                     </div>
 
                                     <h3 className="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-[#011146] transition">
@@ -194,7 +208,7 @@ export default function KeywordResearchStrategy() {
                                 <ul className="space-y-3 text-gray-700 text-lg">
                                     {item.points.map((point, i) => (
                                         <li key={i} className="flex items-start gap-3">
-                                            <i className="fas fa-check mt-1"></i>
+                                            <Check className="mt-1" size={18} />
                                             <span>{point}</span>
                                         </li>
                                     ))}
@@ -245,7 +259,8 @@ export default function KeywordResearchStrategy() {
                                 "Supports content and SEO campaigns",
                             ].map((point, index) => (
                                 <li key={index} className="flex items-start gap-3">
-                                    <i className="fas fa-check-circle text-yellow-500 mt-1"></i>
+                                    <CheckCircle className="w-5 h-5 text-[#00A3FF] flex-shrink-0" />
+
                                     <span>{point}</span>
                                 </li>
                             ))}
@@ -325,21 +340,23 @@ export default function KeywordResearchStrategy() {
 
                     <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
                         {[
-                            { name: "Google Keyword Planner", icon: "fa-brands fa-google" },
-                            { name: "SEMrush", icon: "fa-chart-line" },
-                            { name: "Ahrefs", icon: "fa-search" },
-                            { name: "Google Search Console", icon: "fa-tools" },
-                            { name: "Google Trends", icon: "fa-chart-area" },
+                            { name: "Google Keyword Planner", icon: <Chrome size={22} /> },
+                            { name: "SEMrush", icon: <LineChart size={22} /> },
+                            { name: "Ahrefs", icon: <Search size={22} /> },
+                            { name: "Google Search Console", icon: <Wrench size={22} /> },
+                            { name: "Google Trends", icon: <TrendingUp size={22} /> },
                         ].map((tool, index) => (
                             <div
                                 key={index}
                                 className="bg-gray-50 border border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center gap-4"
                             >
-                                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#011146] text-white text-xl shadow-md">
-                                    <i className={`fas ${tool.icon}`}></i>
+                                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#011146] text-white shadow-md">
+                                    {tool.icon}
                                 </div>
 
-                                <h3 className="text-lg font-bold text-gray-900">{tool.name}</h3>
+                                <h3 className="text-lg font-bold text-gray-900">
+                                    {tool.name}
+                                </h3>
                             </div>
                         ))}
                     </div>
@@ -377,7 +394,8 @@ export default function KeywordResearchStrategy() {
                                     key={index}
                                     className="flex items-center gap-4"
                                 >
-                                    <i className="fas fa-check text-[#00A3FF] text-lg"></i>
+                                    <CheckCircle className="w-5 h-5 text-[#00A3FF] flex-shrink-0" />
+
                                     <p className="text-lg text-gray-700 leading-relaxed m-0">
                                         {item}
                                     </p>

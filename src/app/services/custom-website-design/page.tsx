@@ -1,6 +1,13 @@
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import Image from "next/image";
-
+import {
+    Users,
+    Briefcase,
+    Clock,
+    Headset,
+    CheckCircle,
+    Zap
+} from "lucide-react";
 export const metadata = {
     title: "Custom Website Design Company in Chennai | Professional Web Design",
     description:
@@ -16,11 +23,9 @@ export default function CustomWebsiteDesign() {
                     <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">Custom Website Design</h1>
 
                     <div
-                        className="
-        inline-flex
+                        className="inline-flex
         bg-transparent border-0 p-0 text-center
-        sm:bg-white/10 sm:backdrop-blur-md sm:px-6 sm:py-2 sm:rounded-full sm:border sm:border-white/20
-    "
+        sm:bg-white/10 sm:backdrop-blur-md sm:px-6 sm:py-2 sm:rounded-full sm:border sm:border-white/20"
                     >
                         <Breadcrumbs />
                     </div>
@@ -47,14 +52,7 @@ export default function CustomWebsiteDesign() {
 
                         {/* Right Image */}
                         <div className="flex justify-center md:justify-end">
-                            {/* <Image
-                                src="/images/services/custom-web.png"
-                                alt="Custom Website Design Company in Chennai"
-                                width={500}
-                                height={400}
-                                className="object-contain"
-                                priority={false}
-                            /> */}
+
                             <Image
                                 src="/images/services/Custom-Website.webp"
                                 alt="Custom Website Design"
@@ -67,28 +65,30 @@ export default function CustomWebsiteDesign() {
                     </div>
                 </div>
                 {/* Why Choose */}
-                <div className="bg-gray-50 py-14">
+                <section className="bg-gray-50 py-14">
                     <div className="max-w-7xl mx-auto px-6">
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
+                            {/* Left Image */}
                             <div className="hidden lg:flex justify-center">
                                 <Image
                                     src="/images/services/custom-web.png"
                                     alt="Custom Website Design Company in Chennai"
                                     width={500}
                                     height={400}
-                                    className="object-contain"
+                                    className="object-contain rounded-lg"
                                     priority
                                 />
                             </div>
-                            {/* Left Content */}
+
+                            {/* Right Content */}
                             <div>
                                 <h2 className="text-3xl font-bold mb-6">
                                     Why Choose Our Custom Website Design Company in Chennai?
                                 </h2>
-
                                 <p className="text-gray-600 max-w-xl mb-8">
-                                    We believe every business is unique, and your website should be too. That’s why we
-                                    avoid templates and deliver fully custom designs aligned with your business goals.
+                                    We believe every business is unique, and your website should be too.
+                                    That’s why we avoid templates and deliver fully custom designs aligned
+                                    with your business goals.
                                 </p>
 
                                 <div className="grid sm:grid-cols-2 gap-5">
@@ -104,19 +104,15 @@ export default function CustomWebsiteDesign() {
                                             key={i}
                                             className="flex items-start gap-3 bg-white p-4 border rounded-xl hover:shadow-md transition"
                                         >
-                                            <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#00A3FF] text-white text-xs font-semibold">
-                                                ✓
-                                            </span>
+                                            <CheckCircle className="w-6 h-6 text-[#00A3FF] mt-1" />
                                             <p className="text-sm font-medium text-gray-800">{item}</p>
                                         </div>
                                     ))}
                                 </div>
                             </div>
-
-                            {/* Right Image */}
                         </div>
                     </div>
-                </div>
+                </section>
 
                 {/* Services */}
                 <div className="py-14">
@@ -256,27 +252,27 @@ export default function CustomWebsiteDesign() {
                                 {
                                     title: "Experienced Team",
                                     desc: "Skilled designers & developers with proven expertise.",
-                                    icon: "fa-users",
+                                    icon: <Users />,
                                 },
                                 {
                                     title: "Business-Focused Strategy",
                                     desc: "Web designs aligned with your business objectives.",
-                                    icon: "fa-briefcase",
+                                    icon: <Briefcase />,
                                 },
                                 {
                                     title: "Affordable Pricing",
                                     desc: "High-quality solutions at cost-effective packages.",
-                                    icon: "fa-indian-rupee-sign",
+                                    icon: <Zap />,
                                 },
                                 {
                                     title: "On-Time Delivery",
                                     desc: "We deliver projects within committed timelines.",
-                                    icon: "fa-clock",
+                                    icon: <Clock />,
                                 },
                                 {
                                     title: "Dedicated Support",
                                     desc: "Ongoing support even after website launch.",
-                                    icon: "fa-headset",
+                                    icon: <Headset />,
                                 },
                             ].map((item, i) => (
                                 <div
@@ -285,7 +281,7 @@ export default function CustomWebsiteDesign() {
                                 >
                                     {/* Icon */}
                                     <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#00a3ff] text-white text-lg mb-4">
-                                        <i className={`fas ${item.icon}`} />
+                                        {item.icon}
                                     </div>
 
                                     <h3 className="font-semibold mb-2 text-gray-900">{item.title}</h3>

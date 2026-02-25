@@ -1,4 +1,11 @@
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
+import {
+    CheckCircle, Users,
+    ShieldCheck,
+    IndianRupee,
+    Zap,
+    LifeBuoy
+} from "lucide-react";
 import Image from "next/image";
 
 export const metadata = {
@@ -85,9 +92,8 @@ export default function WebsiteMaintenanceSupport() {
                                 "Ongoing monitoring & reporting",
                             ].map((item, i) => (
                                 <div key={i} className="flex items-start gap-3">
-                                    <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#00A3FF] text-white text-xs font-semibold">
-                                        ✓
-                                    </span>
+                                    <CheckCircle className="w-5 h-5 text-[#00A3FF] flex-shrink-0" />
+
                                     <p className="text-sm font-medium text-gray-800">{item}</p>
                                 </div>
                             ))}
@@ -262,9 +268,8 @@ export default function WebsiteMaintenanceSupport() {
                                 key={i}
                                 className="flex items-center gap-4 p-3 border rounded-lg bg-white mb-3"
                             >
-                                <span className="w-8 h-8 flex items-center justify-center rounded-full bg-[#1a5cdd] text-white text-sm font-semibold">
-                                    ✓
-                                </span>
+                                <CheckCircle className="w-5 h-5 text-[#00A3FF] flex-shrink-0" />
+
                                 <p className="text-sm font-medium text-gray-800">{item}</p>
                             </div>
                         ))}
@@ -285,33 +290,47 @@ export default function WebsiteMaintenanceSupport() {
             </section>
 
             {/* TRUST */}
-            <section className="bg-gray-50 py-20">
+            <section className="bg-gray-50 py-24">
                 <div className="max-w-7xl mx-auto px-6 text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">
+
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6 max-w-4xl mx-auto leading-tight">
                         Why Choose Us for Website Maintenance & Support in Chennai?
                     </h2>
 
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-12">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 mt-16">
                         {[
-                            { title: "Experienced Support Team", icon: "👨‍💻" },
-                            { title: "Secure Website Monitoring", icon: "🔒" },
-                            { title: "Affordable Support Plans", icon: "💰" },
-                            { title: "Fast Issue Resolution", icon: "⚡" },
-                            { title: "Reliable Long-Term Support", icon: "🤝" },
-                        ].map((item, i) => (
-                            <div
-                                key={i}
-                                className="p-8 bg-white border rounded-2xl hover:shadow-xl transition"
-                            >
-                                <div className="w-14 h-14 mx-auto mb-5 flex items-center justify-center rounded-full bg-blue-50 text-2xl">
-                                    {item.icon}
+                            { title: "Experienced Support Team", icon: Users },
+                            { title: "Secure Website Monitoring", icon: ShieldCheck },
+                            { title: "Affordable Support Plans", icon: IndianRupee },
+                            { title: "Fast Issue Resolution", icon: Zap },
+                            { title: "Reliable Long-Term Support", icon: LifeBuoy },
+                        ].map((item, i) => {
+                            const Icon = item.icon;
+
+                            return (
+                                <div
+                                    key={i}
+                                    className="group p-8 bg-white border border-gray-100 rounded-2xl 
+                                   shadow-sm hover:shadow-xl hover:-translate-y-2 
+                                   transition-all duration-300"
+                                >
+                                    <div className="w-14 h-14 mx-auto mb-6 flex items-center justify-center 
+                                        rounded-full bg-blue-50 
+                                        group-hover:bg-blue-100 transition">
+                                        <Icon
+                                            size={26}
+                                            className="text-[#1a5cdd] group-hover:scale-110 transition-transform duration-300"
+                                        />
+                                    </div>
+
+                                    <p className="font-semibold text-gray-800 text-sm md:text-base leading-snug">
+                                        {item.title}
+                                    </p>
                                 </div>
-                                <p className="font-semibold text-gray-800 text-sm">
-                                    {item.title}
-                                </p>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
+
                 </div>
             </section>
 

@@ -1,4 +1,5 @@
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
+import { Check, CheckCircle } from "lucide-react";
 import Image from "next/image";
 
 export const metadata = {
@@ -52,7 +53,7 @@ export default function BrandFocusedMarketingStrategyPage() {
                     {/* RIGHT IMAGE */}
                     <div className="flex justify-center">
                         <Image
-                            src="/images/services/Brand-foucs.png"
+                            src="/images/services/Brand-foucs.webp"
                             alt="On Page SEO Service"
                             width={500}
                             height={400}
@@ -78,7 +79,7 @@ export default function BrandFocusedMarketingStrategyPage() {
                         {/* LEFT IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/technical-seo.webp"
+                                src="/images/services/Brand-foucs-4.webp"
                                 alt="On Page SEO Service"
                                 width={500}
                                 height={400}
@@ -96,7 +97,7 @@ export default function BrandFocusedMarketingStrategyPage() {
                                 "Long-term brand growth focus",
                             ].map((item, index) => (
                                 <div key={index} className="flex items-center gap-4">
-                                    <i className="fas fa-check-circle text-[#00A3FF] text-xl"></i>
+                                    <CheckCircle className="w-5 h-5 text-[#00A3FF] flex-shrink-0" />
                                     <p className="text-lg text-gray-700 leading-relaxed m-0">
                                         {item}
                                     </p>
@@ -177,7 +178,7 @@ export default function BrandFocusedMarketingStrategyPage() {
                                 <ul className="space-y-3">
                                     {service.points.map((point, i) => (
                                         <li key={i} className="flex items-start gap-3">
-                                            <i className="fas fa-check text-[#00A3FF] mt-1"></i>
+                                            <Check className="mt-1" size={18} />
                                             <span className="text-gray-700 text-lg">{point}</span>
                                         </li>
                                     ))}
@@ -191,7 +192,7 @@ export default function BrandFocusedMarketingStrategyPage() {
             {/* IMPORTANCE SECTION */}
             <section className="py-20 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-6">
-                    <div className="text-center max-w-4xl mx-auto mb-14">
+                    <div className="text-center max-w-4xl mx-auto mb-8">
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
                             Importance of a Brand-Focused Marketing Strategy
                         </h2>
@@ -215,7 +216,7 @@ export default function BrandFocusedMarketingStrategyPage() {
                                     "Supports long-term growth",
                                 ].map((item, index) => (
                                     <li key={index} className="flex items-center gap-4">
-                                        <i className="fas fa-check-circle text-[#00A3FF] text-xl"></i>
+                                        <CheckCircle className="w-5 h-5 text-[#00A3FF] flex-shrink-0" />
                                         <span className="text-lg text-gray-700 font-medium">
                                             {item}
                                         </span>
@@ -227,7 +228,7 @@ export default function BrandFocusedMarketingStrategyPage() {
                         {/* RIGHT SIDE IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/technical-seo.webp"
+                                src="/images/services/Brand-foucs-5.webp"
                                 alt="Local SEO Importance"
                                 width={500}
                                 height={400}
