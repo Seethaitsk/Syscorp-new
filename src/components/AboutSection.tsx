@@ -82,7 +82,7 @@ export default function AboutSection() {
                         About Us
                     </span>
                     {/* Section Heading */}
-                    <h2 id="about-heading" className="heading font-black leading-[1.1] text-gray-900">
+                    <h2 id="about-heading" className="heading-1 font-extrabold text-[#0D3B31] leading-tight">
                         Best Software Company in Chennai – Syscorp
                     </h2>
 
