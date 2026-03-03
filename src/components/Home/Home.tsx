@@ -1,5 +1,5 @@
 "use client"; // Make this file a Client Component if it uses any hooks
-// Optional: you can make only HeroSlider/TestimonialSlider client components instead
+// Optional: you can make only HeroSlider/TestimonialSlider client components insteads
 
 import React from "react";
 
