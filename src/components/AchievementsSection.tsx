@@ -1,154 +1,182 @@
 "use client";
-import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 
 const stats = [
-  { number: 150, suffix: "+", label: "Expert Team Members", img: "/images/icons/3.svg", color: "#1A5CDD" },
-  { number: 1000, suffix: "+", label: "Projects Delivered", img: "/images/icons/4.svg", color: "#0D8A6A" },
-  { number: 100, suffix: "+", label: "Awards & Recognitions", img: "/images/icons/5.svg", color: "#7C3AED" },
-  { number: 10, suffix: "+", label: "Years of Excellence", img: "/images/icons/3.svg", color: "#EA580C" },
+  { value: "500+", label: "Projects Delivered", desc: "Enterprise grade solutions" },
+  { value: "99.9%", label: "Uptime SLA", desc: "Reliable cloud infrastructure" },
+  { value: "50M+", label: "Active Users", desc: "Engaging digital products" },
+  { value: "15+", label: "Years Experience", desc: "Expert engineers & designers" }
 ];
 
-function useCountUp(target: number, active: boolean, duration = 1800) {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    if (!active) return;
-    let start = 0;
-    const step = target / (duration / 16);
-    const timer = setInterval(() => {
-      start += step;
-      if (start >= target) { setCount(target); clearInterval(timer); }
-      else setCount(Math.floor(start));
-    }, 16);
-    return () => clearInterval(timer);
-  }, [active, target, duration]);
-  return count;
-}
-
-function StatCard({ stat, active, idx }: { stat: typeof stats[0]; active: boolean; idx: number }) {
-  const count = useCountUp(stat.number, active);
-  return (
-    <div
-      className="group relative p-10 rounded-3xl border border-white/8 overflow-hidden transition-all duration-500 hover:-translate-y-2"
-      style={{
-        background: "rgba(255,255,255,0.03)",
-        backdropFilter: "blur(12px)",
-        boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)",
-        animationDelay: `${idx * 0.12}s`,
-      }}
-    >
-      {/* Hover glow */}
-      <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl"
-        style={{ background: `radial-gradient(circle at 50% 50%, ${stat.color}18 0%, transparent 70%)` }}
-      />
-
-      {/* Animated border gradient on hover */}
-      <div
-        className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-        style={{
-          background: `linear-gradient(135deg, ${stat.color}25, transparent 50%, ${stat.color}15)`,
-          mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-          maskComposite: "exclude",
-          padding: "1px",
-        }}
-      />
-
-      {/* Icon */}
-      <div
-        className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 transition-all duration-300 group-hover:scale-110"
-        style={{ background: `${stat.color}20`, border: `1px solid ${stat.color}35` }}
-      >
-        <Image src={stat.img} alt="" width={28} height={28} className="object-contain" />
-      </div>
-
-      {/* Animated number */}
-      <p
-        className="text-6xl font-extrabold leading-none mb-3"
-        style={{
-          background: `linear-gradient(135deg, #fff 0%, ${stat.color} 100%)`,
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-        }}
-      >
-        {count.toLocaleString()}{stat.suffix}
-      </p>
-
-      <p className="text-xs font-bold uppercase tracking-widest text-gray-500">{stat.label}</p>
-
-      {/* Bottom accent bar */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-        style={{ background: `linear-gradient(to right, transparent, ${stat.color}, transparent)` }}
-      />
-    </div>
-  );
-}
-
 export default function AchievementsSection() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setActive(true); },
-      { threshold: 0.05 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   return (
     <section
-      ref={ref}
-      aria-labelledby="achievements-heading"
-      className="relative overflow-hidden py-32 px-6 md:px-12 lg:px-24"
-      style={{ background: "linear-gradient(160deg, #050C1F 0%, #0D1730 60%, #111827 100%)" }}
+      aria-labelledby="video-heading"
+      className="relative min-h-[640px] overflow-hidden flex flex-col justify-between py-16 md:py-24 bg-slate-950"
     >
-      {/* Grid background */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        aria-hidden="true"
-        style={{
-          backgroundImage: "linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
-        }}
-      />
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] pointer-events-none"
-        aria-hidden="true"
-        style={{ background: "radial-gradient(ellipse at top, rgba(26,92,221,0.18) 0%, transparent 70%)" }}
-      />
+      <style>{`
+        .sky-vid-bg {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          z-index: 1;
+        }
+        .sky-vid-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to bottom, rgba(1, 9, 37, 0.35) 0%, #010925 100%);
+          z-index: 2;
+        }
+        .sky-play-badge {
+          width: 130px; height: 130px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          flex-shrink: 0;
+          cursor: pointer;
+        }
+        @keyframes skySpinText {
+          from { transform: rotate(0deg); }
+          to   { transform: rotate(360deg); }
+        }
+        .sky-play-text-ring {
+          animation: skySpinText 12s linear infinite;
+        }
+        .sky-play-center {
+          position: absolute;
+          width: 52px; height: 52px;
+          border-radius: 50%;
+          background: #1A5CDD;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 8px 24px rgba(26,92,221,0.45);
+          transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+          color: #ffffff;
+        }
+        .sky-play-center::before {
+          content: '';
+          position: absolute;
+          inset: -6px;
+          border-radius: 50%;
+          border: 1px solid rgba(26, 92, 221, 0.4);
+          animation: skyPlayPulse 2s infinite;
+        }
+        @keyframes skyPlayPulse {
+          0% { transform: scale(1); opacity: 1; }
+          100% { transform: scale(1.3); opacity: 0; }
+        }
+        .sky-play-badge:hover .sky-play-center {
+          transform: scale(1.1);
+          background: #ffffff;
+          color: #1A5CDD;
+          box-shadow: 0 12px 32px rgba(255,255,255,0.4);
+        }
+        .sky-glass-stat {
+          background: rgba(1, 17, 70, 0.45);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          border: 1px solid rgba(26, 92, 221, 0.15);
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .sky-glass-stat:hover {
+          background: rgba(1, 17, 70, 0.65);
+          border-color: rgba(96, 165, 250, 0.4);
+          transform: translateY(-4px);
+          box-shadow: 0 12px 30px rgba(26, 92, 221, 0.2);
+        }
+      `}</style>
 
-      <div className="relative z-10 mx-auto max-w-7xl">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.15em] text-[#4A9EFF] mb-6 backdrop-blur-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#4A9EFF]" />
-            Our Achievements
-          </span>
-          <h2
-            id="achievements-heading"
-            className="font-extrabold text-white leading-[1.1] tracking-tight"
-            style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}
-          >
-            Numbers that speak{" "}
-            <span style={{ background: "linear-gradient(90deg, #4A9EFF, #1A5CDD)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-              for themselves
+      {/* Background image simulating video screenshot */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1800&h=800"
+        alt="Syscorp video background"
+        className="sky-vid-bg"
+      />
+      <div className="sky-vid-overlay" />
+
+      <div className="relative z-10 w-full max-w-[1240px] mx-auto px-6 md:px-14 flex-1 flex flex-col justify-between gap-12">
+        {/* TOP ROW: Title & Play Button */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mt-4">
+          <div className="sky-about-badge-anim flex flex-col gap-[18px] max-w-xl">
+            <span className="inline-flex items-center gap-2 bg-[#1A5CDD]/10 border border-[#1A5CDD]/20 dark:bg-blue-500/10 dark:border-blue-500/20 rounded-full px-3.5 py-1 text-xs font-bold text-[#1A5CDD] dark:text-blue-400 w-fit uppercase tracking-wider">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#1A5CDD] dark:bg-blue-400 inline-block animate-pulse" />
+              Watch Video
             </span>
-          </h2>
-          <p className="mt-4 text-gray-400 text-lg max-w-xl mx-auto">
-            Best Software Company in Chennai — proven by results, trusted by clients worldwide.
-          </p>
+            <h2 id="video-heading" className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight m-0 font-sans tracking-tight">
+              Watch How We Build <span className="text-[#60A5FA] dark:text-[#60A5FA]">Future-Ready Software</span>
+            </h2>
+          </div>
+
+          {/* Rotating Play Badge */}
+          <div className="sky-play-badge" onClick={() => setIsPlaying(true)}>
+            {/* SVG text ring */}
+            <svg className="sky-play-text-ring" width="130" height="130" viewBox="0 0 100 100">
+              <defs>
+                <path id="play-circle" d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />
+              </defs>
+              <text style={{ fontSize: "9px", fontWeight: 700, fill: "#fff", letterSpacing: "3.5px" }}>
+                <textPath href="#play-circle">WATCH VIDEO * WATCH VIDEO *</textPath>
+              </text>
+            </svg>
+
+            {/* Central play button icon */}
+            <div className="sky-play-center">
+              <svg style={{ width: "20px", height: "20px" }} fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+          </div>
         </div>
 
-        {/* Bento stat cards — 4 cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* BOTTOM ROW: Glassmorphic Stats Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 w-full mb-4">
           {stats.map((stat, i) => (
-            <StatCard key={i} stat={stat} active={active} idx={i} />
+            <div key={i} className="sky-glass-stat p-6 rounded-2xl">
+              <span className="text-3xl md:text-4xl font-extrabold text-[#60A5FA] tracking-tight block mb-1 font-sans">
+                {stat.value}
+              </span>
+              <span className="text-sm font-bold text-white block mb-1 font-sans">
+                {stat.label}
+              </span>
+              <span className="text-xs text-slate-400 block font-sans">
+                {stat.desc}
+              </span>
+            </div>
           ))}
         </div>
       </div>
+
+      {/* Video Modal Overlay */}
+      {isPlaying && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-md p-4 transition-all duration-300">
+          <div className="relative w-full max-w-4xl aspect-video bg-slate-950 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+            <button
+              onClick={() => setIsPlaying(false)}
+              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 border border-white/10 text-white flex items-center justify-center transition-all duration-200 cursor-pointer hover:scale-105"
+              aria-label="Close video"
+            >
+              ✕
+            </button>
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+              title="Syscorp Corporate Video"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 }

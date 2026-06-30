@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import {useState} from "react";
-import {usePathname} from "next/navigation";
+import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Button from "@/components/ui/Button";
 
 export default function Navbar() {
@@ -15,23 +15,23 @@ export default function Navbar() {
     /* ================= SERVICES DATA ================= */
 
     const seoServices = [
-        {name: "Enterprise SEO", href: "/enterprise-seo", icon: "fa-building"},
-        {name: "Local SEO", href: "/local-seo", icon: "fa-location-dot"},
-        {name: "Global SEO", href: "/global-seo", icon: "fa-globe"},
-        {name: "E-commerce SEO", href: "/ecommerce-seo", icon: "fa-cart-shopping"},
-        {name: "YouTube SEO", href: "/youtube-seo", icon: "fa-play"},
-        {name: "Google Business", href: "/google-my-bussiness", icon: "fa-map"},
-        {name: "Content Writing", href: "/content-writting", icon: "fa-pen-nib"},
-        {name: "SEO Reseller", href: "/seo-reseller", icon: "fa-handshake"},
+        { name: "Enterprise SEO", href: "/enterprise-seo", icon: "fa-building" },
+        { name: "Local SEO", href: "/local-seo", icon: "fa-location-dot" },
+        { name: "Global SEO", href: "/global-seo", icon: "fa-globe" },
+        { name: "E-commerce SEO", href: "/ecommerce-seo", icon: "fa-cart-shopping" },
+        { name: "YouTube SEO", href: "/youtube-seo", icon: "fa-play" },
+        { name: "Google Business", href: "/google-my-bussiness", icon: "fa-map" },
+        { name: "Content Writing", href: "/content-writting", icon: "fa-pen-nib" },
+        { name: "SEO Reseller", href: "/seo-reseller", icon: "fa-handshake" },
     ];
 
     const generalServices = [
-        {name: "Web Development", href: "/best-website-development-company-in-chennai", icon: "fa-code"},
-        {name: "Web Maintenance", href: "/website-maintenance", icon: "fa-screwdriver-wrench"},
-        {name: "SEO Optimization", href: "/seo-service", icon: "fa-arrow-trend-up"},
-        {name: "Search Marketing", href: "/search-engine-marketing", icon: "fa-magnifying-glass-chart"},
-        {name: "Social Media", href: "/socialmedia-marketing", icon: "fa-share-nodes"},
-        {name: "Logo Design", href: "/logo-design-service", icon: "fa-palette"},
+        { name: "Web Development", href: "/best-website-development-company-in-chennai", icon: "fa-code" },
+        { name: "Web Maintenance", href: "/website-maintenance", icon: "fa-screwdriver-wrench" },
+        { name: "SEO Optimization", href: "/seo-service", icon: "fa-arrow-trend-up" },
+        { name: "Search Marketing", href: "/search-engine-marketing", icon: "fa-magnifying-glass-chart" },
+        { name: "Social Media", href: "/socialmedia-marketing", icon: "fa-share-nodes" },
+        { name: "Logo Design", href: "/logo-design-service", icon: "fa-palette" },
     ];
 
     return (
@@ -40,7 +40,7 @@ export default function Navbar() {
                 <div className="flex items-center justify-between h-20">
                     {/* LOGO */}
                     <Link href="/">
-                        <img src="/images/logo/logo.webp" alt="Logo" className="h-10" />
+                        <img src="/images/logo/logo.svg" alt="Logo" className="h-10" />
                     </Link>
 
                     {/* ================= DESKTOP MENU ================= */}
@@ -148,20 +148,18 @@ export default function Navbar() {
             {/* ================= MOBILE OVERLAY ================= */}
             <div
                 onClick={() => setOpen(false)}
-                className={`fixed inset-0 bg-black/60 z-[60] transition-opacity ${
-                    open ? "opacity-100" : "opacity-0 pointer-events-none"
-                }`}
+                className={`fixed inset-0 bg-black/60 z-[60] transition-opacity ${open ? "opacity-100" : "opacity-0 pointer-events-none"
+                    }`}
             />
 
             {/* ================= MOBILE SIDEBAR ================= */}
             <div
-                className={`fixed top-0 right-0 h-screen w-[300px] bg-white z-[70] transform transition-transform duration-300 ${
-                    open ? "translate-x-0" : "translate-x-full"
-                }`}
+                className={`fixed top-0 right-0 h-screen w-[300px] bg-white z-[70] transform transition-transform duration-300 ${open ? "translate-x-0" : "translate-x-full"
+                    }`}
             >
                 {/* Header */}
                 <div className="flex items-center justify-between p-6">
-                    <img src="/images/logo/logo.webp" className="h-8" />
+                    <img src="/images/logo/logo.svg" className="h-8" />
                     <button onClick={() => setOpen(false)}>✕</button>
                 </div>
 
@@ -187,16 +185,14 @@ export default function Navbar() {
                             >
                                 Services
                                 <i
-                                    className={`fas fa-chevron-down text-xs transition-transform ${
-                                        mobileServicesOpen ? "rotate-180" : ""
-                                    }`}
+                                    className={`fas fa-chevron-down text-xs transition-transform ${mobileServicesOpen ? "rotate-180" : ""
+                                        }`}
                                 />
                             </button>
 
                             <div
-                                className={`transition-all duration-300 overflow-hidden ${
-                                    mobileServicesOpen ? "max-h-[2000px] mt-4" : "max-h-0"
-                                }`}
+                                className={`transition-all duration-300 overflow-hidden ${mobileServicesOpen ? "max-h-[2000px] mt-4" : "max-h-0"
+                                    }`}
                             >
                                 <ul className="pl-4 space-y-3 text-sm text-gray-600">
                                     <li className="font-bold text-blue-600 flex items-center gap-2">

@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
+import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import "./globals.css";
 
 const inter = Inter({
@@ -10,8 +11,9 @@ const inter = Inter({
 });
 
 export const metadata = {
-    title: "My Website",
-    description: "Best Website Development Company",
+    title: "Best Software Company in Chennai | Syscorp",
+    description:
+        "Choose the best software company in Chennai – Syscorp delivers custom software development, web solutions, and digital transformation services for businesses of all sizes.",
 };
 
 export default function RootLayout({
@@ -22,6 +24,8 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${inter.variable} antialiased`}>
+                {/* Smooth inertia mouse-wheel scroll — zero dependencies */}
+                <SmoothScrollProvider />
                 <Header />
                 <main id="main-content">{children}</main>
                 <Footer />

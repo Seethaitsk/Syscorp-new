@@ -78,7 +78,7 @@ export default function Navbar() {
                 <div className="flex items-center justify-between h-20">
                     {/* LOGO */}
                     <Link href="/">
-                        <img src="/images/logo/logo.webp" alt="Logo" className="h-10" />
+                        <img src="/images/logo/logo.svg" alt="Logo" className="h-10" />
                     </Link>
 
                     {/* DESKTOP MENU */}
@@ -288,7 +288,7 @@ export default function Navbar() {
                     }`}
             >
                 <div className="flex items-center justify-between p-6">
-                    <img src="/images/logo/logo.webp" className="h-8" alt="Logo" />
+                    <img src="/images/logo/logo.svg" className="h-8" alt="Logo" />
                     <button onClick={() => setOpen(false)} aria-label="Close menu" className="p-2 rounded-full hover:bg-gray-100 transition">
                         <i className="fa-solid fa-xmark text-xl"></i>
                     </button>
