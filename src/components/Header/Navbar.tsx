@@ -7,11 +7,12 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Solutions", href: "/services", hasDropdown: true },
-  { label: "Pricing", href: "/about" },
-  { label: "Testimonial", href: "/#testimonial-heading" },
-  { label: "News", href: "/blog" },
+  { label: "START", href: "/" },
+  { label: "IDENTITY", href: "/about" },
+  { label: "EXPERTISE", href: "/services", hasDropdown: true },
+  { label: "CAREERS", href: "/career" },
+  { label: "JOURNAL", href: "/blog" },
+  { label: "CONNECT", href: "/contact" },
 ];
 
 const megaMenuData = [
@@ -310,9 +311,10 @@ export default function Navbar() {
           padding: 16px 24px;
         }
         .sky-nav-link {
-          font-size: 14.5px;
-          font-weight: 600;
+          font-size: 13px;
+          font-weight: 800;
           color: #374151;
+          letter-spacing: 0.03em;
           text-decoration: none;
           padding: 6px 2px;
           position: relative;
@@ -321,6 +323,10 @@ export default function Navbar() {
           align-items: center;
           gap: 4px;
           white-space: nowrap;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .dark .sky-nav-link {
+          color: #D1D5DB;
         }
         .sky-nav-link::after {
           content: '';
@@ -333,8 +339,14 @@ export default function Navbar() {
           transition: width 0.25s ease;
           border-radius: 2px;
         }
+        .dark .sky-nav-link::after {
+          background: #60A5FA;
+        }
         .sky-nav-link:hover, .sky-nav-link.active {
           color: #1A5CDD;
+        }
+        .dark .sky-nav-link:hover, .dark .sky-nav-link.active {
+          color: #60A5FA;
         }
         .sky-nav-link:hover::after, .sky-nav-link.active::after {
           width: 100%;
@@ -411,7 +423,9 @@ export default function Navbar() {
         .sky-mobile-menu {
           position: fixed;
           top: 0; left: 0; right: 0; bottom: 0;
-          background: #fff;
+          background: rgba(255, 255, 255, 0.96);
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
           z-index: 999;
           display: flex;
           flex-direction: column;
@@ -419,19 +433,31 @@ export default function Navbar() {
           gap: 4px;
           overflow-y: auto;
         }
+        .dark .sky-mobile-menu {
+          background: rgba(11, 15, 25, 0.97);
+        }
         .sky-mobile-link {
           display: block;
-          font-size: 16px;
-          font-weight: 700;
+          font-size: 18px;
+          font-weight: 800;
           color: #0B132A;
           text-decoration: none;
-          padding: 14px 16px;
+          padding: 12px 16px;
           border-radius: 12px;
           transition: all 0.25s ease;
+          letter-spacing: 0.02em;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .dark .sky-mobile-link {
+          color: #FFFFFF;
         }
         .sky-mobile-link:hover, .sky-mobile-link.active {
           background: rgba(26,92,221,0.08);
           color: #1A5CDD;
+        }
+        .dark .sky-mobile-link:hover, .dark .sky-mobile-link.active {
+          background: rgba(59,130,246,0.15);
+          color: #60A5FA;
         }
         .sky-ham {
           display: none;
@@ -498,7 +524,7 @@ export default function Navbar() {
                   </span>
 
                   {/* Mega Menu using strictly Tailwind utility classes with invisible hover bridge */}
-                  <div className={`absolute top-[calc(100%+8px)] left-6 right-6 bg-white dark:bg-[#0b0f19] rounded-[24px] shadow-[0_20px_50px_rgba(0,0,0,0.08),0_6px_20px_rgba(26,92,221,0.03)] border border-black/5 dark:border-white/5 p-9 z-[1000] grid grid-cols-3 gap-8 box-sizing-border-box transition-all duration-300 ease-out transform before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-4 ${serviceOpen
+                  <div className={`absolute top-[calc(100%+8px)] left-6 right-6 bg-white dark:bg-[#0b0f19] rounded-[24px] shadow-[0_20px_50px_rgba(0,0,0,0.08),0_6px_20px_rgba(26,92,221,0.03)] border border-black/5 dark:border-white/5 p-9 z-[1000] grid grid-cols-2 xl:grid-cols-4 gap-6 xl:gap-8 max-h-[calc(100vh-120px)] overflow-y-auto box-sizing-border-box transition-all duration-300 ease-out transform before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-4 ${serviceOpen
                       ? "opacity-100 visible translate-y-0 pointer-events-auto"
                       : "opacity-0 invisible translate-y-3 pointer-events-none"
                     }`}>
@@ -509,7 +535,7 @@ export default function Navbar() {
                         </h4>
                         <div className="flex flex-col gap-1">
                           {category.items.map((item) => (
-                            <Link key={item.href} href={item.href} className="group flex items-center gap-3.5 p-2.5 rounded-2xl transition-all duration-300 hover:bg-[#1A5CDD]/5 dark:hover:bg-[#3B82F6]/10 no-underline">
+                            <Link key={item.href} href="#" onClick={(e) => e.preventDefault()} className="group flex items-center gap-3.5 p-2.5 rounded-2xl transition-all duration-300 hover:bg-[#1A5CDD]/5 dark:hover:bg-[#3B82F6]/10 no-underline cursor-default">
                               <div className="w-9 h-9 rounded-xl bg-[#1A5CDD]/5 dark:bg-[#3B82F6]/10 text-[#1A5CDD] dark:text-[#60A5FA] flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-[#1A5CDD] dark:group-hover:bg-[#3B82F6] group-hover:text-white group-hover:scale-105">
                                 {getMenuIcon(item.icon)}
                               </div>
@@ -531,6 +557,43 @@ export default function Navbar() {
                         )}
                       </div>
                     ))}
+
+                    {/* 4th Column - Featured Showcase */}
+                    <div className="flex flex-col h-full justify-between">
+                      <h4 className="text-[11px] font-extrabold text-[#6B7280] dark:text-gray-400 tracking-wider mb-5 uppercase font-sans">
+                        Featured Showcase
+                      </h4>
+                      <div className="relative overflow-hidden rounded-2xl flex-1 min-h-[220px] flex flex-col justify-end p-5 text-white border border-white/5 shadow-md group/promo">
+                        <Image
+                          src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop"
+                          alt="Featured Solution"
+                          fill
+                          className="object-cover absolute inset-0 z-0 transition-transform duration-500 group-hover/promo:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/50 to-transparent z-10" />
+                        <div className="relative z-20">
+                          <span className="text-[9px] font-extrabold tracking-wider uppercase bg-[#1A5CDD] px-2 py-0.5 rounded-full w-fit mb-2 inline-block">
+                            2026 TRENDING
+                          </span>
+                          <h4 className="text-[15px] font-extrabold leading-snug mb-1">
+                            Enterprise Cloud Solutions
+                          </h4>
+                          <p className="text-[11px] text-gray-200 mb-4 line-clamp-2">
+                            Accelerate execution and automate operations with our microservice architecture.
+                          </p>
+                          <Link
+                            href="/contact"
+                            onClick={() => setServiceOpen(false)}
+                            className="inline-flex items-center gap-1.5 bg-white text-slate-900 font-extrabold text-xs px-4 py-2 rounded-xl transition-all duration-300 hover:bg-[#1A5CDD] hover:text-white hover:shadow-lg hover:-translate-y-0.5"
+                          >
+                            Get Started
+                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                            </svg>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               ) : (
@@ -570,15 +633,10 @@ export default function Navbar() {
           {/* Close */}
           <button
             onClick={() => setMobileOpen(false)}
-            style={{
-              position: "absolute", top: "20px", right: "24px",
-              width: "40px", height: "40px", borderRadius: "50%",
-              background: "rgba(0,0,0,0.06)",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              cursor: "pointer", border: "none",
-            }}
+            className="absolute top-5 right-6 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer border-none bg-black/5 dark:bg-white/10 text-gray-700 dark:text-gray-300 hover:text-[#1A5CDD] dark:hover:text-[#60A5FA] transition"
+            aria-label="Close menu"
           >
-            <svg className="w-5 h-5" fill="none" stroke="#374151" strokeWidth="2.5" viewBox="0 0 24 24">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -595,37 +653,77 @@ export default function Navbar() {
                 {link.label}
               </Link>
               {link.hasDropdown && (
-                <div className="pl-4 flex flex-col gap-3 mt-1 mb-2">
+                <div className="pl-4 grid grid-cols-1 md:grid-cols-3 gap-6 mt-3 mb-4">
                   {megaMenuData.map((category) => (
-                    <div key={category.title}>
-                      <div className="text-[10px] font-extrabold text-gray-400 dark:text-gray-500 tracking-wider px-3 py-1 uppercase">
+                    <div key={category.title} className="flex flex-col gap-2">
+                      <div className="text-[11px] font-extrabold text-[#6B7280] dark:text-gray-400 tracking-wider px-3 py-1 uppercase border-b border-gray-100 dark:border-gray-800/60 pb-1">
                         {category.title}
                       </div>
-                      <div className="flex flex-col gap-0.5">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-1">
                         {category.items.map((s) => (
                           <Link
                             key={s.href}
-                            href={s.href}
-                            onClick={() => setMobileOpen(false)}
-                            className="block text-[13px] font-semibold text-gray-600 dark:text-gray-400 hover:text-[#1A5CDD] dark:hover:text-[#60A5FA] px-3 py-2 rounded-xl transition-all duration-200 hover:bg-gray-100/50 dark:hover:bg-gray-800/30 no-underline"
+                            href="#"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setMobileOpen(false);
+                            }}
+                            className="flex items-center gap-2.5 text-[13px] font-semibold text-gray-600 dark:text-gray-400 hover:text-[#1A5CDD] dark:hover:text-[#60A5FA] px-3 py-2 rounded-xl transition-all duration-200 hover:bg-gray-100/50 dark:hover:bg-gray-800/30 no-underline cursor-default"
                           >
+                            <div className="w-6 h-6 rounded-md bg-[#1A5CDD]/5 dark:bg-[#3B82F6]/10 text-[#1A5CDD] dark:text-[#60A5FA] flex items-center justify-center flex-shrink-0">
+                              {getMenuIcon(s.icon)}
+                            </div>
                             {s.label}
                           </Link>
                         ))}
                       </div>
                     </div>
                   ))}
-                  <Link
-                    href="/services"
-                    onClick={() => setMobileOpen(false)}
-                    className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#1A5CDD] dark:text-[#60A5FA] px-3 py-2 no-underline"
-                  >
-                    View All Services →
-                  </Link>
+                  <div className="col-span-1 md:col-span-3 mt-2">
+                    <Link
+                      href="/services"
+                      onClick={() => setMobileOpen(false)}
+                      className="inline-flex items-center gap-1.5 text-[13px] font-extrabold text-[#1A5CDD] dark:text-[#60A5FA] px-3 py-2 no-underline"
+                    >
+                      View All Services →
+                    </Link>
+                  </div>
                 </div>
               )}
             </React.Fragment>
           ))}
+
+          {/* Promo Card inside Mobile Menu */}
+          <div className="sky-mobile-menu-promo mt-8 mb-6 relative overflow-hidden rounded-2xl h-44 flex flex-col justify-end p-5 text-white border border-white/10 shadow-lg">
+            <Image
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=600&auto=format&fit=crop"
+              alt="Promo Banner"
+              fill
+              className="object-cover absolute inset-0 z-0"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent z-10" />
+            <div className="relative z-20">
+              <span className="text-[10px] font-extrabold tracking-wider uppercase bg-[#1A5CDD] px-2 py-0.5 rounded-full w-fit mb-1.5 inline-block">
+                COLLABORATE WITH US
+              </span>
+              <h4 className="text-base font-extrabold leading-tight mb-1">
+                Ready to scale your business?
+              </h4>
+              <p className="text-xs text-gray-200 mb-3">
+                Let's co-create industry-leading digital products together.
+              </p>
+              <Link
+                href="/contact"
+                onClick={() => setMobileOpen(false)}
+                className="inline-flex items-center gap-1 bg-white text-slate-900 font-extrabold text-[11px] px-3.5 py-1.5 rounded-lg transition-transform hover:scale-105"
+              >
+                Let's Talk
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
+            </div>
+          </div>
 
           <a href="/contact" className="sky-cta-btn" style={{ marginTop: "16px", justifyContent: "center" }}>
             Sign In

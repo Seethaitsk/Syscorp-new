@@ -51,7 +51,7 @@ export default function FAQSection() {
   return (
     <section
       aria-labelledby="faq-heading"
-      className="relative bg-gradient-to-b from-white to-[#F5F8FF] dark:from-[#0b0f19] dark:to-[#070b13] py-24 md:py-32 overflow-hidden transition-colors duration-300"
+      className="relative bg-white dark:bg-slate-950 py-24 md:py-32 overflow-hidden transition-colors duration-300"
     >
       {/* Decorative Blur Blobs */}
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-blue-500/10 dark:bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />

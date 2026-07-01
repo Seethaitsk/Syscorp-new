@@ -1,150 +1,83 @@
 "use client";
-import dynamic from "next/dynamic";
-import Breadcrumbs from "@/components/ui/Breadcrumbs";
-import ContactForm from "./ContactForm";
-import { MapPin, Mail, Phone } from "lucide-react";
 
-// Lazy-load the map to improve mobile TBT
+import dynamic from "next/dynamic";
+import HeaderBanner from "@/components/ui/HeaderBanner";
+
+// Lazy-load sub-components to optimize load time
 const ContactMap = dynamic(() => import("./ContactMap"), { ssr: false });
+const ContactForm = dynamic(() => import("./ContactForm"), { ssr: false });
 
 export default function ContactUs() {
     return (
-        <main>
-            {/* Banner Section */}
-            <section className="bg-[#011146] py-20 relative overflow-hidden">
-                <div className="container mx-auto px-4 text-center relative z-10">
-                    <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                        Contact Us
-                    </h1>
+        <main className="min-h-screen bg-[#F0F8FF] dark:bg-[#080f25] transition-colors duration-500 pb-20">
+            <HeaderBanner
+                title={
+                    <>
+                        Let's <span className="text-[#38bdf8] font-serif italic font-normal">collaborate and create</span> next-generation digital products.
+                    </>
+                }
+                description="We're here to help your business grow. Contact us today and let's take your business to the next level with customized solutions."
+            />
 
-                    <div className="bg-white/10 backdrop-blur-md inline-block px-4 py-1 rounded-[2rem] border border-white/20 text-white">
-                        <Breadcrumbs />
+            {/* Part 1: Heading & Interactive Map Block */}
+            <section className="py-20 px-6 md:px-12 lg:px-24">
+                <div className="container mx-auto max-w-7xl">
+                    <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 items-center">
+                        
+                        {/* Left column: Giant text & indicator arrow */}
+                        <div className="space-y-6 flex flex-col justify-center">
+                            <p className="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed max-w-sm">
+                                Let's bring your vision to life—reach out to us with any questions or ideas.
+                            </p>
+                            
+                            <h2 className="text-5xl md:text-7xl font-black tracking-tight text-slate-900 dark:text-white leading-none font-sans">
+                                Let's get <br />
+                                in <span className="text-[#1a5cdd] dark:text-blue-400">touch!</span>
+                            </h2>
+
+                            {/* Hand-drawn decorative arrow pointing to the map */}
+                            <div className="pl-4">
+                                <svg 
+                                    className="w-24 h-16 text-blue-600 dark:text-blue-400 rotate-[12deg] opacity-75 hidden lg:block" 
+                                    viewBox="0 0 100 60" 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    strokeWidth="1.8" 
+                                    strokeLinecap="round" 
+                                    strokeLinejoin="round"
+                                >
+                                    <path d="M10,15 C35,5 50,45 70,25 C80,15 82,20 90,30" />
+                                    <polyline points="80,30 90,30 90,20" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        {/* Right column: The map and overlaid details card */}
+                        <div className="w-full">
+                            <ContactMap />
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* Main Section */}
-            <section className="py-20 lg:py-32">
-                <div className="container mx-auto px-6 lg:px-16 flex flex-wrap -mx-4">
-                    {/* Left Side: Contact Info */}
-                    <div className="w-full lg:w-1/2 px-4 mb-16 lg:mb-0">
-                        <div className="flex items-center gap-2 mb-4">
-                            <span className="inline-flex w-fit items-center rounded-full bg-[#1A5CDD] px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-white ring-4 ring-[#1A5CDD]/10">
-                                ✦ Contact Us
-                            </span>
-                        </div>
-
-                        <h2 className="text-3xl md:text-4xl font-extrabold text-[#0D3B31] mb-8 leading-[1.1]">
-                            Get in touch <span className="text-[#1a5cdd]">with us</span>
+            {/* Part 2: Centered Header & Form Fields block */}
+            <section className="py-16 px-6 md:px-12 lg:px-24 border-t border-gray-100 dark:border-blue-950/20 bg-white/30 dark:bg-[#070e27]/10">
+                <div className="container mx-auto max-w-5xl space-y-12">
+                    
+                    {/* Header */}
+                    <div className="flex flex-col items-center text-center space-y-3">
+                        <span className="inline-block border border-blue-600/30 dark:border-blue-400/30 bg-blue-500/5 px-4 py-1.5 rounded-full text-[10px] font-extrabold uppercase tracking-widest text-blue-600 dark:text-blue-400">
+                            ✦ Get In Touch
+                        </span>
+                        <h2 className="text-3xl md:text-5xl font-black tracking-tight text-slate-900 dark:text-white uppercase font-sans">
+                            how we can help you?
                         </h2>
-
-                        <p className="text-[#0D3B31]/70 text-lg mb-12 max-w-md">
-                            We’re here to help your business grow. Contact us today and let’s
-                            take your business to the next level.
-                        </p>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                            {/* Chennai */}
-                            <InfoCard
-                                icon={<MapPin className="w-8 h-8 text-[#1a5cdd] relative z-10" />}
-                                title="Chennai Address"
-                                details={
-                                    <>
-                                        No.151, Raahat Plaza, <br />
-                                        Arcot Road, Ottagapalayam <br />
-                                        Vadapalani, Chennai – 600026, <br />
-                                        Tamil Nadu, India
-                                    </>
-                                }
-                            />
-
-                            {/* Puducherry */}
-                            <InfoCard
-                                icon={<MapPin className="w-8 h-8 text-[#1a5cdd] relative z-10" />}
-                                title="Puducherry Office"
-                                details={
-                                    <>
-                                        No.37, Kamaraj Salai, <br />
-                                        Thattanchavady, <br />
-                                        Puducherry – 605009, India
-                                    </>
-                                }
-                            />
-
-                            {/* Email */}
-                            <InfoCard
-                                icon={<Mail className="w-8 h-8 text-[#1a5cdd] relative z-10" />}
-                                title="Email"
-                                details={
-                                    <>
-                                        <a
-                                            href="mailto:syscorptechno@gmail.com"
-                                            className="hover:text-[#1a5cdd]"
-                                        >
-                                            syscorptechno@gmail.com
-                                        </a>
-                                        <br />
-                                        <a href="mailto:hr@itsk.in" className="hover:text-[#1a5cdd]">
-                                            hr@itsk.in
-                                        </a>
-                                        <br />
-                                        <a href="mailto:sales@itsk.in" className="hover:text-[#1a5cdd]">
-                                            sales@itsk.in
-                                        </a>
-                                    </>
-                                }
-                            />
-
-                            {/* Phone */}
-                            <InfoCard
-                                icon={<Phone className="w-8 h-8 text-[#1a5cdd] relative z-10" />}
-                                title="Call Us"
-                                details={
-                                    <a href="tel:+919344430402" className="hover:text-[#1a5cdd]">
-                                        +91 93444 30402
-                                    </a>
-                                }
-                            />
-                        </div>
                     </div>
 
-                    {/* Right Side Form */}
-                    <div className="w-full lg:w-1/2 px-4">
-                        <p className="text-[#0D3B31]/70 text-lg mb-8 max-w-md">
-                            Fill our enquiry form with your details and requirements.
-                        </p>
-
-                        <ContactForm />
-                    </div>
+                    {/* The Form container */}
+                    <ContactForm />
                 </div>
             </section>
-
-            {/* Map Section (Lazy-loaded) */}
-            <ContactMap />
         </main>
-    );
-}
-
-// Reusable InfoCard Component
-function InfoCard({
-    icon,
-    title,
-    details,
-}: {
-    icon: React.ReactNode;
-    title: string;
-    details: React.ReactNode;
-}) {
-    return (
-        <div className="space-y-4">
-            <div className="relative w-12 h-12 flex items-center justify-center">
-                <div className="absolute top-0 right-0 w-8 h-8 bg-[#1a5cdd63] rounded-full opacity-60"></div>
-                {icon}
-            </div>
-            <div>
-                <p className="text-xl font-bold text-[#1a5cdd] mb-2">{title}</p>
-                <p className="leading-relaxed text-gray-700">{details}</p>
-            </div>
-        </div>
     );
 }

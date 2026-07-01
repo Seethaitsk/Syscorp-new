@@ -15,7 +15,8 @@ const services = [
         <rect x="3" y="3" width="11" height="11" rx="2" />
         <rect x="10" y="10" width="11" height="11" rx="2" />
       </svg>
-    )
+    ),
+    tags: ["React / Next.js", "iOS & Android", "Node.js API", "UI Integration"]
   },
   {
     title: "AI & Machine Learning",
@@ -27,7 +28,8 @@ const services = [
         <circle cx="17" cy="15" r="4" />
         <path strokeLinecap="round" strokeLinejoin="round" d="M7 11V7a2 2 0 012-2h6a2 2 0 012 2v4M12 5v14" />
       </svg>
-    )
+    ),
+    tags: ["NLP Models", "Predictive Analytics", "Custom LLMs", "Computer Vision"]
   },
   {
     title: "Cloud & Infrastructure",
@@ -39,7 +41,8 @@ const services = [
         <circle cx="8" cy="14" r="5" />
         <circle cx="16" cy="14" r="5" />
       </svg>
-    )
+    ),
+    tags: ["AWS / Azure", "CI/CD Pipelines", "Docker / K8s", "Cloud Security"]
   },
   {
     title: "UI/UX & Design Systems",
@@ -49,7 +52,8 @@ const services = [
       <svg className="sky-service-icon" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M6 9v3a6 6 0 0012 0V9m-12 0h3v3a3 3 0 006 0V9h3" />
       </svg>
-    )
+    ),
+    tags: ["Figma Prototypes", "Design Systems", "User Research", "Wireframing"]
   }
 ];
 
@@ -295,22 +299,13 @@ export default function ServicesSection() {
   return (
     <section
       aria-labelledby="services-heading"
-      className="sky-services-section"
-      style={{ padding: "100px 0", position: "relative", overflow: "hidden" }}
+      className="sky-services-section bg-[#F0F8FF] dark:bg-[#080f25] py-[100px] relative overflow-hidden transition-colors duration-500"
     >
       {/* Background radial decorations */}
       <div className="sky-services-bg-glow-1" />
       <div className="sky-services-bg-glow-2" />
 
       <style>{`
-        .sky-services-section {
-          background: linear-gradient(to bottom, #FFFFFF 0%, #F8FAFC 100%);
-          transition: background 0.4s ease;
-          position: relative;
-        }
-        .dark .sky-services-section {
-          background: linear-gradient(to bottom, #030712 0%, #000000 100%);
-        }
 
         .sky-services-bg-glow-1 {
           position: absolute;
@@ -570,7 +565,6 @@ export default function ServicesSection() {
           height: 100%;
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
         }
 
         .sky-service-icon {
@@ -582,10 +576,10 @@ export default function ServicesSection() {
         }
 
         .sky-service-title {
-          font-size: 19.5px;
+          font-size: 19px;
           font-weight: 800;
           color: #011146;
-          margin: 20px 0 10px 0;
+          margin: 16px 0 8px 0;
           font-family: 'Plus Jakarta Sans', sans-serif;
           transition: color 0.3s ease;
         }
@@ -594,10 +588,10 @@ export default function ServicesSection() {
         }
 
         .sky-service-desc {
-          font-size: 13.5px;
+          font-size: 13px;
           color: #4B5563;
-          line-height: 1.65;
-          margin: 0;
+          line-height: 1.6;
+          margin: 0 0 16px 0;
           font-family: 'Plus Jakarta Sans', sans-serif;
           transition: color 0.3s ease;
         }
@@ -605,10 +599,64 @@ export default function ServicesSection() {
           color: #9CA3AF;
         }
 
+        /* Tags Container */
+        .sky-service-tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px;
+          margin-bottom: 20px;
+        }
+        .sky-service-tag-btn {
+          font-size: 10px;
+          font-weight: 800;
+          padding: 5px 10px;
+          border-radius: 50px;
+          background: rgba(26, 92, 221, 0.05);
+          border: 1px solid rgba(26, 92, 221, 0.12);
+          color: #1A5CDD;
+          transition: all 0.3s ease;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          letter-spacing: 0.03em;
+        }
+        .dark .sky-service-tag-btn {
+          background: rgba(255, 255, 255, 0.05);
+          border-color: rgba(255, 255, 255, 0.08);
+          color: #9CA3AF;
+        }
+        .sky-service-card:hover .sky-service-tag-btn {
+          background: rgba(255, 255, 255, 0.15);
+          border-color: rgba(255, 255, 255, 0.25);
+          color: #FFFFFF;
+        }
+
+        /* Card bottom action area */
+        .sky-service-bottom {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: auto;
+          width: 100%;
+        }
+
+        .sky-service-learn-more {
+          font-size: 12.5px;
+          font-weight: 800;
+          color: #1A5CDD;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          transition: all 0.3s ease;
+          letter-spacing: 0.03em;
+        }
+        .dark .sky-service-learn-more {
+          color: #60A5FA;
+        }
+        .sky-service-card:hover .sky-service-learn-more {
+          color: #FFFFFF;
+        }
+
         /* Round arrow CTA button */
         .sky-service-arrow-btn {
-          width: 44px;
-          height: 44px;
+          width: 40px;
+          height: 40px;
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -802,12 +850,25 @@ export default function ServicesSection() {
                       {s.icon}
                       <h3 className="sky-service-title">{s.title}</h3>
                       <p className="sky-service-desc">{s.description}</p>
+                      
+                      <div className="sky-service-tags">
+                        {s.tags?.map((tag, tIdx) => (
+                          <span key={tIdx} className="sky-service-tag-btn">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
 
-                    <div className="sky-service-arrow-btn">
-                      <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="3.2" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                      </svg>
+                    <div className="sky-service-bottom">
+                      <span className="sky-service-learn-more">
+                        Explore Service
+                      </span>
+                      <div className="sky-service-arrow-btn">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="3.2" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                        </svg>
+                      </div>
                     </div>
                   </div>
                 </Link>

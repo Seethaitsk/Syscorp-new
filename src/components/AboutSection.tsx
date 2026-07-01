@@ -133,7 +133,7 @@ export default function AboutSection() {
     <section
       ref={sectionRef}
       aria-labelledby="about-heading"
-      className="sky-about-section bg-grid-pattern py-[100px] overflow-hidden relative bg-gradient-to-b from-white to-[#F8FAFC] dark:from-[#030712] dark:to-[#081129] transition-colors duration-500"
+      className="sky-about-section bg-grid-pattern py-[100px] overflow-hidden relative bg-white dark:bg-slate-950 transition-colors duration-500"
     >
       {/* Background decoration elements */}
       <div className="absolute w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(26,92,221,0.05)_0%,transparent_70%)] dark:bg-[radial-gradient(circle,rgba(37,99,235,0.12)_0%,transparent_70%)] top-[10%] left-[5%] pointer-events-none z-0" />

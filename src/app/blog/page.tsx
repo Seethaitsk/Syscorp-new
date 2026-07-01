@@ -5,6 +5,7 @@ import { useState, useMemo, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
+import HeaderBanner from "@/components/ui/HeaderBanner";
 import { fetchStrapi } from "@/lib/strapi";
 
 const STRAPI_URL =
@@ -61,15 +62,14 @@ export default function BlogPage() {
 
     return (
         <main className="bg-white min-h-screen">
-            {/* Hero */}
-            <section className="bg-[#011146] py-20 text-center">
-                <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6">
-                    Our Blog
-                </h1>
-                <div className="bg-white/10 inline-block px-4 py-1 rounded-[2rem] border border-white/20">
-                    <Breadcrumbs />
-                </div>
-            </section>
+            <HeaderBanner
+                title={
+                    <>
+                        Explore our <span className="text-[#38bdf8] font-serif italic font-normal">insights, stories, and ideas</span> on modern software engineering.
+                    </>
+                }
+                description="Stay updated with Syscorp's technical insights, coding best practices, UI/UX trends, and articles from our experienced software development team."
+            />
 
             {/* Blog Section */}
             <section className="py-16 lg:py-24 bg-white">

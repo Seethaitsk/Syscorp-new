@@ -213,12 +213,12 @@ body {
 
 
 /* 2026 Premium Redesign Helpers */
-.bg-grid-pattern {
+/* .bg-grid-pattern {
     background-size: 50px 50px;
     background-image:
         linear-gradient(to right, rgba(26, 92, 221, 0.05) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(26, 92, 221, 0.05) 1px, transparent 1px);
-}
+} */
 
 .bg-radial-glow {
     background: radial-gradient(circle 800px at 50% 200px, rgba(26, 92, 221, 0.06), transparent 80%);

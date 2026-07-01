@@ -41,20 +41,12 @@ export default function ServiceCompany() {
   return (
     <section
       aria-labelledby="commitment-heading"
-      className="bg-grid-pattern sky-commitment-section"
-      style={{ padding: "100px 0", overflow: "hidden", position: "relative" }}
+      className="bg-grid-pattern sky-commitment-section bg-white dark:bg-slate-950 py-[100px] overflow-hidden relative transition-colors duration-500"
     >
       {/* Background radial glow */}
       <div className="sky-glow-orb" />
 
       <style>{`
-        .sky-commitment-section {
-          background: linear-gradient(to bottom, #FFFFFF 0%, #F5F8FF 100%);
-          transition: background 0.4s ease;
-        }
-        .dark .sky-commitment-section {
-          background: linear-gradient(to bottom, #010925 0%, #000000 100%);
-        }
 
         .sky-glow-orb {
           position: absolute;

@@ -23,7 +23,7 @@ export default function BlogSection() {
   return (
     <section
       aria-labelledby="blog-heading"
-      style={{ background: "#FFFFFF", padding: "100px 0", overflow: "hidden", position: "relative" }}
+      className="bg-[#F0F8FF] dark:bg-[#080f25] py-[100px] overflow-hidden relative transition-colors duration-500"
     >
       <style>{`
         .sky-blog-header {

@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import HeaderBanner from "@/components/ui/HeaderBanner";
 import {
     ArrowRight,
     Globe,
@@ -79,25 +82,17 @@ export default function ServiceDetailsPage() {
     ];
 
     return (
-        <div className="bg-gradient-to-b from-gray-50 via-white to-gray-100 min-h-screen py-20">
-            <div className="max-w-7xl mx-auto px-6">
+        <div className="bg-gradient-to-b from-gray-50 via-white to-gray-100 min-h-screen">
+            <HeaderBanner
+                title={
+                    <>
+                        Explore our <span className="text-[#38bdf8] font-serif italic font-normal">professional services</span> for digital growth.
+                    </>
+                }
+                description="Discover all our premium digital solutions designed to help businesses grow faster, rank higher, and convert better."
+            />
 
-                {/* Heading */}
-                <div className="text-center mb-16">
-                    <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold">
-                        Syscorp Services
-                    </span>
-
-                    <h1 className="mt-6 text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
-                        Explore Our Professional Services
-                    </h1>
-
-                    <p className="mt-5 text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Discover all our premium digital solutions designed to help businesses in Chennai grow faster,
-                        rank higher, and convert better.
-                    </p>
-                </div>
-
+            <div className="max-w-7xl mx-auto px-6 py-20">
                 {/* Categories */}
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
                     {servicesData.map((cat, index) => (

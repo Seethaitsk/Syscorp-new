@@ -59,7 +59,7 @@ export default function PricingSection() {
   return (
     <section
       aria-labelledby="pricing-heading"
-      style={{ background: "linear-gradient(to bottom, #FFFFFF, #F5F8FF)", padding: "100px 0", position: "relative", overflow: "hidden" }}
+      className="bg-[#F0F8FF] dark:bg-[#080f25] py-[100px] relative overflow-hidden transition-colors duration-500"
     >
       <style>{`
         .sky-pricing-grid {

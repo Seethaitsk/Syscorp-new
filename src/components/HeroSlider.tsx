@@ -31,7 +31,7 @@ export default function HeroSlider() {
   const [wordIndex, setWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(150);
-  const words = ["ai automation", "business", "custom software", "cloud scaling"];
+  const words = ["ai automation", "business", "Websites", "CRM Sol"];
   const colors = ["#a78bfa", "#60a5fa", "#34d399", "#22d3ee"];
 
   // Auto-play timer for the slider
@@ -373,7 +373,7 @@ export default function HeroSlider() {
       `}</style>
 
       {/* ─── BANNER CONTAINER ─── */}
-      <section id="home-banner" className="sky-banner-sec bg-radial-glow-dark bg-grid-pattern">
+      <section id="home-banner" className="sky-banner-sec bg-gradient-to-br from-[#010925] via-[#011146] to-[#0a2373]">
 
         {/* Concentric Orbits & Icons Background */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 flex items-center justify-center">
@@ -386,49 +386,46 @@ export default function HeroSlider() {
           </svg>
 
           {/* Floating Icons positioned on left/right sides */}
+          {/* Web Dev Code Icon */}
           <div className="sky-orbit-icon-wrap" style={{ left: "6%", top: "22%", animationDelay: "0s", animationDuration: "5s" }}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523 2.528 2.528 0 0 1-2.522-2.523 2.528 2.528 0 0 1 2.522-2.52h2.52v2.52zM6.302 15.165a2.528 2.528 0 0 1 2.52-2.52h5.043a2.528 2.528 0 0 1 2.522 2.52v5.042a2.528 2.528 0 0 1-2.522 2.52H8.822a2.528 2.528 0 0 1-2.52-2.52v-5.042z" fill="#E01E5A"/>
-              <path d="M8.822 5.043a2.528 2.528 0 0 1 2.52-2.52 2.528 2.528 0 0 1 2.522 2.52v2.52h-2.522a2.528 2.528 0 0 1-2.52-2.52zM8.822 6.302a2.528 2.528 0 0 1 2.52 2.52v5.043a2.528 2.528 0 0 1-2.522 2.522H3.778a2.528 2.528 0 0 1-2.522-2.522 2.528 2.528 0 0 1 2.522-2.52h5.044z" fill="#36C5F0"/>
-              <path d="M18.958 8.822a2.528 2.528 0 0 1 2.52-2.52 2.528 2.528 0 0 1 2.522 2.52 2.528 2.528 0 0 1-2.522 2.52h-2.52v-2.52zM17.698 8.822a2.528 2.528 0 0 1-2.52 2.52h-5.043a2.528 2.528 0 0 1-2.522-2.52V3.779a2.528 2.528 0 0 1 2.522-2.521h5.043a2.528 2.528 0 0 1 2.52 2.521v5.043z" fill="#2EB67D"/>
-              <path d="M15.178 18.958a2.528 2.528 0 0 1-2.52 2.52 2.528 2.528 0 0 1-2.522-2.52v-2.52h2.522a2.528 2.528 0 0 1 2.52 2.52zM15.178 17.698a2.528 2.528 0 0 1-2.52-2.52v-5.043a2.528 2.528 0 0 1 2.522-2.522h5.044a2.528 2.528 0 0 1 2.522 2.522 2.528 2.528 0 0 1-2.522 2.52h-5.044z" fill="#ECB22E"/>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="16 18 22 12 16 6" />
+              <polyline points="8 6 2 12 8 18" />
             </svg>
           </div>
+          {/* AI / Machine Learning Icon */}
           <div className="sky-orbit-icon-wrap" style={{ right: "6%", top: "20%", animationDelay: "1s", animationDuration: "6s" }}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M8.2 2H15.8L22.2 13H14.6L8.2 2Z" fill="#FFC107"/>
-              <path d="M1.8 13H17.2L14.6 22H1.8L1.8 13Z" fill="#1976D2"/>
-              <path d="M8.2 2L1.8 13L9.4 22H15.8L8.2 2Z" fill="#4CAF50"/>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+              <circle cx="12" cy="12" r="4" fill="none" />
             </svg>
           </div>
+          {/* Cloud Ops Icon */}
           <div className="sky-orbit-icon-wrap" style={{ left: "14%", top: "50%", animationDelay: "2s", animationDuration: "5.5s" }}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF7A59" strokeWidth="2.5">
-              <circle cx="12" cy="12" r="3" fill="#FF7A59" />
-              <circle cx="12" cy="5" r="2" />
-              <circle cx="5" cy="16" r="2" />
-              <circle cx="19" cy="16" r="2" />
-              <line x1="12" y1="7" x2="12" y2="9" />
-              <line x1="6.5" y1="14.5" x2="9.5" y2="12.5" />
-              <line x1="17.5" y1="14.5" x2="14.5" y2="12.5" />
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M17.5 19A3.5 3.5 0 0 0 21 15.5c0-2.79-2.54-4.5-5-4.5-.42-1.89-1.95-3.5-4-3.5-3 0-5.5 2.5-5.5 5.5A3.5 3.5 0 0 0 10 19Z" />
             </svg>
           </div>
+          {/* UI/UX / Design System Icon */}
           <div className="sky-orbit-icon-wrap" style={{ right: "14%", top: "48%", animationDelay: "3s", animationDuration: "6.5s" }}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#0061FF">
-              <path d="M6 2L1 5.5L6 9L11 5.5L6 2Z" />
-              <path d="M18 2L13 5.5L18 9L23 5.5L18 2Z" />
-              <path d="M1 12.5L6 16L11 12.5L6 9L1 12.5Z" />
-              <path d="M23 12.5L18 16L13 12.5L18 9L23 12.5Z" />
-              <path d="M6 17.5L11 21L16 17.5L11 14L6 17.5Z" />
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 19V5M5 12h14" />
+              <circle cx="12" cy="12" r="3" />
             </svg>
           </div>
+          {/* SEO & Growth Icon */}
           <div className="sky-orbit-icon-wrap" style={{ left: "8%", top: "76%", animationDelay: "1.5s", animationDuration: "4.8s" }}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6366F1" strokeWidth="2.5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.622c5.176-1.332 9-6.03 9-11.622c0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34d399" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10" />
+              <line x1="12" y1="20" x2="12" y2="4" />
+              <line x1="6" y1="20" x2="6" y2="14" />
             </svg>
           </div>
+          {/* Mobile Apps Icon */}
           <div className="sky-orbit-icon-wrap" style={{ right: "8%", top: "74%", animationDelay: "2.5s", animationDuration: "5.8s" }}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="2.5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818.879-.659c1.546-1.16 4.698-1.16 6.242 0 .879.66 1.107 1.768.682 2.658-.337.705-.889 1.127-1.562 1.258M12 6a4.013 4.013 0 0 0-3 1.818M12 6c1.523 0 3 .818 3 1.818m0 0-.879.659c-1.546 1.16-4.698 1.16-6.242 0-.879-.66-1.107-1.768-.682-2.658.337-.705.889-1.127 1.562-1.258M12 18a4.013 4.013 0 0 1-3-1.818" />
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+              <line x1="12" y1="18" x2="12.01" y2="18" />
             </svg>
           </div>
         </div>

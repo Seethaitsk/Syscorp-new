@@ -158,22 +158,13 @@ export default function CommunitySection() {
   return (
     <section
       aria-labelledby="community-heading"
-      className="sky-community-section"
-      style={{ padding: "100px 0", overflow: "hidden", position: "relative" }}
+      className="sky-community-section bg-[#F0F8FF] dark:bg-[#080f25] py-[100px] overflow-hidden relative transition-colors duration-500"
     >
       {/* Background Glows */}
       <div className="sky-comm-bg-glow-1" />
       <div className="sky-comm-bg-glow-2" />
 
       <style>{`
-        .sky-community-section {
-          background: linear-gradient(to bottom, #FFFFFF 0%, #F1F5F9 100%);
-          transition: background 0.4s ease;
-          position: relative;
-        }
-        .dark .sky-community-section {
-          background: linear-gradient(to bottom, #030712 0%, #000000 100%);
-        }
 
         .sky-comm-bg-glow-1 {
           position: absolute;

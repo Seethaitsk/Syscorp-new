@@ -36,7 +36,7 @@ const testimonials = [
   },
 ];
 
-export default function TestimonialSection() {
+export default function TestimonialSection({ bgClass }: { bgClass?: string } = {}) {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -209,16 +209,14 @@ export default function TestimonialSection() {
     <section
       ref={sectionRef}
       aria-labelledby="testimonials-heading"
-      className="sky-testi-section"
-      style={{ padding: "100px 0", overflow: "hidden", position: "relative" }}
+      className={`sky-testi-section ${bgClass || "bg-white dark:bg-slate-950"} py-[100px] overflow-hidden relative transition-colors duration-500`}
     >
       <style>{`
-        .sky-testi-section {
-          background: #FFFFFF;
-          transition: background 0.4s ease;
-        }
-        .dark .sky-testi-section {
-          background: #000000;
+        .sky-services-container {
+          max-width: 1240px;
+          margin: 0 auto;
+          padding: 0 24px;
+          box-sizing: border-box;
         }
 
         .sky-testi-header-grid {
