@@ -188,7 +188,7 @@ export default function HeroSlider() {
         }
 
         .sky-banner-heading {
-          font-size: clamp(2rem, 6vw, 4.8rem);
+          font-size: clamp(2rem, 6vw, 4.1rem);
           font-weight: 900;
           line-height: 1.15;
           letter-spacing: -0.03em;
