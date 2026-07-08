@@ -1112,7 +1112,7 @@ export default function HeroSlider() {
             </div>
 
           </div>
-
+{/* d */}
         </section>
       </div>
 
