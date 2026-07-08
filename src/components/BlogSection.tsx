@@ -4,17 +4,17 @@ import React from "react";
 const blogPosts = [
   {
     title: "Modern Software Architecture Trends for 2026",
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=60&w=387",
     href: "/blog",
   },
   {
     title: "Benefits Of Custom Development For Enterprise Value",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=60&w=387",
     href: "/blog",
   },
   {
     title: "Scaling SaaS Platforms for High Availability",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=60&w=387",
     href: "/blog",
   },
 ];

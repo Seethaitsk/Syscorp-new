@@ -52,25 +52,25 @@ export default function WebsiteDevelopmentPage() {
             id: 1,
             title: "Crafting Visual Digital Stories",
             tags: ["Automation", "DevOps", "UX Design"],
-            img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"
+            img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=75&w=450&auto=format&fit=crop"
         },
         {
             id: 2,
             title: "Transforming Concepts Into Reality",
             tags: ["Automation", "AWS", "Python", "UX Design"],
-            img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop"
+            img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=450&auto=format&fit=crop"
         },
         {
             id: 3,
             title: "Showcasing My Best Work",
             tags: ["AWS", "Blockchain", "DevOps", "Flutter"],
-            img: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop"
+            img: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=75&w=450&auto=format&fit=crop"
         },
         {
             id: 4,
             title: "Interactive AI Content Platform",
             tags: ["OpenAI API", "WebSockets", "GSAP"],
-            img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop"
+            img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=75&w=450&auto=format&fit=crop"
         }
     ];
 
@@ -285,7 +285,7 @@ export default function WebsiteDevelopmentPage() {
                             {/* Dashboard Graphic Container */}
                             <div className="mt-8 relative h-64 md:h-72 w-full rounded-2xl overflow-hidden bg-white/10 backdrop-blur border border-white/15 p-2 shadow-2xl group-hover:scale-[1.02] transition-transform duration-500">
                                 <Image
-                                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop"
+                                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=500&auto=format&fit=crop"
                                     alt="Analytics Dashboard"
                                     fill
                                     className="object-cover rounded-xl"
@@ -329,7 +329,7 @@ export default function WebsiteDevelopmentPage() {
                                 </div>
                                 <div className="w-full sm:w-44 h-36 relative rounded-2xl overflow-hidden shadow-md flex-shrink-0 border border-slate-100">
                                     <Image
-                                        src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=400&auto=format&fit=crop"
+                                        src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=75&w=400&auto=format&fit=crop"
                                         alt="AI Web Systems"
                                         fill
                                         className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -358,7 +358,7 @@ export default function WebsiteDevelopmentPage() {
                                 </div>
                                 <div className="w-full sm:w-44 h-36 relative rounded-2xl overflow-hidden shadow-md flex-shrink-0 border border-slate-200">
                                     <Image
-                                        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=400&auto=format&fit=crop"
+                                        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=75&w=400&auto=format&fit=crop"
                                         alt="Collaborate With Engineering Team"
                                         fill
                                         className="object-cover group-hover:scale-110 transition-transform duration-500"

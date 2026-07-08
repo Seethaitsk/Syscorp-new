@@ -30,149 +30,147 @@ export default function Home() {
         const container = containerRef.current;
         if (!container) return;
 
-        // Prevent FOUC: Reveal container once hydration is complete and GSAP binds
-        gsap.set(container, { opacity: 1 });
+        let ctx: ReturnType<typeof gsap.context> | null = null;
 
-        const ctx = gsap.context(() => {
-            const easeOut = "power3.out";
-            const easeBack = "back.out(1.35)";
+        const timer = setTimeout(() => {
+            ctx = gsap.context(() => {
+                const easeOut = "power3.out";
+                const easeBack = "back.out(1.35)";
 
-            // ── About Section — subtle fade-up + zoom out ──
-            gsap.fromTo(
-                ".gsap-about-sec",
-                { y: 55, scale: 1.04, opacity: 0 },
-                {
-                    y: 0, scale: 1, opacity: 1, duration: 1.1, ease: easeOut,
-                    scrollTrigger: { trigger: ".gsap-about-sec", start: "top 85%", toggleActions: "play none none none" }
-                }
-            );
+                // ── About Section — subtle fade-up + zoom out ──
+                gsap.fromTo(
+                    ".gsap-about-sec",
+                    { y: 55, scale: 1.04, opacity: 0 },
+                    {
+                        y: 0, scale: 1, opacity: 1, duration: 1.1, ease: easeOut,
+                        scrollTrigger: { trigger: ".gsap-about-sec", start: "top 85%", toggleActions: "play none none none" }
+                    }
+                );
 
-            // ── Services Section — header fade-up ──
-            gsap.fromTo(
-                ".gsap-services-header-box",
-                { y: 35, opacity: 0 },
-                {
-                    y: 0, opacity: 1, duration: 0.9, ease: easeOut,
-                    scrollTrigger: { trigger: ".gsap-services-sec", start: "top 85%", toggleActions: "play none none none" }
-                }
-            );
+                // ── Services Section — header fade-up ──
+                gsap.fromTo(
+                    ".gsap-services-header-box",
+                    { y: 35, opacity: 0 },
+                    {
+                        y: 0, opacity: 1, duration: 0.9, ease: easeOut,
+                        scrollTrigger: { trigger: ".gsap-services-sec", start: "top 85%", toggleActions: "play none none none" }
+                    }
+                );
 
-            // ── Services Cards — stagger spring entry ──
-            gsap.fromTo(
-                ".gsap-service-card-item",
-                { y: 65, scale: 0.94, opacity: 0 },
-                {
-                    y: 0, scale: 1, opacity: 1, duration: 0.9,
-                    stagger: 0.09, ease: easeBack,
-                    scrollTrigger: { trigger: ".gsap-services-sec", start: "top 78%", toggleActions: "play none none none" }
-                }
-            );
+                // ── Services Cards — stagger spring entry ──
+                gsap.fromTo(
+                    ".gsap-service-card-item",
+                    { y: 65, scale: 0.94, opacity: 0 },
+                    {
+                        y: 0, scale: 1, opacity: 1, duration: 0.9,
+                        stagger: 0.09, ease: easeBack,
+                        scrollTrigger: { trigger: ".gsap-services-sec", start: "top 78%", toggleActions: "play none none none" }
+                    }
+                );
 
-            // ── Service Company — split columns with tilt ──
-            gsap.fromTo(
-                ".gsap-company-left-col",
-                { x: -90, rotate: -2, opacity: 0 },
-                {
-                    x: 0, rotate: 0, opacity: 1, duration: 1.15, ease: easeOut,
-                    scrollTrigger: { trigger: ".gsap-company-sec", start: "top 82%", toggleActions: "play none none none" }
-                }
-            );
-            gsap.fromTo(
-                ".gsap-company-right-col",
-                { x: 90, rotate: 2, opacity: 0 },
-                {
-                    x: 0, rotate: 0, opacity: 1, duration: 1.15, ease: easeOut,
-                    scrollTrigger: { trigger: ".gsap-company-sec", start: "top 82%", toggleActions: "play none none none" }
-                }
-            );
+                // ── Service Company — split columns with tilt ──
+                gsap.fromTo(
+                    ".gsap-company-left-col",
+                    { x: -90, rotate: -2, opacity: 0 },
+                    {
+                        x: 0, rotate: 0, opacity: 1, duration: 1.15, ease: easeOut,
+                        scrollTrigger: { trigger: ".gsap-company-sec", start: "top 82%", toggleActions: "play none none none" }
+                    }
+                );
+                gsap.fromTo(
+                    ".gsap-company-right-col",
+                    { x: 90, rotate: 2, opacity: 0 },
+                    {
+                        x: 0, rotate: 0, opacity: 1, duration: 1.15, ease: easeOut,
+                        scrollTrigger: { trigger: ".gsap-company-sec", start: "top 82%", toggleActions: "play none none none" }
+                    }
+                );
 
-            // ── Achievements Section — subtle zoom + fade ──
-            gsap.fromTo(
-                ".gsap-achievements-sec",
-                { y: 55, scale: 0.96, opacity: 0 },
-                {
-                    y: 0, scale: 1, opacity: 1, duration: 1.1, ease: easeOut,
-                    scrollTrigger: { trigger: ".gsap-achievements-sec", start: "top 85%", toggleActions: "play none none none" }
-                }
-            );
+                // ── Achievements Section — subtle zoom + fade ──
+                gsap.fromTo(
+                    ".gsap-achievements-sec",
+                    { y: 55, scale: 0.96, opacity: 0 },
+                    {
+                        y: 0, scale: 1, opacity: 1, duration: 1.1, ease: easeOut,
+                        scrollTrigger: { trigger: ".gsap-achievements-sec", start: "top 85%", toggleActions: "play none none none" }
+                    }
+                );
 
-            // ── Community — blur + scale reveal ──
-            gsap.fromTo(
-                ".gsap-community-sec",
-                { filter: "blur(16px)", scale: 0.94, y: 45, opacity: 0 },
-                {
-                    filter: "blur(0px)", scale: 1, y: 0, opacity: 1, duration: 1.2, ease: easeOut,
-                    scrollTrigger: { trigger: ".gsap-community-sec", start: "top 85%", toggleActions: "play none none none" }
-                }
-            );
+                // ── Community — blur + scale reveal ──
+                gsap.fromTo(
+                    ".gsap-community-sec",
+                    { filter: "blur(16px)", scale: 0.94, y: 45, opacity: 0 },
+                    {
+                        filter: "blur(0px)", scale: 1, y: 0, opacity: 1, duration: 1.2, ease: easeOut,
+                        scrollTrigger: { trigger: ".gsap-community-sec", start: "top 85%", toggleActions: "play none none none" }
+                    }
+                );
 
-            // ── Testimonials — fade + rotate reveal ──
-            gsap.fromTo(
-                ".gsap-testimonials-sec",
-                { y: 75, rotate: 1.5, opacity: 0 },
-                {
-                    y: 0, rotate: 0, opacity: 1, duration: 1.1, ease: easeOut,
-                    scrollTrigger: { trigger: ".gsap-testimonials-sec", start: "top 82%", toggleActions: "play none none none" }
-                }
-            );
+                // ── Testimonials — fade + rotate reveal ──
+                gsap.fromTo(
+                    ".gsap-testimonials-sec",
+                    { y: 75, rotate: 1.5, opacity: 0 },
+                    {
+                        y: 0, rotate: 0, opacity: 1, duration: 1.1, ease: easeOut,
+                        scrollTrigger: { trigger: ".gsap-testimonials-sec", start: "top 82%", toggleActions: "play none none none" }
+                    }
+                );
 
-            // ── Pricing header ──
-            gsap.fromTo(
-                ".gsap-pricing-header-box",
-                { y: 30, opacity: 0 },
-                {
-                    y: 0, opacity: 1, duration: 0.85, ease: easeOut,
-                    scrollTrigger: { trigger: ".gsap-pricing-sec", start: "top 85%", toggleActions: "play none none none" }
-                }
-            );
+                // ── Pricing header ──
+                gsap.fromTo(
+                    ".gsap-pricing-header-box",
+                    { y: 30, opacity: 0 },
+                    {
+                        y: 0, opacity: 1, duration: 0.85, ease: easeOut,
+                        scrollTrigger: { trigger: ".gsap-pricing-sec", start: "top 85%", toggleActions: "play none none none" }
+                    }
+                );
 
-            // ── Pricing cards — stagger spring ──
-            gsap.fromTo(
-                ".gsap-pricing-card-item",
-                { y: 75, scale: 0.92, opacity: 0 },
-                {
-                    y: 0, scale: 1, opacity: 1, duration: 0.9,
-                    stagger: 0.11, ease: easeBack,
-                    scrollTrigger: { trigger: ".gsap-pricing-sec", start: "top 78%", toggleActions: "play none none none" }
-                }
-            );
+                // ── Pricing cards — stagger spring ──
+                gsap.fromTo(
+                    ".gsap-pricing-card-item",
+                    { y: 75, scale: 0.92, opacity: 0 },
+                    {
+                        y: 0, scale: 1, opacity: 1, duration: 0.9,
+                        stagger: 0.11, ease: easeBack,
+                        scrollTrigger: { trigger: ".gsap-pricing-sec", start: "top 78%", toggleActions: "play none none none" }
+                    }
+                );
 
-            // ── FAQ — slide up ──
-            gsap.fromTo(
-                ".gsap-faq-sec",
-                { y: 45, scale: 0.98, opacity: 0 },
-                {
-                    y: 0, scale: 1, opacity: 1, duration: 1.0, ease: easeOut,
-                    scrollTrigger: { trigger: ".gsap-faq-sec", start: "top 85%", toggleActions: "play none none none" }
-                }
-            );
+                // ── FAQ — slide up ──
+                gsap.fromTo(
+                    ".gsap-faq-sec",
+                    { y: 45, scale: 0.98, opacity: 0 },
+                    {
+                        y: 0, scale: 1, opacity: 1, duration: 1.0, ease: easeOut,
+                        scrollTrigger: { trigger: ".gsap-faq-sec", start: "top 85%", toggleActions: "play none none none" }
+                    }
+                );
 
-            // ── Blog — blur + zoom reveal ──
-            gsap.fromTo(
-                ".gsap-blog-sec",
-                { filter: "blur(12px)", scale: 1.03, y: 50, opacity: 0 },
-                {
-                    filter: "blur(0px)", scale: 1, y: 0, opacity: 1, duration: 1.15, ease: easeOut,
-                    scrollTrigger: { trigger: ".gsap-blog-sec", start: "top 85%", toggleActions: "play none none none" }
-                }
-            );
+                // ── Blog — blur + zoom reveal ──
+                gsap.fromTo(
+                    ".gsap-blog-sec",
+                    { filter: "blur(12px)", scale: 1.03, y: 50, opacity: 0 },
+                    {
+                        filter: "blur(0px)", scale: 1, y: 0, opacity: 1, duration: 1.15, ease: easeOut,
+                        scrollTrigger: { trigger: ".gsap-blog-sec", start: "top 85%", toggleActions: "play none none none" }
+                    }
+                );
 
-        }, container); // ← scoped to container only — never touches About or other pages
+            }, container);
+        }, 300);
 
-        return () => ctx.revert();
+        return () => {
+            clearTimeout(timer);
+            if (ctx) ctx.revert();
+        };
     }, []);
 
     return (
         <div 
             ref={containerRef} 
-            className="bg-white font-sans dark:bg-black overflow-hidden" 
-            style={{ opacity: 0, transition: "opacity 0.35s ease-out" }}
+            className="bg-white font-sans dark:bg-black overflow-hidden"
         >
-            <noscript>
-                <style>{`
-                    .bg-white { opacity: 1 !important; }
-                `}</style>
-            </noscript>
 
             {/* 1 ─ Hero banner */}
             <HeroSlider />

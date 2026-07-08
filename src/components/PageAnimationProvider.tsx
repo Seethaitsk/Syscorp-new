@@ -117,7 +117,7 @@ export default function PageAnimationProvider() {
                 });
 
             });
-        }, 150);
+        }, 450);
 
         return () => {
             clearTimeout(timer);

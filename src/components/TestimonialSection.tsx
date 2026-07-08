@@ -14,25 +14,25 @@ const testimonials = [
     name: "Purvi Chopra",
     role: "SaaS Founder & CEO",
     quote: "The team delivered exceptional software quality and maintained complete transparency throughout the project. The platform was launched on time, and the code quality and project management exceeded our expectations.",
-    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=120&h=120",
+    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=75&w=60&h=60",
   },
   {
     name: "Amita Patel",
     role: "CTO, FinTech Startup",
     quote: "The team delivered exceptional software quality and maintained complete transparency throughout the project. The platform was launched on time, and the code quality and project management exceeded our expectations.",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120&h=120",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=75&w=60&h=60",
   },
   {
     name: "Rahul Mehta",
     role: "Product Director, Tech Enterprise",
     quote: "The team delivered exceptional software quality and maintained complete transparency throughout the project. The platform was launched on time, and the code quality and project management exceeded our expectations.",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=120&h=120",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=75&w=60&h=60",
   },
   {
     name: "Sneha Reddy",
     role: "Engineering Manager",
     quote: "The team delivered exceptional software quality and maintained complete transparency throughout the project. The platform was launched on time, and the code quality and project management exceeded our expectations.",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=120&h=120",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=75&w=60&h=60",
   },
 ];
 

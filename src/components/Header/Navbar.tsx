@@ -586,7 +586,7 @@ export default function Navbar() {
                         </h4>
                         <div className="relative overflow-hidden rounded-2xl flex-1 min-h-[220px] flex flex-col justify-end p-5 text-white border border-white/10 shadow-xl group/promo">
                           <Image
-                            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop"
+                            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=75&w=350&auto=format&fit=crop"
                             alt="Featured Solution"
                             fill
                             className="object-cover absolute inset-0 z-0 transition-transform duration-500 group-hover/promo:scale-110"
@@ -656,7 +656,7 @@ export default function Navbar() {
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <a href="/contact" className="sky-cta-btn">
               Sign In
-              <svg style={{ width: "14px", height: "14px" }} fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+              <svg style={{ width: "14px", height: "14px" }} fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
             </a>
@@ -664,8 +664,10 @@ export default function Navbar() {
               className={`sky-ham${mobileOpen ? " open" : ""}`}
               onClick={() => setMobileOpen((v) => !v)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-nav"
             >
-              <span /><span /><span />
+              <span aria-hidden="true" /><span aria-hidden="true" /><span aria-hidden="true" />
             </button>
           </div>
         </div>
@@ -673,14 +675,14 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="sky-mobile-menu dark:bg-[#0b0f19]">
+        <div id="mobile-nav" className="sky-mobile-menu dark:bg-[#0b0f19]" role="dialog" aria-modal="true" aria-label="Mobile navigation">
           {/* Close */}
           <button
             onClick={() => setMobileOpen(false)}
             className="absolute top-5 right-6 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer border-none bg-black/5 dark:bg-white/10 text-gray-700 dark:text-gray-300 hover:text-[#1A5CDD] dark:hover:text-[#60A5FA] transition"
             aria-label="Close menu"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -739,7 +741,7 @@ export default function Navbar() {
           {/* Promo Card inside Mobile Menu */}
           <div className="sky-mobile-menu-promo mt-8 mb-6 relative overflow-hidden rounded-2xl h-44 flex flex-col justify-end p-5 text-white border border-white/10 shadow-lg">
             <Image
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=600&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=75&w=350&auto=format&fit=crop"
               alt="Promo Banner"
               fill
               className="object-cover absolute inset-0 z-0"

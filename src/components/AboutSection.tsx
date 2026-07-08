@@ -211,7 +211,7 @@ export default function AboutSection() {
 
             <div>
               <Image
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800"
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=35&w=280"
                 alt="Software engineering team collaborating"
                 width={350}
                 height={440}
@@ -222,7 +222,7 @@ export default function AboutSection() {
 
             <div>
               <Image
-                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800"
+                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=35&w=240"
                 alt="Clean IDE code workspace editor"
                 width={320}
                 height={240}

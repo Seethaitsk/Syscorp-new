@@ -9,7 +9,7 @@ const services = [
   {
     title: "Web & Mobile Development",
     description: "Building responsive web applications and hybrid mobile apps with modern frameworks.",
-    bgImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2ViJTIwZGV2ZWxvcG1lbnR8ZW58MHx8MHx8fDA%3D",
+    bgImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?fm=jpg&q=75&w=500&auto=format&fit=crop",
     icon: (
       <svg className="sky-service-icon" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
         <rect x="3" y="3" width="11" height="11" rx="2" />

@@ -21,7 +21,7 @@ export const blogPosts: BlogPost[] = [
     title: "Modern Software Architecture Trends for 2026",
     date: "2026-07-01T10:00:00.000Z",
     category: "Technology",
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=75&w=500",
     excerpt: "Explore the shift towards edge computing, micro-frontends, and how next-gen web frameworks are shaping the software landscape.",
     author: "Admin",
     content: [
@@ -64,7 +64,7 @@ export const blogPosts: BlogPost[] = [
     title: "Benefits of Custom Development for Enterprise Value",
     date: "2026-06-29T09:30:00.000Z",
     category: "Business",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=75&w=500",
     excerpt: "Off-the-shelf software might seem cost-effective, but custom development drives long-term competitive advantage.",
     author: "Admin",
     content: [
@@ -98,7 +98,7 @@ export const blogPosts: BlogPost[] = [
     title: "Scaling SaaS Platforms for High Availability",
     date: "2026-06-25T14:15:00.000Z",
     category: "Technology",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=75&w=500",
     excerpt: "Discover architectural patterns and best practices for building highly resilient SaaS products that scale seamlessly.",
     author: "Admin",
     content: [
@@ -132,7 +132,7 @@ export const blogPosts: BlogPost[] = [
     title: "How to Optimize Your Website for 2026 Core Web Vitals",
     date: "2026-06-18T08:00:00.000Z",
     category: "SEO",
-    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=75&w=500",
     excerpt: "Understanding Interaction to Next Paint (INP) and other critical metrics to keep your search ranking high.",
     author: "Admin",
     content: [

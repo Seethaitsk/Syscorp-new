@@ -27,27 +27,15 @@ const cards = [
 // Duplicate cards to enable infinite looping layout
 const extendedCards = [...cards, ...cards, ...cards];
 
-export default function HeroSlider() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
+const words = ["Ai automation", "Business", "Websites", "Crm"];
+const colors = ["#a78bfa", "#60a5fa", "#34d399", "#22d3ee"];
 
-  // Typewriter states
+function TypewriterText() {
   const [typedText, setTypedText] = useState("");
   const [wordIndex, setWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(150);
-  const words = ["Ai automation", "Business", "Websites", "Crm"];
-  const colors = ["#a78bfa", "#60a5fa", "#34d399", "#22d3ee"];
 
-  // Auto-play timer for the slider
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % 4);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, []);
-
-  // Typewriter effect
   useEffect(() => {
     const activeWord = words[wordIndex];
     const handleType = () => {
@@ -75,6 +63,59 @@ export default function HeroSlider() {
     return () => clearTimeout(timer);
   }, [typedText, isDeleting, wordIndex, typingSpeed]);
 
+  return (
+    <>
+      <span className="inline-block transition-colors duration-300" style={{ color: colors[wordIndex] }}>{typedText}</span>
+      <span className="animate-pulse" style={{ color: colors[wordIndex] }}>|</span>
+    </>
+  );
+}
+
+export default function HeroSlider() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [loadVideo, setLoadVideo] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const isDesktop = () => window.innerWidth >= 768;
+
+    const tryLoadVideo = () => {
+      if (isDesktop()) setLoadVideo(true);
+    };
+
+    const handleResize = () => {
+      if (isDesktop() && !loadVideo) setLoadVideo(true);
+    };
+
+    const handleLoad = () => {
+      // Delay video so initial FCP/LCP (the background image) paints first
+      setTimeout(tryLoadVideo, 500);
+    };
+
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+    }
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("load", handleLoad);
+      window.removeEventListener("resize", handleResize);
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Auto-play timer for the slider
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % 4);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -87,13 +128,13 @@ export default function HeroSlider() {
         gsap.set(".sky-prev-cards-container", { opacity: 0, y: 80, pointerEvents: "none" });
 
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-        tl.to(".sky-banner-tag", { y: 0, opacity: 1, duration: 0.8 })
-          .to(".sky-banner-heading", { y: 0, opacity: 1, duration: 1.0 }, "-=0.6")
-          .to(".sky-banner-sub", { y: 0, opacity: 1, duration: 0.8 }, "-=0.6")
-          .to([".sky-banner-btn-primary", ".sky-banner-btn-secondary"],
-            { y: 0, scale: 1, opacity: 1, stagger: 0.15, duration: 0.8, ease: "back.out(1.5)" }, "-=0.5")
-          .to(".sky-bullet-item", { x: 0, opacity: 1, stagger: 0.12, duration: 0.6 }, "-=0.4")
-          .to(".sky-orbit-icon-wrap", { scale: 1, opacity: 1, stagger: 0.08, duration: 0.9, ease: "back.out(1.5)" }, "-=0.8");
+        tl.from(".sky-banner-tag", { y: -30, opacity: 0, duration: 0.8 })
+          .from(".sky-banner-heading", { y: 40, opacity: 0, duration: 1.0 }, "-=0.6")
+          .from(".sky-banner-sub", { y: 25, opacity: 0, duration: 0.8 }, "-=0.6")
+          .from(".sky-banner-ctas",
+            { y: 30, scale: 0.9, opacity: 0, duration: 0.8, ease: "power3.out" }, "-=0.5")
+          .from(".sky-bullet-item", { x: -20, opacity: 0, stagger: 0.12, duration: 0.6 }, "-=0.4")
+          .from(".sky-orbit-icon-wrap", { scale: 0, opacity: 0, stagger: 0.08, duration: 0.9, ease: "back.out(1.5)" }, "-=0.8");
 
         const scrollTl = gsap.timeline({
           scrollTrigger: {
@@ -150,13 +191,13 @@ export default function HeroSlider() {
         gsap.set(".sky-prev-cards-container", { opacity: 1, y: 0, pointerEvents: "auto" });
 
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-        tl.to(".sky-banner-tag", { y: 0, opacity: 1, duration: 0.6 })
-          .to(".sky-banner-heading", { y: 0, opacity: 1, duration: 0.8 }, "-=0.4")
-          .to(".sky-banner-sub", { y: 0, opacity: 1, duration: 0.6 }, "-=0.4")
-          .to([".sky-banner-btn-primary", ".sky-banner-btn-secondary"],
-            { y: 0, scale: 1, opacity: 1, stagger: 0.1, duration: 0.6, ease: "back.out(1.2)" }, "-=0.3")
-          .to(".sky-bullet-item", { x: 0, opacity: 1, stagger: 0.08, duration: 0.5 }, "-=0.2")
-          .to(".sky-orbit-icon-wrap", { scale: 1, opacity: 1, stagger: 0.05, duration: 0.6, ease: "back.out(1.2)" }, "-=0.4");
+        tl.from(".sky-banner-tag", { y: -30, opacity: 0, duration: 0.6 })
+          .from(".sky-banner-heading", { y: 40, opacity: 0, duration: 0.8 }, "-=0.4")
+          .from(".sky-banner-sub", { y: 25, opacity: 0, duration: 0.6 }, "-=0.4")
+          .from(".sky-banner-ctas",
+            { y: 30, scale: 0.9, opacity: 0, duration: 0.6, ease: "power3.out" }, "-=0.3")
+          .from(".sky-bullet-item", { x: -20, opacity: 0, stagger: 0.08, duration: 0.5 }, "-=0.2")
+          .from(".sky-orbit-icon-wrap", { scale: 0, opacity: 0, stagger: 0.05, duration: 0.6, ease: "back.out(1.2)" }, "-=0.4");
       });
 
     }, containerRef);
@@ -196,7 +237,7 @@ export default function HeroSlider() {
           justify-content: center;
           height: 100vh;
           width: 100%;
-          background: #02071f url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920&auto=format&fit=crop') no-repeat center center / cover;
+          background: #02071f url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=75&w=1200&auto=format&fit=crop') no-repeat center center / cover;
         }
         @media (max-width: 767px) {
           .sky-banner-sec {
@@ -206,27 +247,22 @@ export default function HeroSlider() {
           }
         }
 
-        /* Prevent hydration/loading flash (FOUC) by hiding elements initially */
+        /* Elements are visible by default to ensure SEO, LCP, and FCP are optimized immediately */
         .sky-banner-tag {
-          opacity: 0;
-          transform: translateY(-30px);
+          transform: none;
         }
         .sky-banner-heading {
-          opacity: 0;
-          transform: translateY(40px);
+          transform: none;
         }
         .sky-banner-sub {
-          opacity: 0;
-          transform: translateY(25px);
+          transform: none;
         }
         .sky-banner-btn-primary,
         .sky-banner-btn-secondary {
-          opacity: 0;
-          transform: translateY(30px) scale(0.9);
+          transform: none;
         }
         .sky-bullet-item {
-          opacity: 0;
-          transform: translateX(-20px);
+          transform: none;
         }
 
         /* Video Full-Screen Layer — covers 100% with object-cover */
@@ -238,6 +274,18 @@ export default function HeroSlider() {
           height: 100%;
           z-index: 1;
           overflow: hidden;
+        }
+        /* Fallback background image — always visible, becomes the LCP candidate */
+        .hero-video-mask img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          pointer-events: none;
+          z-index: 0;
         }
         /* Full screen video cover styling using object-fit */
         .hero-video-mask video {
@@ -629,7 +677,7 @@ export default function HeroSlider() {
           letter-spacing: 0.08em; 
           text-transform: uppercase; 
         }
-        .sky-prev-card h3 { 
+        .sky-prev-card h2 { 
           color: #ffffff !important; 
           font-family: 'Plus Jakarta Sans', sans-serif;
           font-size: 18px;
@@ -750,23 +798,35 @@ export default function HeroSlider() {
             </div>
           </div>
 
-          {/* Background Video — full screen, auto-plays muted without YouTube play button/UI */}
+          {/* Background Video / Image Cover */}
           <div className="hero-video-mask pointer-events-none">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              style={{ zIndex: 1 }}
-            >
-              <source src="/videos/hero-sys.mp4" type="video/mp4" />
-              {/* Fallback high-quality abstract technology loop */}
-              <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-laser-lights-background-32158-large.mp4" type="video/mp4" />
-            </video>
-            {/* Dark overlay — fades out on scroll to reveal video */}
-            <div className="absolute inset-0 hero-video-overlay" style={{ background: "linear-gradient(to bottom, rgba(2,7,31,0.80) 0%, rgba(4,8,36,0.65) 50%, rgba(2,7,31,0.78) 100%)", zIndex: 2 }} />
+            {/* Static fallback image — always rendered, becomes instant LCP candidate */}
+            <img
+              src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=75&w=1200&auto=format&fit=crop"
+              alt=""
+              aria-hidden="true"
+              fetchPriority="high"
+              style={{ opacity: 0.35 }}
+            />
+            {/* Desktop-only video — not loaded on mobile to prevent massive bandwidth use */}
+            {loadVideo && (
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-label="Hero background video"
+                style={{ zIndex: 1, opacity: 0.22 }}
+                className="absolute inset-0 w-full h-full object-cover"
+              >
+                <source src="/videos/hero-bg.mp4" type="video/mp4" />
+                <track kind="captions" src="data:text/vtt,WEBVTT" default />
+              </video>
+            )}
+            {/* Dark overlay */}
+            <div className="absolute inset-0 hero-video-overlay" aria-hidden="true" style={{ background: "linear-gradient(to bottom, rgba(2,7,31,0.80) 0%, rgba(4,8,36,0.65) 50%, rgba(2,7,31,0.78) 100%)", zIndex: 2 }} />
             {/* Play-button kill layer */}
-            <div className="hero-video-kill" />
+            <div className="hero-video-kill" aria-hidden="true" />
           </div>
 
           {/* Content — centered vertically, pushed slightly below midpoint */}
@@ -783,8 +843,7 @@ export default function HeroSlider() {
               <h1 className="sky-banner-heading">
                 Seamless integrations
                 <br />
-                with your <span className="inline-block transition-colors duration-300" style={{ color: colors[wordIndex] }}>{typedText}</span>
-                <span className="animate-pulse" style={{ color: colors[wordIndex] }}>|</span>
+                with your <TypewriterText />
               </h1>
             </div>
 
@@ -800,30 +859,30 @@ export default function HeroSlider() {
               <div className="sky-banner-ctas">
                 <a href="/contact" className="sky-banner-btn-primary sky-glow-hover">
                   Ready to Try Free
-                  <span className="sky-banner-arrow-circle">
-                    <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+                  <span className="sky-banner-arrow-circle" aria-hidden="true">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                     </svg>
                   </span>
                 </a>
                 <a href="/services" className="sky-banner-btn-secondary">
                   Book a Demo
-                  <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
                 </a>
               </div>
 
               {/* Bullet Points */}
-              <div className="sky-banner-bullets">
-                <div className="sky-bullet-item">
-                  <span style={{ color: "#60a5fa" }}>✓</span> No credit card required
+              <div className="sky-banner-bullets" role="list">
+                <div className="sky-bullet-item" role="listitem">
+                  <span aria-hidden="true" style={{ color: "#60a5fa" }}>✓</span> No credit card required
                 </div>
-                <div className="sky-bullet-item">
-                  <span style={{ color: "#60a5fa" }}>✓</span> Cancel anytime & no hidden charge
+                <div className="sky-bullet-item" role="listitem">
+                  <span aria-hidden="true" style={{ color: "#60a5fa" }}>✓</span> Cancel anytime &amp; no hidden charges
                 </div>
-                <div className="sky-bullet-item">
-                  <span style={{ color: "#60a5fa" }}>✓</span> Cancel anytime or money back guarantee
+                <div className="sky-bullet-item" role="listitem">
+                  <span aria-hidden="true" style={{ color: "#60a5fa" }}>✓</span> Money back guarantee
                 </div>
               </div>
             </div>
@@ -867,8 +926,8 @@ export default function HeroSlider() {
                               <span className="pl-2.5">LIVE</span>
                             </div>
                           </div>
-                          <h3 className="text-[15px] font-extrabold m-0 mb-1 leading-snug relative z-10" style={{color:'#ffffff'}}>Responsive UI/UX</h3>
-                          <p className="text-[11.5px] m-0 mb-4 relative z-10" style={{color:'#d7d7d7'}}>High-conversion landing pages & apps</p>
+                          <h2 className="text-[15px] font-extrabold m-0 mb-1 leading-snug relative z-10" style={{ color: '#ffffff' }}>Responsive UI/UX</h2>
+                          <p className="text-[11.5px] m-0 mb-4 relative z-10" style={{ color: '#d7d7d7' }}>High-conversion landing pages & apps</p>
 
                           {/* Browser Frame Mockup */}
                           <div className="flex-1 bg-slate-950/40 rounded-2xl border border-white/5 p-3 flex flex-col gap-2 min-h-[110px] relative z-10">
@@ -879,7 +938,7 @@ export default function HeroSlider() {
                               <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                               <div className="flex-1 bg-white/5 rounded h-4 mx-2 text-[8px] text-slate-400 flex items-center px-2 font-mono truncate">syscorp.tech/websites</div>
                             </div>
-                            
+
                             {/* Website content miniature */}
                             <div className="flex flex-col gap-1.5 pt-1">
                               <div className="flex items-center justify-between">
@@ -899,8 +958,8 @@ export default function HeroSlider() {
                             <a href="/services/website-development" className="sky-card-btn-primary">
                               View Demo
                             </a>
-                            <a href="/contact" className="sky-card-btn-secondary">
-                              Learn More
+                            <a href="/contact" className="sky-card-btn-secondary" aria-label="Learn more about our Custom Website design and development services">
+                              Website Info
                             </a>
                           </div>
                         </div>
@@ -929,8 +988,8 @@ export default function HeroSlider() {
                             <span className="card-label" style={{ color: "#10B981" }}>CRM & Maintenance</span>
                             <span className="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full">+142%</span>
                           </div>
-                          <h3 className="text-[15px] font-extrabold m-0 mb-1 leading-snug relative z-10" style={{color:'#ffffff'}}>Sales Target & Support</h3>
-                          <p className="text-[11.5px] m-0 mb-4 relative z-10" style={{color:'#d7d7d7'}}>Accelerating pipelines & updates</p>
+                          <h2 className="text-[15px] font-extrabold m-0 mb-1 leading-snug relative z-10" style={{ color: '#ffffff' }}>Sales Target & Support</h2>
+                          <p className="text-[11.5px] m-0 mb-4 relative z-10" style={{ color: '#d7d7d7' }}>Accelerating pipelines & updates</p>
 
                           <div className="flex-1 bg-slate-950/40 rounded-2xl border border-white/5 p-3 flex flex-col justify-end min-h-[110px] relative z-10">
                             <div className="w-full h-[65px] relative overflow-hidden mb-1">
@@ -957,8 +1016,8 @@ export default function HeroSlider() {
                             <a href="/services" className="sky-card-btn-primary">
                               View CRM
                             </a>
-                            <a href="/contact" className="sky-card-btn-secondary">
-                              Learn More
+                            <a href="/contact" className="sky-card-btn-secondary" aria-label="Learn more about our CRM implementations and support services">
+                              CRM Info
                             </a>
                           </div>
                         </div>
@@ -986,8 +1045,8 @@ export default function HeroSlider() {
                             <span className="card-label" style={{ color: "#A855F7" }}>SEO & Rankings</span>
                             <span className="text-[10px] font-bold text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded-full">DA 85</span>
                           </div>
-                          <h3 className="text-[15px] font-extrabold m-0 mb-1 leading-snug relative z-10" style={{color:'#ffffff'}}>Organic Growth</h3>
-                          <p className="text-[11.5px] m-0 mb-4 relative z-10" style={{color:'#d7d7d7'}}>First-page Google presence</p>
+                          <h2 className="text-[15px] font-extrabold m-0 mb-1 leading-snug relative z-10" style={{ color: '#ffffff' }}>Organic Growth</h2>
+                          <p className="text-[11.5px] m-0 mb-4 relative z-10" style={{ color: '#d7d7d7' }}>First-page Google presence</p>
 
                           <div className="flex-1 bg-slate-950/40 rounded-2xl border border-white/5 p-3 flex flex-col justify-end min-h-[110px] relative z-10">
                             {/* Highlight badge */}
@@ -1020,8 +1079,8 @@ export default function HeroSlider() {
                             <a href="/services" className="sky-card-btn-primary">
                               View Report
                             </a>
-                            <a href="/contact" className="sky-card-btn-secondary">
-                              Learn More
+                            <a href="/contact" className="sky-card-btn-secondary" aria-label="Learn more about our search engine optimization (SEO) and organic rankings services">
+                              SEO Info
                             </a>
                           </div>
                         </div>
@@ -1049,8 +1108,8 @@ export default function HeroSlider() {
                             <span className="card-label" style={{ color: "#0ea5e9" }}>Cloud Ops</span>
                             <span className="text-[10px] font-bold text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded-full">99.9% Uptime</span>
                           </div>
-                          <h3 className="text-[15px] font-extrabold m-0 mb-1 leading-snug relative z-10" style={{color:'#ffffff'}}>Cloud Scaling</h3>
-                          <p className="text-[11.5px] m-0 mb-4 relative z-10" style={{color:'#d7d7d7'}}>High-availability hosting & security</p>
+                          <h2 className="text-[15px] font-extrabold m-0 mb-1 leading-snug relative z-10" style={{ color: '#ffffff' }}>Cloud Scaling</h2>
+                          <p className="text-[11.5px] m-0 mb-4 relative z-10" style={{ color: '#d7d7d7' }}>High-availability hosting & security</p>
 
                           <div className="flex-1 bg-slate-950/40 rounded-2xl border border-white/5 p-3 flex items-center justify-center relative min-h-[110px] z-10">
                             {/* Concentric Dotted Circles that rotate slowly on hover */}
@@ -1082,8 +1141,8 @@ export default function HeroSlider() {
                             <a href="/services" className="sky-card-btn-primary">
                               View Plans
                             </a>
-                            <a href="/contact" className="sky-card-btn-secondary">
-                              Learn More
+                            <a href="/contact" className="sky-card-btn-secondary" aria-label="Learn more about our cloud scalability, hosting, and application security services">
+                              Cloud Info
                             </a>
                           </div>
                         </div>
@@ -1098,21 +1157,22 @@ export default function HeroSlider() {
             </div>
 
             {/* Pagination Dots (Mobile/Tablet only) */}
-            <div className="flex justify-center gap-2 mt-4 md:hidden">
+            <div className="flex justify-center gap-2 mt-4 md:hidden" role="tablist" aria-label="Service card slides">
               {[0, 1, 2, 3].map((idx) => (
                 <button
                   key={idx}
+                  role="tab"
                   onClick={() => setCurrentSlide(idx)}
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                    currentSlide === idx ? "bg-blue-600 w-6" : "bg-slate-300 dark:bg-slate-700"
-                  }`}
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${currentSlide === idx ? "bg-blue-600 w-6" : "bg-slate-300 dark:bg-slate-700"}`}
                   aria-label={`Go to slide ${idx + 1}`}
+                  aria-selected={currentSlide === idx}
+                  aria-current={currentSlide === idx ? "true" : undefined}
                 />
               ))}
             </div>
 
           </div>
-{/* d */}
+          {/* d */}
         </section>
       </div>
 
