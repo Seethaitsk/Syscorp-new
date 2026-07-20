@@ -299,7 +299,7 @@ export default function ServicesSection() {
   return (
     <section
       aria-labelledby="services-heading"
-      className="sky-services-section bg-[#F0F8FF] dark:bg-[#080f25] py-[100px] relative overflow-hidden transition-colors duration-500"
+      className="sky-services-section bg-[#F0F8FF] dark:bg-[#080f25] py-12 md:py-20 lg:py-[100px] relative overflow-hidden transition-colors duration-500"
     >
       {/* Background radial decorations */}
       <div className="sky-services-bg-glow-1" />

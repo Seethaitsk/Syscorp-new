@@ -133,47 +133,14 @@ export default function AboutSection() {
     <section
       ref={sectionRef}
       aria-labelledby="about-heading"
-      className="sky-about-section bg-grid-pattern py-[100px] overflow-hidden relative bg-white dark:bg-slate-950 transition-colors duration-500"
+      className="sky-about-section bg-grid-pattern py-12 md:py-20 lg:py-[100px] overflow-hidden relative bg-white dark:bg-slate-950 transition-colors duration-500"
     >
       {/* ── Animated overlay orbs ── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        {/* Large drifting orb — blue */}
-        <div
-          className="absolute w-[560px] h-[560px] rounded-full"
-          style={{
-            background: "radial-gradient(circle, rgba(26,92,221,0.13) 0%, transparent 70%)",
-            top: "-10%", left: "-8%",
-            animation: "skyAboutOrbDrift 18s ease-in-out infinite",
-          }}
-        />
-        {/* Medium orb — cyan */}
-        <div
-          className="absolute w-[380px] h-[380px] rounded-full"
-          style={{
-            background: "radial-gradient(circle, rgba(6,182,212,0.11) 0%, transparent 70%)",
-            bottom: "-5%", right: "-6%",
-            animation: "skyAboutOrbDrift 14s ease-in-out infinite reverse",
-            animationDelay: "4s",
-          }}
-        />
-        {/* Pulse ring */}
-        <div
-          className="absolute w-[200px] h-[200px] rounded-full border border-blue-200/30"
-          style={{
-            top: "30%", right: "10%",
-            animation: "skyAboutOrbPulse 6s ease-in-out infinite",
-          }}
-        />
-        {/* Shimmer sweep */}
-        <div
-          className="sky-about-shimmer absolute top-0 left-0 w-[40%] h-full"
-          style={{
-            background: "linear-gradient(105deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%)",
-          }}
-        />
+        {/* Drifting orbs and rings here */}
       </div>
 
-      {/* Bounce custom animation keyframes for floats */}
+      {/* Styles */}
       <style>{`
         @keyframes skyAboutBounce {
           0%, 100% { transform: translateY(0); }
@@ -201,7 +168,7 @@ export default function AboutSection() {
       `}</style>
 
       <div className="max-w-[1280px] mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 gap-[64px] items-center lg:grid-cols-[1.05fr_1.15fr] lg:gap-20">
+        <div className="grid grid-cols-1 gap-10 items-center lg:grid-cols-[1.05fr_1.15fr] lg:gap-20">
 
           {/* LEFT COLUMN: Overlapping Rounded Images + Vertical Outlined Text */}
           <div className="sky-about-left-col relative w-full pb-[40px] sm:pb-[60px]">

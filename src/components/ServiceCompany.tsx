@@ -41,7 +41,7 @@ export default function ServiceCompany() {
   return (
     <section
       aria-labelledby="commitment-heading"
-      className="bg-grid-pattern sky-commitment-section bg-white dark:bg-slate-950 py-[100px] overflow-hidden relative transition-colors duration-500"
+      className="bg-grid-pattern sky-commitment-section bg-white dark:bg-slate-950 py-12 md:py-20 lg:py-[100px] overflow-hidden relative transition-colors duration-500"
     >
       {/* Background radial glow */}
       <div className="sky-glow-orb" />
@@ -67,7 +67,7 @@ export default function ServiceCompany() {
         .sky-commitment-grid {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 48px;
+          gap: 32px;
           align-items: center;
           position: relative;
           z-index: 1;
@@ -347,14 +347,20 @@ export default function ServiceCompany() {
           backdrop-filter: blur(12px);
           -webkit-backdrop-filter: blur(12px);
           border-radius: 20px;
-          padding: 26px 30px;
+          padding: 16px 20px;
           display: flex;
           align-items: flex-start;
-          gap: 20px;
+          gap: 16px;
           border: 1px solid rgba(26, 92, 221, 0.08);
           box-shadow: 0 8px 30px rgba(26, 92, 221, 0.02);
           transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
           position: relative;
+        }
+        @media (min-width: 640px) {
+          .sky-feat-row {
+            padding: 26px 30px;
+            gap: 20px;
+          }
         }
         .dark .sky-feat-row {
           background: rgba(1, 17, 70, 0.3);

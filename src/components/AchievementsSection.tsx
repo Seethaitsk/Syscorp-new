@@ -22,7 +22,7 @@ export default function AchievementsSection() {
   return (
     <section 
       aria-labelledby="achievements-heading"
-      className="py-24 lg:py-32 bg-white dark:bg-[#010925] text-slate-900 dark:text-white relative overflow-hidden transition-colors duration-500"
+      className="py-12 md:py-20 lg:py-[100px] bg-white dark:bg-[#010925] text-slate-900 dark:text-white relative overflow-hidden transition-colors duration-500"
     >
       {/* Background ambient lighting effects */}
       <div className="absolute top-10 left-1/4 w-[500px] h-[500px] bg-[#1A5CDD]/10 dark:bg-[#1A5CDD]/20 rounded-full blur-[120px] pointer-events-none" />
@@ -34,7 +34,7 @@ export default function AchievementsSection() {
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         
         {/* TOP SECTION: 2 COLUMNS WITH RICH INTERACTIVE ELEMENTS */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-10 md:mb-16 lg:mb-24">
           
           {/* LEFT COLUMN: Floating 3D Globe Hub + Dual Award Cards */}
           <div className="lg:col-span-5 relative flex flex-col items-center justify-center min-h-[360px] sm:min-h-[420px]">

@@ -23,7 +23,7 @@ export default function BlogSection() {
   return (
     <section
       aria-labelledby="blog-heading"
-      className="bg-[#F0F8FF] dark:bg-[#080f25] py-[100px] overflow-hidden relative transition-colors duration-500"
+      className="bg-[#F0F8FF] dark:bg-[#080f25] py-12 md:py-20 lg:py-[100px] overflow-hidden relative transition-colors duration-500"
     >
       <style>{`
         .sky-blog-header {
@@ -139,7 +139,7 @@ export default function BlogSection() {
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px" }}>
 
         {/* ─── HEADER ─── */}
-        <div className="sky-about-badge-anim flex flex-col gap-[18px] items-center text-center mb-[56px]">
+        <div className="sky-about-badge-anim flex flex-col gap-[18px] items-center text-center mb-8 md:mb-12">
           <span className="inline-flex items-center gap-2 bg-[#1A5CDD]/10 border border-[#1A5CDD]/20 dark:bg-blue-500/10 dark:border-blue-500/20 rounded-full px-3.5 py-1 text-xs font-bold text-[#1A5CDD] dark:text-blue-400 w-fit uppercase tracking-wider">
             <span className="w-1.5 h-1.5 rounded-full bg-[#1A5CDD] dark:bg-blue-400 inline-block animate-pulse" />
             Latest Blog

@@ -4,44 +4,29 @@ import React, { useState } from "react";
 
 const faqData = [
   {
-    question: "Are your development processes transparent?",
-    answer: "Yes. We believe in full transparency — every project includes regular status updates, clear milestones, and open communication. You'll always know where your project stands and what comes next.",
-    bullets: [
-      "Providing Quality Web and Mobile Development Services Together",
-      "Expertise Across Software Engineering And Product Strategy Projects",
-    ],
+    question: "What makes Syscorp different from other software companies?",
+    answer: "Syscorp combines technical expertise, innovation, and a client-first approach to deliver secure, scalable, and high-quality software solutions. We focus on building long-term partnerships through transparency, reliability, and exceptional service.",
+    bullets: [],
   },
   {
-    question: "Can you customize projects based on client needs?",
-    answer: "Absolutely. Every business is unique, so we develop personalized digital solutions based on your industry, target audience, competition, and specific business goals. No cookie-cutter approaches.",
-    bullets: [
-      "Custom architecture & tech stack selection",
-      "Scalable solutions designed for your growth stage",
-    ],
+    question: "Which industries does Syscorp serve?",
+    answer: "We provide software solutions for Healthcare, Education, Finance, Real Estate, Retail, Manufacturing, Logistics, Gaming, IT, and many other industries. Every solution is customized to meet unique business requirements.",
+    bullets: [],
   },
   {
-    question: "Do you handle both web and mobile projects?",
-    answer: "Yes, we specialize in both web applications and mobile app development, delivering customized solutions based on client requirements, budget, and timelines.",
-    bullets: [
-      "Providing Quality Web And Mobile Development Services Together",
-      "Expertise Across Custom Software And Product Strategy Projects",
-    ],
+    question: "Does Syscorp offer custom software development?",
+    answer: "Yes. We specialize in custom software development, creating web applications, mobile apps, cloud solutions, and enterprise software tailored to your business goals and operational needs.",
+    bullets: [],
   },
   {
-    question: "What services does Syscorp offer?",
-    answer: "Syscorp provides complete digital solutions including Custom Software Development, Web & Mobile Apps, SEO, Social Media Marketing, Performance Ads (Google & Meta), Branding & Creative Design, and Website Development.",
-    bullets: [
-      "Full-stack web & software development",
-      "Digital marketing & SEO services",
-    ],
+    question: "How does Syscorp ensure software quality?",
+    answer: "We follow agile development, secure coding standards, and comprehensive testing to deliver reliable, high-performing, and scalable software that meets industry best practices.",
+    bullets: [],
   },
   {
-    question: "How long does SEO take to show results?",
-    answer: "SEO is a long-term strategy. Noticeable improvements typically appear within 3–6 months, depending on industry competition, keyword difficulty, and your website's current state.",
-    bullets: [
-      "Keyword ranking improvements in 60–90 days",
-      "Organic traffic growth visible in 3–6 months",
-    ],
+    question: "Why should I choose Syscorp as my technology partner?",
+    answer: "As a trusted Software Company in Pondicherry, we provide end-to-end software development, modern technologies, and dedicated support to help businesses innovate, grow, and succeed in the digital world.",
+    bullets: [],
   },
 ];
 
@@ -51,7 +36,7 @@ export default function FAQSection() {
   return (
     <section
       aria-labelledby="faq-heading"
-      className="relative bg-white dark:bg-slate-950 py-24 md:py-32 overflow-hidden transition-colors duration-300"
+      className="relative bg-white dark:bg-slate-950 py-12 md:py-20 lg:py-[100px] overflow-hidden transition-colors duration-300"
     >
       {/* Decorative Blur Blobs */}
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-blue-500/10 dark:bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />

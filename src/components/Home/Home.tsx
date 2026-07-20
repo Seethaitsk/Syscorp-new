@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // Client Components
 import HeroSlider from "@/components/HeroSlider";
-import TestimonialSlider from "@/components/TestimonialSection";
+
 
 // Server Components
 import AboutSection from "@/components/AboutSection";
@@ -106,15 +106,6 @@ export default function Home() {
                     }
                 );
 
-                // ── Testimonials — fade + rotate reveal ──
-                gsap.fromTo(
-                    ".gsap-testimonials-sec",
-                    { y: 75, rotate: 1.5, opacity: 0 },
-                    {
-                        y: 0, rotate: 0, opacity: 1, duration: 1.1, ease: easeOut,
-                        scrollTrigger: { trigger: ".gsap-testimonials-sec", start: "top 82%", toggleActions: "play none none none" }
-                    }
-                );
 
                 // ── Pricing header ──
                 gsap.fromTo(
@@ -167,8 +158,8 @@ export default function Home() {
     }, []);
 
     return (
-        <div 
-            ref={containerRef} 
+        <div
+            ref={containerRef}
             className="bg-white font-sans dark:bg-black overflow-hidden"
         >
 
@@ -200,10 +191,6 @@ export default function Home() {
                 <CommunitySection />
             </div>
 
-            {/* 6 ─ Testimonials */}
-            <div className="gsap-testimonials-sec relative z-20">
-                <TestimonialSlider />
-            </div>
 
             {/* 7 ─ Pricing */}
             <div className="gsap-pricing-sec relative z-20">
